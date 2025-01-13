@@ -1,0 +1,26 @@
+main{
+    .mask, .body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+}
+.body{
+    color:white;
+    font-size: xx-large;
+}
+ .mask{
+      mask-image: url('../../public/mask.svg');
+      mask-repeat: no-repeat;
+      mask-size: 40px;
+      mask-position: 35%;
+      background: #B9B1D8;
+      position: absolute;
+      color: #CEDD3E;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0; /* Ensures it covers the whole area of its parent */
+      font-size: xx-large;
+}
