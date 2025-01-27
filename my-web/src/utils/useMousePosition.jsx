@@ -1,17 +1,22 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react';
 
-export default function useMousePosition(){
-    const [mousePosition, setMousePosition] = useState({x:0, y:0})
+export default function useMousePosition() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-    const updateMousePosition = (e) =>{
-        setMousePosition({x:e.clientX ,y: e.clientY})
-    }
-    useEffect (() =>{
-        window.addEventListener("mousemove",updateMousePosition)
-        return () =>{
-            window.removeEventListener("mousemove", updateMousePosition)
-        }
-    },[])
+  useEffect(() => {
+    const updateMousePosition = (e) => {
+      const scrollX = window.scrollX || document.documentElement.scrollLeft;
+      const scrollY = window.scrollY || document.documentElement.scrollTop;
 
-return mousePosition
+      setMousePosition({
+        x: e.clientX + scrollX, // Adjust by horizontal scroll
+        y: e.clientY + scrollY, // Adjust by vertical scroll
+      });
+    };
+
+    window.addEventListener('mousemove', updateMousePosition);
+    return () => window.removeEventListener('mousemove', updateMousePosition);
+  }, []);
+
+  return mousePosition;
 }

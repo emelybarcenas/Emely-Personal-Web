@@ -1,0 +1,61 @@
+.main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background-color: #212121;
+  font-family: 'DM Sans';
+}
+
+.mask, .body {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  color: #FFFFFF;
+  font-size: 8vw;
+  line-height: 0.9em;
+  cursor: default;
+  padding-top: 17vh;
+  flex-direction: column;
+
+}
+
+.mask {
+  mask-image: url('/mask.svg');
+  mask-repeat: no-repeat;
+  mask-size: 40px;
+  background: #B9B1D8;
+  position: absolute;
+  color: #CEDD3E;
+  height: 100%;
+}
+
+.body {
+  height: 100%;
+  
+}
+
+h1 {
+  text-align: left;
+  margin-left: 5vw;
+  display:flex;
+  flex-direction:column;
+  width:70px;
+}
+
+h1 span {
+padding: 0;
+margin: 0;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .home {
+    pointer-events: none; /* Disable pointer events so hover doesn't work */
+  }
+}
+

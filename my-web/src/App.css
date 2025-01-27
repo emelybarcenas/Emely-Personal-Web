@@ -1,42 +1,64 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* App.module.css */
+.app-container {
+    position: relative;
+    height: 100vh; /* Full viewport height */
   }
-  to {
-    transform: rotate(360deg);
+  
+  .home {
+    position: absolute;
+    top: 50%;  /* Center vertically */
+    left: 50%;  /* Center horizontally */
+    transform: translate(-50%, -50%);
+    z-index: 1;  /* Ensures it is the bottom element */
+    font-size: 5vw; /* Make it responsive */
+    color: white;
+    text-align: center;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  
+  .designer-text {
+    position: absolute;
+    top: 47vh; /* Adjust this to move the text a bit lower or higher */
+    margin-left: 5vw;
+    transform:0;
+    font-size: 3vw; /* Responsive font size */
+    font-weight: 200;
+    color: white;
+    text-align: center;
+    z-index: 2; /* Ensures it is on top of the "Home" text */
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
+  
+  @media screen and (max-width: 768px) {
+    .home {
+      font-size: 8vw; /* Adjust for smaller screens */
+    }
+    
+    .designer-text {
+      font-size: 5vw; /* Adjust for smaller screens */
+      top: 60%; /* Adjust spacing for smaller screens */
+    }
+  }
+  .description{
+    display:flex;
+    flex-direction: column;
+    position: absolute;
+    top:67vh;
+    z-index: 2;
+    text-align: right;
+    right: 5vw;
+    font-size: 2vw;
+    font-weight: 200;
+    mask-repeat:no repeat;
+    mask-size: 10px;
+    color:white;
+    /*background-image: linear-gradient(to right,rgb(45, 255, 115), #feb47b);
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    color: transparent; 
+    mask-size: 5px; */
+  }
+  .description span{
+    display: block;
+    height:1.0em;
+    
+  
+  }
