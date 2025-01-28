@@ -13,7 +13,7 @@
     border: 2px solid blueviolet;
   }
   
-  button {
+  .subnitButton {
     border-radius: 8px;
     border: 1px solid transparent;
     padding: 0.6em 1.2em;
@@ -25,12 +25,12 @@
     transition: border-color 0.25s;
   }
   
-  button:hover {
+  .submitButton:hover {
     border-color: #646cff;
   }
   
-  button:focus,
-  button:focus-visible {
+  .submitButton:focus,
+  .submitButton:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
   }
   

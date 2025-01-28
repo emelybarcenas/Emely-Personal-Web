@@ -1,13 +1,14 @@
 import "../../index.css";
+import resumeIcon from "../../assets/resume-icon.svg";
 
 function Navigation() {
   return (
     <nav className="fixed w-full flex justify-between items-center p-4 bg-[#212121] text-white z-50 font-sans font-bold">
       {/* Left navigation items */}
       <div className="justify-start">
-<a href="\Users\Emely\Desktop\eb-pweb\my-web\src\assets\Jan-2025-Resume.pdf" download>
-  <button>
-    <img src=""></img>
+<a href="/Jan-2025-Resume.pdf" download className="hover:text-gray-400 w-8 bg-transparent mx-4">
+  <button className="p-0 border-none" style={{width:'2vw',height:'auto'}}>
+    <img src={resumeIcon} alt="Resume icon"/>
   </button>
 </a>
       </div>
@@ -28,7 +29,7 @@ function Navigation() {
           href="#contact" 
           className="px-6 py-2 rounded-full bg-[#CDDC3D] text-[#212121] hover:bg-white hover:text-black transition-colors font-sans"
         >
-          Contact Me
+          Contact
         </a>
       </div>
 
