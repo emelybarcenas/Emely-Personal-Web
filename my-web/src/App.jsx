@@ -8,8 +8,8 @@ import Contact from "./components/Contact/Contact.jsx";
 import Navigation from './components/Navigation-Bar/Navigation.jsx';
 import ThreeScene from './components/ThreeScene.jsx';
 import DesignerText from './components/DesignerText.jsx';
-import Description from './components/Description.jsx';
 import downArrowIcon from "./assets/down-arrow-icon.svg";
+import RecentProjects from './components/RecentProjects.jsx';
 
 
 
@@ -37,6 +37,10 @@ function App() {
         <div>
           <img src="/circle-lines.svg" className='circleLinesTop'/>
         </div>
+    </div>
+    <div id="recentProjects" className='recentProjects'>
+      <h3 className='bg-transparent p-0 m-0 font-sans text-green recProjH1'>Recent Projects</h3>
+      <RecentProjects />
     </div>
     <div id="contact">
       <Contact />

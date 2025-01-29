@@ -5,8 +5,18 @@ html {
 .app-container {
     position: relative;
     height: 100vh; /* Full viewport height */
+    overflow:hidden;
   }
-  
+  .app-container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px; /* Adjust the height of the line */
+    background-color: white; /* Adjust the color of the line */
+    z-index:3;
+  }
   .home {
     position: absolute;
     top: 50%;  /* Center vertically */
@@ -88,11 +98,27 @@ html {
     margin-left: 20vw;
    
   }
-  .circleLinesTop{
+  .circleLinesTop {
     z-index:2;
     top:0;
     position: absolute;
     height: 60vh;
     left:64vw;
     margin-top: -5em;
+
+    fill: none;
   }
+.recentProjects{
+  position: relative;
+  height: 100vh; /* Full viewport height */
+  overflow:hidden;
+}
+.recProjH1{
+  top: 50vh;
+  z-index: 3;
+}
+h3{
+  margin-top:0;
+  margin-bottom: 0;
+  display:inline;
+}

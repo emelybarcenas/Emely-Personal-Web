@@ -4,7 +4,7 @@
     <style>
       .cls-1 {
         fill: none;
-        stroke: rgba(255, 255, 255, .5);
+        stroke: #FF97DB
       }
     </style>
   </defs>
