@@ -16,6 +16,7 @@ html {
     height: 1px; /* Adjust the height of the line */
     background-color: white; /* Adjust the color of the line */
     z-index:3;
+   
   }
   .home {
     position: absolute;
@@ -46,8 +47,18 @@ html {
     }
     
     .designer-text {
-      font-size: 5vw; /* Adjust for smaller screens */
-      top: 60%; /* Adjust spacing for smaller screens */
+      font-size: 9.5vw; /* Adjust for smaller screens */
+      top: 33%; /* Adjust spacing for smaller screens */
+    }
+  }
+  @media screen and (max-width: 1400px;) {
+    .home {
+      font-size: 8vw; /* Adjust for smaller screens */
+    }
+    
+    .designer-text {
+      font-size:30vw; /* Adjust for smaller screens */
+      top: 33%; /* Adjust spacing for smaller screens */
     }
   }
   .description{
@@ -67,12 +78,44 @@ html {
     background-clip: text; 
     color: transparent; 
     mask-size: 5px; */
+    white-space: nowrap; /* Prevent text from wrapping */
   }
   .description span{
     display: block;
     height:1.0em;
     
   }
+  /* For iPhone 16 (portrait) - approx 390px wide */
+@media screen and (max-width: 390px) {
+  .description {
+    font-size: 5vw !important; /* Larger font size for smaller screens */
+    right: 8vw; /* Adjust position if needed */
+  }
+}
+
+/* For iPhone 16 (landscape) - approx 844px wide */
+@media screen and (max-width: 844px) {
+  .description {
+    font-size: 2vw !important; /* Adjust font size for iPhone landscape */
+    right: 7vw; /* Adjust position if needed */
+  }
+}
+
+/* For iPad Air (portrait) - approx 768px wide */
+@media screen and (max-width: 768px) {
+  .description {
+    font-size: 6vw !important; /* Slightly smaller font size for iPad */
+    top: 50vh;
+  }
+}
+
+/* For iPad Air (landscape) - approx 1024px wide */
+@media screen and (max-width: 1024px) {
+  .description {
+    font-size: 2.0vw; /* Slightly smaller font size for iPad landscape */
+    right: 2vw; /* Adjust position */
+  }
+}
   .down-arrow{
     z-index:2;
     top:83vh;
@@ -110,15 +153,23 @@ html {
   }
 .recentProjects{
   position: relative;
-  height: 100vh; /* Full viewport height */
-  overflow:hidden;
+  height: auto; 
+  background-color: #212121;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.recProjH1{
-  top: 50vh;
-  z-index: 3;
+.recProj{
+  color: #CDDC3D;
+  font-size: clamp(2rem, 6vw, 5rem); /* Responsive font size */
+  font: sans;
+  margin-top: 20vh;
+  white-space:nowrap;
+ 
 }
-h3{
-  margin-top:0;
-  margin-bottom: 0;
-  display:inline;
+.projRectangles{
+  padding:0;
+  margin-top: 0;
+  margin-left:0;
 }

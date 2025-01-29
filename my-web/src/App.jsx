@@ -39,9 +39,9 @@ function App() {
         </div>
     </div>
     <div id="recentProjects" className='recentProjects'>
-      <h3 className='bg-transparent p-0 m-0 font-sans text-green recProjH1'>Recent Projects</h3>
-      <RecentProjects />
+      <RecentProjects className="projRectangles"/>
     </div>
+ 
     <div id="contact">
       <Contact />
       </div>
