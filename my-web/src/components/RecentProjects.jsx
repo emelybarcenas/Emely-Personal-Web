@@ -1,7 +1,7 @@
 export default function RecentProjects() {
   return (
     <div className="flex flex-col justify-center min-h-screen">
-      <div><h3 className="recProj">Recent Projects</h3></div>
+      <div className="p-0"><h3 className="recProj">Recent Projects</h3></div>
     <div className="flex justify-center items-center bg-[#212121] p-0">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full mx-auto lg:p-0">
         <div className="rounded-2xl overflow-hidden shadow-lg  w-[60vw] sm:w-[40vw] md:w-[25vw] lg:w-[20vw] h-[40vh] sm:h-[50vh] bg-white flex justify-center items-center">

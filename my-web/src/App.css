@@ -1,6 +1,7 @@
 /* App.module.css */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 .app-container {
     position: relative;
@@ -9,12 +10,12 @@ html {
   }
   .app-container::after {
     content: "";
-    position: absolute;
+    /*position: absolute;*/
     bottom: 0;
     left: 0;
     width: 100%;
     height: 1px; /* Adjust the height of the line */
-    background-color: white; /* Adjust the color of the line */
+    background-color: #212121; /* Adjust the color of the line */
     z-index:3;
    
   }
@@ -142,7 +143,7 @@ html {
    
   }
   .circleLinesTop {
-    z-index:2;
+    z-index:1;
     top:0;
     position: absolute;
     height: 60vh;
@@ -152,8 +153,9 @@ html {
     fill: none;
   }
 .recentProjects{
-  position: relative;
+  /*position: relative;
   height: auto; 
+  */
   background-color: #212121;
   display:flex;
   flex-direction: column;
@@ -172,4 +174,20 @@ html {
   padding:0;
   margin-top: 0;
   margin-left:0;
+}
+
+.firstTwoContainer{
+  width: 100vw;
+  position: relative;
+  height:225vh;
+
+}
+.containerSec{
+position: sticky;
+top:0;
+z-index:10;
+}
+.about{
+  top:72px;
+ position:sticky; 
 }

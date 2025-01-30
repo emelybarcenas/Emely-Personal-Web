@@ -10,6 +10,7 @@ import ThreeScene from './components/ThreeScene.jsx';
 import DesignerText from './components/DesignerText.jsx';
 import downArrowIcon from "./assets/down-arrow-icon.svg";
 import RecentProjects from './components/RecentProjects.jsx';
+import About from './components/About.jsx';
 
 
 
@@ -23,10 +24,13 @@ function App() {
      <div id="navigation"> 
         <Navigation />
     </div>
-    <div className="app-container">
+
+<div className='firstTwoContainer'>
+
+    <div className="app-container containerSec">
       <Home />
       <DesignerText />
-     <a href="#contact">
+     <a href="#about">
       <button>
         <img src={downArrowIcon} alt="Down arrow" className='down-arrow' />
         </button>
@@ -38,11 +42,22 @@ function App() {
           <img src="/circle-lines.svg" className='circleLinesTop'/>
         </div>
     </div>
-    <div id="recentProjects" className='recentProjects'>
+
+
+    <div className='about containerSec' id="about">
+    <About />
+    </div>
+
+
+
+  </div>
+
+    
+  <div id="recentProjects" className='recentProjects '>
       <RecentProjects className="projRectangles"/>
     </div>
  
-    <div id="contact">
+    <div id="contact" className='containerSec'>
       <Contact />
       </div>
      
@@ -50,6 +65,7 @@ function App() {
       <ThreeScene modelname="scene"/>
       <ThreeScene modelname="scene" />
     </div>
+    
 </div>
  
     </>
