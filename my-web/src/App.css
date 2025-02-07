@@ -3,6 +3,9 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
+#navigation{
+  z-index: 1000;
+}
 .app-container {
     position: relative;
     height: 100vh; /* Full viewport height */
@@ -166,14 +169,9 @@ html {
   color: #CDDC3D;
   font-size: clamp(2rem, 6vw, 5rem); /* Responsive font size */
   font: sans;
-  margin-top: 20vh;
   white-space:nowrap;
+  height:100vh;
  
-}
-.projRectangles{
-  padding:0;
-  margin-top: 0;
-  margin-left:0;
 }
 
 .firstTwoContainer{
@@ -189,5 +187,8 @@ z-index:10;
 }
 .about{
   top:72px;
- position:sticky; 
+  position:sticky; 
+}
+#about{
+  padding-top:80px;
 }
