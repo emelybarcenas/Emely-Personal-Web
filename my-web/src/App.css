@@ -20,6 +20,28 @@ html {
     height: 1px; /* Adjust the height of the line */
     background-color: #212121; /* Adjust the color of the line */
     z-index:3;
+   /* App.module.css */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+#navigation{
+  z-index: 1000;
+}
+.app-container {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    overflow:hidden;
+  }
+  .app-container::after {
+    content: "";
+    /*position: absolute;*/
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px; /* Adjust the height of the line */
+    background-color: #212121; /* Adjust the color of the line */
+    z-index:3;
    
   }
   .home {
@@ -33,38 +55,7 @@ html {
     text-align: center;
   }
   
-  .designer-text {
-    position: absolute;
-    top: 47vh; /* Adjust this to move the text a bit lower or higher */
-    margin-left: 5vw;
-    transform:0;
-    font-size: 3vw; /* Responsive font size */
-    font-weight: 200;
-    color: #CDDC3D;
-    text-align: center;
-    z-index: 2; /* Ensures it is on top of the "Home" text */
-  }
-  
-  @media screen and (max-width: 768px) {
-    .home {
-      font-size: 8vw; /* Adjust for smaller screens */
-    }
-    
-    .designer-text {
-      font-size: 9.5vw; /* Adjust for smaller screens */
-      top: 33%; /* Adjust spacing for smaller screens */
-    }
-  }
-  @media screen and (max-width: 1400px;) {
-    .home {
-      font-size: 8vw; /* Adjust for smaller screens */
-    }
-    
-    .designer-text {
-      font-size:30vw; /* Adjust for smaller screens */
-      top: 33%; /* Adjust spacing for smaller screens */
-    }
-  }
+
   .description{
     display:flex;
     flex-direction: column;
@@ -155,24 +146,7 @@ html {
 
     fill: none;
   }
-.recentProjects{
-  /*position: relative;
-  height: auto; 
-  */
-  background-color: #212121;
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.recProj{
-  color: #CDDC3D;
-  font-size: clamp(2rem, 6vw, 5rem); /* Responsive font size */
-  font: sans;
-  white-space:nowrap;
-  height:100vh;
- 
-}
+
 
 .firstTwoContainer{
   width: 100vw;
@@ -191,4 +165,164 @@ z-index:10;
 }
 #about{
   padding-top:80px;
+}
+  }
+  .home {
+    position: absolute;
+    top: 50%;  /* Center vertically */
+    left: 50%;  /* Center horizontally */
+    transform: translate(-50%, -50%);
+    z-index: 1;  /* Ensures it is the bottom element */
+    font-size: 5vw; /* Make it responsive */
+    color: white;
+    text-align: center;
+  }
+  
+  .designer-text {
+    position: absolute;
+    top: 47vh; /* Adjust this to move the text a bit lower or higher */
+    margin-left: 5vw;
+    transform:0;
+    font-size: 3vw; /* Responsive font size */
+    font-weight: 200;
+    color: #CDDC3D;
+    text-align: center;
+    z-index: 2; /* Ensures it is on top of the "Home" text */
+  }
+
+  @media screen and (max-width: 768px) {
+    .home {
+      font-size: 8vw; /* Adjust for smaller screens */
+    }
+    
+    .designer-text {
+      font-size: 15vw; 
+      top: 33%;
+    }
+  }
+  @media screen and (max-width: 1400px) {
+    .home {
+      font-size: 8vw; 
+    }
+    
+    .designer-text {
+      font-size:6vw; /* Adjust for smaller screens */
+      top: 35%; 
+    }
+  }
+
+  
+  .description{
+    display:flex;
+    flex-direction: column;
+    position: absolute;
+    top:65vh;
+    z-index: 2;
+    text-align: right;
+    right: 5vw;
+    font-size: 2.5vw;
+    font-weight: 200;
+    mask-repeat:no repeat;
+    color:white;
+    /*background-image: linear-gradient(to right,rgb(45, 255, 115), #feb47b);
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    color: transparent; 
+    mask-size: 5px; */
+    white-space: nowrap; /* Prevent text from wrapping */
+  }
+  .description span{
+    display: block;
+    height:1.0em;
+    
+  }
+  /* For iPhone 16 (portrait) - approx 390px wide */
+@media screen and (max-width: 390px) {
+  .description {
+    font-size: 5vw !important; /* Larger font size for smaller screens */
+    right: 8vw; /* Adjust position if needed */
+  }
+}
+
+/* For iPhone 16 (landscape) - approx 844px wide */
+@media screen and (max-width: 844px) {
+  .description {
+    font-size: 2vw !important; /* Adjust font size for iPhone landscape */
+    right: 7vw; /* Adjust position if needed */
+  }
+}
+
+/* For iPad Air (portrait) - approx 768px wide */
+@media screen and (max-width: 768px) {
+  .description {
+    font-size: 6vw !important; /* Slightly smaller font size for iPad */
+    top: 50vh;
+  }
+}
+
+/* For iPad Air (landscape) - approx 1024px wide */
+@media screen and (max-width: 1024px) {
+  .description {
+    font-size: 2.0vw; /* Slightly smaller font size for iPad landscape */
+    right: 2vw; /* Adjust position */
+  }
+}
+  .down-arrow{
+    z-index:2;
+    top:83vh;
+    margin-left:4.9vw;
+    position:absolute;
+    height:6vh;
+    animation: bounce 0.8s infinite ease-in-out;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0); /* Default position */
+    }
+    50% {
+      transform: translateY(-10px); /* Move up */
+    }
+  }
+  .circleLinesBott{
+    z-index:2;
+    top:70vh;
+    position: absolute;
+    height: 60vh;
+    margin-left: 20vw;
+   
+  }
+  .circleLinesTop {
+    z-index:1;
+    top:0;
+    position: absolute;
+    height: 60vh;
+    left:64vw;
+    margin-top: -5em;
+
+    fill: none;
+  }
+
+
+
+.firstTwoContainer{
+  width: 100vw;
+  position: relative;
+  height:225vh;
+
+}
+.containerSec{
+position: sticky;
+top:0;
+z-index:10;
+}
+.about{
+  top:72px;
+  position:sticky; 
+}
+#about{
+  padding-top:80px;
+}
+.recentProjects{
+  margin-top: 45vh;
 }
