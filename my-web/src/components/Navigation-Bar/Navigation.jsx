@@ -65,7 +65,7 @@ function Navigation({ className }) {
               About
             </a>
             <a
-              href="#portfolio"
+              href="/portfolio"
               className="px-6 py-2 text-[1vw] sm:text-base rounded-full bg-[#9E76FF] hover:bg-white hover:text-black text-[#212121] transition-colors font-sans"
             >
               Portfolio

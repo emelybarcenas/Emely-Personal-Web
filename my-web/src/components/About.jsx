@@ -35,7 +35,7 @@ return(
 
 <div>
   {!isMobile && (
-<section className="min-h-[125vh] w-[100vw] pb-[1vh] bg-white top-0 flex flex-col">
+<section className="h-auto w-[100vw] pb-[1vh] bg-white top-0 flex flex-col">
 <h3 className="text-[#212121] font-sans font-bold text-[16vw] w-[100vw] leading-none mb-10 ml-1 mr-1 mt-0 whitespace-nowrap overflow-hidden flex justify-center">
   ABOUT ✦ ME
 </h3>
@@ -131,7 +131,7 @@ return(
 
 {isMobile &&(
 
-<section className="min-h-[125vh] w-[100vw] bg-white top-0 flex flex-col justify-center items-center">
+<section className="h-auto w-[100vw] bg-white top-0 flex flex-col justify-center items-center">
 <h3 className="text-[#212121] font-sans font-bold text-[16vw] w-[100vw] leading-none mb-10 ml-1 mr-1 mt-0 whitespace-nowrap overflow-hidden flex justify-center">
   ABOUT ✦ ME
 </h3>

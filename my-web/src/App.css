@@ -6,21 +6,7 @@ html {
 #navigation{
   z-index: 1000;
 }
-.app-container {
-    position: relative;
-    height: 100vh; /* Full viewport height */
-    overflow:hidden;
-  }
-  .app-container::after {
-    content: "";
-    /*position: absolute;*/
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px; /* Adjust the height of the line */
-    background-color: #212121; /* Adjust the color of the line */
-    z-index:3;
-   /* App.module.css */
+
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -33,17 +19,7 @@ html {
     height: 100vh; /* Full viewport height */
     overflow:hidden;
   }
-  .app-container::after {
-    content: "";
-    /*position: absolute;*/
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px; /* Adjust the height of the line */
-    background-color: #212121; /* Adjust the color of the line */
-    z-index:3;
-   
-  }
+
   .home {
     position: absolute;
     top: 50%;  /* Center vertically */
@@ -56,61 +32,6 @@ html {
   }
   
 
-  .description{
-    display:flex;
-    flex-direction: column;
-    position: absolute;
-    top:65vh;
-    z-index: 2;
-    text-align: right;
-    right: 5vw;
-    font-size: 2.5vw;
-    font-weight: 200;
-    mask-repeat:no repeat;
-    color:white;
-    /*background-image: linear-gradient(to right,rgb(45, 255, 115), #feb47b);
-    -webkit-background-clip: text; 
-    background-clip: text; 
-    color: transparent; 
-    mask-size: 5px; */
-    white-space: nowrap; /* Prevent text from wrapping */
-  }
-  .description span{
-    display: block;
-    height:1.0em;
-    
-  }
-  /* For iPhone 16 (portrait) - approx 390px wide */
-@media screen and (max-width: 390px) {
-  .description {
-    font-size: 5vw !important; /* Larger font size for smaller screens */
-    right: 8vw; /* Adjust position if needed */
-  }
-}
-
-/* For iPhone 16 (landscape) - approx 844px wide */
-@media screen and (max-width: 844px) {
-  .description {
-    font-size: 2vw !important; /* Adjust font size for iPhone landscape */
-    right: 7vw; /* Adjust position if needed */
-  }
-}
-
-/* For iPad Air (portrait) - approx 768px wide */
-@media screen and (max-width: 768px) {
-  .description {
-    font-size: 6vw !important; /* Slightly smaller font size for iPad */
-    top: 50vh;
-  }
-}
-
-/* For iPad Air (landscape) - approx 1024px wide */
-@media screen and (max-width: 1024px) {
-  .description {
-    font-size: 2.0vw; /* Slightly smaller font size for iPad landscape */
-    right: 2vw; /* Adjust position */
-  }
-}
   .down-arrow{
     z-index:2;
     top:83vh;
@@ -151,7 +72,7 @@ html {
 .firstTwoContainer{
   width: 100vw;
   position: relative;
-  height:225vh;
+  height:auto;
 
 }
 .containerSec{
@@ -166,7 +87,7 @@ z-index:10;
 #about{
   padding-top:80px;
 }
-  }
+  
   .home {
     position: absolute;
     top: 50%;  /* Center vertically */
@@ -188,6 +109,7 @@ z-index:10;
     color: #CDDC3D;
     text-align: center;
     z-index: 2; /* Ensures it is on top of the "Home" text */
+    pointer-events:none;
   }
 
   @media screen and (max-width: 768px) {
@@ -212,30 +134,6 @@ z-index:10;
   }
 
   
-  .description{
-    display:flex;
-    flex-direction: column;
-    position: absolute;
-    top:65vh;
-    z-index: 2;
-    text-align: right;
-    right: 5vw;
-    font-size: 2.5vw;
-    font-weight: 200;
-    mask-repeat:no repeat;
-    color:white;
-    /*background-image: linear-gradient(to right,rgb(45, 255, 115), #feb47b);
-    -webkit-background-clip: text; 
-    background-clip: text; 
-    color: transparent; 
-    mask-size: 5px; */
-    white-space: nowrap; /* Prevent text from wrapping */
-  }
-  .description span{
-    display: block;
-    height:1.0em;
-    
-  }
   /* For iPhone 16 (portrait) - approx 390px wide */
 @media screen and (max-width: 390px) {
   .description {
@@ -290,6 +188,7 @@ z-index:10;
     position: absolute;
     height: 60vh;
     margin-left: 20vw;
+    pointer-events:none;
    
   }
   .circleLinesTop {
@@ -299,7 +198,7 @@ z-index:10;
     height: 60vh;
     left:64vw;
     margin-top: -5em;
-
+    pointer-events:none;
     fill: none;
   }
 
@@ -308,7 +207,7 @@ z-index:10;
 .firstTwoContainer{
   width: 100vw;
   position: relative;
-  height:225vh;
+  
 
 }
 .containerSec{
@@ -322,7 +221,4 @@ z-index:10;
 }
 #about{
   padding-top:80px;
-}
-.recentProjects{
-  margin-top: 45vh;
 }

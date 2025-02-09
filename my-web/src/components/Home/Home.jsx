@@ -1,3 +1,4 @@
+
 'use client';
 import useMousePosition from '../../utils/useMousePosition';
 import styles from './Home.module.css';
@@ -5,11 +6,13 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Description from '../Description';
 
+
 function Home() {
   const { x, y } = useMousePosition();
   const [isHovered, setIsHovered] = useState(false);
   const [isActive, setIsActive] = useState(false); // Tracks if mouse is in the div
   const size = isHovered ? 300 : 40;
+
 
   return (
     <main
@@ -28,11 +31,10 @@ function Home() {
           }}
           transition={{
             type: 'tween',
-            duration: 0.5,
+            duration: 0.2,
             ease: 'backOut',
           }}
         >
-          
           <h1
             onMouseEnter={() => {setIsHovered(true)}}
             onMouseLeave={() => setIsHovered(false)}
@@ -44,25 +46,36 @@ function Home() {
             }}
           >
             <span>EMELY</span><span>BARCENAS</span>
-          <Description isHovered={isHovered} x={x} y={y} size={size} onMouseEnter={() => setIsHovered(true)}
+            </h1>
+            <div className={`${window.innerWidth < 540 ? "mt-[40vh]" : "mt-[25vh]"} ml-[10vw] mr-[5vw]`}>
+       <Description isHovered={isHovered} x={x} y={y} size={size} onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}/>
-          </h1>
-        
+        </div>
+ 
+       
         </motion.div>
       )}
 
+
       <motion.div className={`${styles.body} font-bold`}>
        <h1><span>EMELY</span><span>BARCENAS</span>
+       </h1>
+       <div className={`${window.innerWidth < 540 ? "mt-[25vh]" : "mt-[25vh]"} ml-[10vw] mr-[5vw]`}>
        <Description isHovered={isHovered} x={x} y={y} size={size} onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}/>
-       </h1>
+        </div>
+       
 
-      
+
+     
       </motion.div>
-      
-      
+     
+     
     </main>
   );
 }
 
+
 export default Home;
+
+

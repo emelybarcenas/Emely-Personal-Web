@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-
-function Description({ x, y, size, isHovered, onMouseEnter, onMouseLeave }) {
+import styles from './Description.module.css'
+function Description({ x, y, size, isHovered, onMouseEnter, onMouseLeave,className}) {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
@@ -15,13 +15,14 @@ function Description({ x, y, size, isHovered, onMouseEnter, onMouseLeave }) {
 
   return (
     <p
-      className="description"
+      className={styles.description}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       style={{
         maskPosition: `${x - size / 2}px ${y - size / 2}px`,
         WebkitMaskPosition: `${x - size / 2}px ${y - size / 2}px`,
         WebkitMaskSize: `${size}px`,
+        
       }}
     >
       {isSmallScreen ? (
@@ -34,7 +35,7 @@ function Description({ x, y, size, isHovered, onMouseEnter, onMouseLeave }) {
         </>
       ) : (
         <>
-          <span>Driven by a passion for tech and design,</span>
+     <span>Driven by a passion for tech and design,</span>
           <span>I’m a Computer Science student who</span>
           <span>thrives on coding innovative solutions</span>
           <span>and creating captivating designs.</span>

@@ -1,3 +1,4 @@
+
 .main {
   height: 100vh;
   width:100vw;
@@ -11,6 +12,7 @@
   font-family: 'DM Sans';
 }
 
+
 .mask, .body {
   width: 100%;
   display: flex;
@@ -22,7 +24,9 @@
   padding-top: 17vh;
   flex-direction: column;
 
+
 }
+
 
 .mask {
   mask-image: url('/mask.svg');
@@ -32,25 +36,33 @@
   position: absolute;
   color: #CEDD3E;
   height: 100%;
+  width:100%;
 }
+
 
 .body {
   height: 100%;
-  
+ 
 }
+
 
 h1 {
   text-align: left;
   margin-left: 5vw;
   display:flex;
   flex-direction:column;
-  width:70px;
+  width:20px;
+ 
 }
+
 
 h1 span {
 padding: 0;
 margin: 0;
 }
+
+
+
 
 
 
@@ -61,9 +73,12 @@ margin: 0;
 }
 
 
+
+
 .mask, .body {
   font-size: 8vw; /* Default font size for larger screens */
 }
+
 
 @media screen and (max-width: 1024px) {
   .mask, .body {
@@ -71,12 +86,14 @@ margin: 0;
   }
 }
 
+
 @media screen and (max-width: 768px) {
   .mask, .body {
     font-size: 18vw; /* Even larger font size for smaller screens */
     padding-top: 20vh;
   }
 }
+
 
 @media screen and (max-width: 480px) {
   .mask, .body {

@@ -13,6 +13,7 @@ import RecentProjects from './components/RecentProjects.jsx';
 import About from './components/About.jsx';
 import AboutPage from './components/AboutPage.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Portfolio from './components/Portfolio.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -51,14 +52,11 @@ function App() {
     <About />
     </div>
 
-
-
   </div>
 
-    
-  <div id="recentProjects" className='recentProjects '>
-      <RecentProjects className="projRectangles"/>
-    </div>
+
+  <RecentProjects className="projRectangles"/>
+
  
     <div id="contact" className='containerSec'>
       <Contact />
@@ -73,7 +71,10 @@ function App() {
         } />
         
         <Route path="/about-page" element={<AboutPage />} />
+        <Route path="/portfolio" element={<Portfolio />} />
       </Routes>
+    
+     
   
     </>
   )
