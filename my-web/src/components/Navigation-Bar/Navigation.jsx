@@ -71,7 +71,7 @@ function Navigation({ className }) {
               Portfolio
             </a>
             <a
-              href="#contact"
+              href="/contact-page"
               className="px-6 py-2 text-[1vw] sm:text-base rounded-full bg-[#CDDC3D] text-[#212121] hover:bg-white hover:text-black transition-colors font-sans"
             >
               Contact

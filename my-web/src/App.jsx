@@ -14,6 +14,7 @@ import About from './components/About.jsx';
 import AboutPage from './components/AboutPage.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Portfolio from './components/Portfolio.jsx';
+import ContactPage from './components/Contact/ContactPage.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -66,12 +67,14 @@ function App() {
       <ThreeScene modelname="scene"/>
       <ThreeScene modelname="scene" />
     </div>
+   
 </div>
 
         } />
         
         <Route path="/about-page" element={<AboutPage />} />
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/contact-page" element={<ContactPage />}/>
       </Routes>
     
      

@@ -3,7 +3,8 @@ import styles from './Contact.module.css'; // Import the styles from Contact.mod
 
 function Contact() {
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     message: "",
   });
@@ -13,7 +14,7 @@ function Contact() {
     e.preventDefault(); // Prevent form submission
 
     // Check if any of the fields are empty
-    if (!formData.name || !formData.email || !formData.message) {
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.message) {
       setErrorMessage("All fields are required!");
     } else {
       // If all fields are filled, submit the form
@@ -39,7 +40,6 @@ function Contact() {
         className={styles.contact} // Use styles for the form
       >
         <div className={styles.contactTitle}>
-          <h2>Contact Me!</h2>
           <hr />
         </div>
         <input
@@ -47,20 +47,31 @@ function Contact() {
           name="access_key"
           value="1899da86-5d02-4f2e-9267-8af3112bd437"
         />
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          className={styles.contactInputs} // Use styles for the input
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
+        <div className={styles.nameContainer}>
+          <input
+            type="text"
+            name="firstName"
+            placeholder="First Name"
+            className={styles.contactNameInput} // Use specific styles for the first name input
+            value={formData.firstName}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="text"
+            name="lastName"
+            placeholder="Last Name"
+            className={styles.contactNameInput} // Use specific styles for the last name input
+            value={formData.lastName}
+            onChange={handleChange}
+            required
+          />
+        </div>
         <input
           type="email"
           name="email"
           placeholder="Email"
-          className={styles.contactInputs} // Use styles for the input
+          className={styles.contactEmailInput} // Use specific styles for the email input
           value={formData.email}
           onChange={handleChange}
           required
@@ -68,7 +79,7 @@ function Contact() {
         <textarea
           name="message"
           placeholder="Leave your Message"
-          className={styles.contactInputs} // Use styles for the textarea
+          className={styles.contactMessageInput} // Use specific styles for the message textarea
           value={formData.message}
           onChange={handleChange}
           required
