@@ -1,10 +1,11 @@
 .description{
-    display: flex;
-    flex-direction: column;
+   
     text-align: right;
     font-size: 2.5vw;
     font-weight: 200;
   line-height: 1.0em;
+  max-width: fit-content;
+    margin-left: auto;
   
 
   }
@@ -12,6 +13,7 @@
     display: block;  
     margin: 0;
     padding: 0;
+    pointer-events: none;
 }
 
 @media screen and (max-width: 480px) {

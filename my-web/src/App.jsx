@@ -15,6 +15,8 @@ import AboutPage from './components/AboutPage.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Portfolio from './components/Portfolio.jsx';
 import ContactPage from './components/Contact/ContactPage.jsx';
+import ScribbleBg from './components/Scribble-Animation/ScribbleBg.jsx';
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -74,7 +76,7 @@ function App() {
         
         <Route path="/about-page" element={<AboutPage />} />
         <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/contact-page" element={<ContactPage />}/>
+        <Route path="/contact-page" element={<ScribbleBg />}/>
       </Routes>
     
      

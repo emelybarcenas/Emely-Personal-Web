@@ -2,8 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-  gap: 20px;
-  background-color: white;
+background-color: white;
+padding: 10px;
+border-radius: 10px;
+gap:20px;
+  
+  
 }
 
 .contactTitle {
@@ -13,7 +17,7 @@
 .nameContainer {
   display: flex;
   flex-direction: row;
-  gap: 20px; /* Adjust the gap between the inputs as needed */
+  gap: 20px;
   width: 100%;
 }
 
