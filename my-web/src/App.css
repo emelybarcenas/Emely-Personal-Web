@@ -3,9 +3,7 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
-#navigation{
-  z-index: 1000;
-}
+
 
 html {
   scroll-behavior: smooth;
@@ -14,10 +12,15 @@ html {
 #navigation{
   z-index: 1000;
 }
+.mainPage{
+  width: 100vw;
+}
+
 .app-container {
     position: relative;
     height: 100vh; /* Full viewport height */
     overflow:hidden;
+    width: 100vw;
   }
 
   .home {
@@ -228,9 +231,4 @@ main{
   position: relative;
   z-index: 20;
 }
-footer{
-  position: sticky;
-  bottom:0;
-  z-index:-10;
-  width: 100%;
-}
+

@@ -28,7 +28,7 @@ function App() {
   <Routes>
         <Route path="/" element={
 
-<main>
+<main className='mainPage'>
 
 <div className="everything">
      <div id="navigation"> 
@@ -77,7 +77,7 @@ function App() {
    
 </div>
 
-<footer>
+<footer className='sticky bottom-0 z-[-10] w-100 pointer-events-auto'>
 <Footer className="footer"/>
 </footer>
 
@@ -87,7 +87,7 @@ function App() {
         
         <Route path="/about-page" element={<AboutPage />} />
         <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/contact-page" element={<ScribbleBg />}/>
+        <Route path="/contact-page" element={<ContactPage />}/>
       </Routes>
     
      

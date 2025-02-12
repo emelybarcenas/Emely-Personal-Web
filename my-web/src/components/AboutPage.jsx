@@ -23,7 +23,7 @@ export default function AboutPage() {
   
   
   return (
-    <section>
+    <main>
     <div className="flex flex-col">
       <section>
       <Navigation className="z-50 top-0 left-0 h-full" />
@@ -241,9 +241,10 @@ export default function AboutPage() {
 
 
     </div>
-    <footer className="sticky bottom-0">
+
+<footer className="sticky bottom-0 z-[-1]">
       <Footer />
-    </footer>
-    </section>
+</footer>
+    </main>
   );
 }

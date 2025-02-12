@@ -117,29 +117,27 @@ function Navigation({ className }) {
       {/* Mobile Menu (Hamburger - only visible when `isMenuOpen` is true) */}
       {isMobile && (
         <div
-          className={`sm:hidden fixed top-9 right-0 w-full bg-[#212121] ${isMenuOpen ? 'block' : 'hidden'}`}
+          className={`sm:hidden fixed top-9 right-0 w-screen bg-[#212121] ${isMenuOpen ? 'block' : 'hidden'}`}
         >
-          <div className="flex flex-col items-center space-y-4 py-4 ]"> {/* Added z-50 to make sure menu stays on top */}
+          <div className="flex flex-col items-center space-y-4 py-4 z-[10000]"> {/* Added z-50 to make sure menu stays on top */}
             <button
               className="text-white text-lg"
               onClick={() => handleNavigation("/about-page")}
             >
               About
             </button>
-            <a
-              href="#portfolio"
+            <button
               className="text-white text-lg"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => handleNavigation("/portfolio")}
             >
               Portfolio
-            </a>
-            <a
-              href="#contact"
+            </button>
+            <button
               className="text-white text-lg"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => handleNavigation("/contact")}
             >
               Contact
-            </a>
+            </button>
             <a
               href="https://github.com/emelybarcenas"
               target="_blank"

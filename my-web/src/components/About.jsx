@@ -119,7 +119,7 @@ return(
   </div>
 </div>
 <section className={`photoArea ${window.innerWidth < 1200 ? "w-1/2 mx-auto mb-10" : "w-1/3 ml-[1vw] mr-[5vw]"}`}>
-<img src="/me-pink.png" className="w-fit h-5/6 object-cover object-top border-black border-4  "/>
+<img src="/me-pink.png" className="w-fit h-5/6 object-cover object-top border-black border-4 transition-transform duration-400 ease-in-out transform hover:scale-105 "/>
 </section>
 
 
