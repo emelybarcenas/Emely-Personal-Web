@@ -16,7 +16,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Portfolio from './components/Portfolio.jsx';
 import ContactPage from './components/Contact/ContactPage.jsx';
 import ScribbleBg from './components/Scribble-Animation/ScribbleBg.jsx';
-
+import Footer from './components/Footer.jsx'
+import Carousel from './components/Carousel.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -27,7 +28,9 @@ function App() {
   <Routes>
         <Route path="/" element={
 
-<div>
+<main>
+
+<div className="everything">
      <div id="navigation"> 
         <Navigation />
     </div>
@@ -60,17 +63,25 @@ function App() {
 
   <RecentProjects className="projRectangles"/>
 
- 
+
     <div id="contact" className='containerSec'>
-      <Contact />
+      <ScribbleBg className="scribbleBg"/>
       </div>
-     
+ 
+
     <div className='bg-black flex flex-row'>
       <ThreeScene modelname="scene"/>
       <ThreeScene modelname="scene" />
     </div>
    
+   
 </div>
+
+<footer>
+<Footer className="footer"/>
+</footer>
+
+</main>
 
         } />
         

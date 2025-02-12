@@ -1,4 +1,5 @@
 import Navigation from "./Navigation-Bar/Navigation.jsx";
+import Footer from "./Footer.jsx";
 import {useState, useEffect} from "react";
 
 export default function AboutPage() {
@@ -22,6 +23,7 @@ export default function AboutPage() {
   
   
   return (
+    <section>
     <div className="flex flex-col">
       <section>
       <Navigation className="z-50 top-0 left-0 h-full" />
@@ -239,5 +241,9 @@ export default function AboutPage() {
 
 
     </div>
+    <footer className="sticky bottom-0">
+      <Footer />
+    </footer>
+    </section>
   );
 }

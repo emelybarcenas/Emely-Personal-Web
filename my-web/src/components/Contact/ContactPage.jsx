@@ -7,7 +7,6 @@ export default function ContactPage(){
 <main>            
 <div className="flex flex-col">
     <Navigation />
-    <ScribbleBg />
     <section className="flex flex-row text-black w-full  min-w-screen p-4 md:p-8 mt-24 bg-transparent ">
     <div className="w-1/2">
         <h3 className="font-bold text-[22vh] flex flex-col leading-none">
