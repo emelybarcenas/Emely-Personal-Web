@@ -4,7 +4,7 @@ export default function RecentProjects() {
       <h3 className={`recProj text-white ${window.innerWidth<540 ? "text-[10vw]" : "text-[4vw]"} mt-[2vh] font-bold text-white`}>RECENT PROJECTS</h3>
     <div className="flex justify-center items-center p-0 m-10 mb-20">
       <div className="flex justify-center items-center flex-wrap gap-6">
-        <div className="rounded-3xl overflow-hidden shadow-lg  w-[60vw] sm:w-[40vw] md:w-[30vw] lg:w-[22vw] h-[37vh] sm:h-[50vh] bg-white flex flex-col gap-0 justify-center items-center">
+        <div className="rounded-3xl overflow-hidden shadow-lg  w-[60vw] sm:w-[40vw] md:w-[30vw] lg:w-[22vw] h-[37vh] sm:h-[50vh] bg-white flex flex-col gap-0 justify-center items-center transition-transform duration-300 ease-in-out transform hover:scale-105">
           <img
             src="/HerTechPathCover1.png"
             alt="Image 1"
@@ -18,7 +18,7 @@ export default function RecentProjects() {
            </button>
           </a>
         </div>
-        <div className="rounded-3xl overflow-hidden shadow-lg  w-[60vw] sm:w-[40vw] md:w-[30vw] lg:w-[22vw] h-[37vh] sm:h-[50vh] bg-white flex flex-col gap-0 justify-center items-center">
+        <div className="rounded-3xl overflow-hidden shadow-lg  w-[60vw] sm:w-[40vw] md:w-[30vw] lg:w-[22vw] h-[37vh] sm:h-[50vh] bg-white flex flex-col gap-0 justify-center items-center transition-transform duration-300 ease-in-out transform hover:scale-105">
           <img
             src="/Binding.png"
             alt="Image 1"
@@ -32,7 +32,7 @@ export default function RecentProjects() {
            </button>
           </a>
         </div>
-        <div className="rounded-3xl overflow-hidden shadow-lg  w-[60vw] sm:w-[40vw] md:w-[30vw] lg:w-[22vw] h-[37vh] sm:h-[50vh] bg-white flex flex-col gap-0 justify-center items-center">
+        <div className="rounded-3xl overflow-hidden shadow-lg  w-[60vw] sm:w-[40vw] md:w-[30vw] lg:w-[22vw] h-[37vh] sm:h-[50vh] bg-white flex flex-col gap-0 justify-center items-center transition-transform duration-300 ease-in-out transform hover:scale-105">
           <img
             src="/BrillianceCover.png"
             alt="Image 1"

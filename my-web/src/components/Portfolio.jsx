@@ -48,7 +48,7 @@ return(
 <h3 className="text-[7vh] items-center align-center text-[#212121] font-bold ">PORTFOLIO</h3>
 <h3 className="text-3xl items-center align-center text-[#212121] "><LoopingText /></h3>
 </section>
-<section className="flex flex-row w-screen px-[5vw] mt-[5vh] mb-[0.5vh] gap-[1vw]">
+<section className="flex flex-row w-screen px-[5vw] mt-[5vh] mb-[1vh] gap-[1vw]">
     <div className="w-1/3 h-1/3">
     <a href="/binding">
       <img src="/portfolio-covers/bindingcover.png" className="w-full h-full object-cover border-2 border-gray-50 transition-transform duration-300 ease-in-out transform hover:scale-105" />
@@ -71,18 +71,43 @@ return(
 
   <section className="flex flex-row w-screen px-[5vw] mb-[1vh] gap-[1vw]">
     <div className="w-1/3 h-1/3">
-    <a href="/init-enamel-pins">
+    <a href="/init-explore-pins">
       <img src="/portfolio-covers/initpinscover.png" className="w-full h-full object-cover border-2 border-gray-50 transition-transform duration-300 ease-in-out transform hover:scale-105" />
-      <p className="text-lg mt-3 text-[#212121]">INIT ENAMEL PINS</p>
+      <p className="text-lg mt-3 text-[#212121] hover:underline">INIT EXPLORE PINS</p>
     </a>
     </div>
     <div className="w-1/3 h-1/3">
+    <a href="/agilis">
       <img src="/portfolio-covers/agiliscover1.png" className="w-full h-full object-cover border-2 border-gray-50 transition-transform duration-300 ease-in-out transform hover:scale-105" />
-      <p className="text-lg mt-3 text-[#212121]">AGILIS</p>
+      <p className="text-lg mt-3 text-[#212121] hover:underline">AGILIS</p>
+    </a>
+    </div>
+    <div className="w-1/3 h-1/3 flex flex-col">
+    <a href="/lively">
+      <img src="/portfolio-covers/livelycover.png" className="w-full h-full object-cover border-2 border-gray-50 transition-transform duration-300 ease-in-out transform hover:scale-105" />
+      <p className="text-lg mt-3 text-[#212121] hover:underline">LIVELY YOUTH</p>
+      </a>
+    </div>
+  </section>
+
+  <section className="flex flex-row w-screen px-[5vw] mb-[1vh] gap-[1vw]">
+    <div className="w-1/3 h-1/3">
+    <a href="/fearlessOnIce">
+      <img src="/portfolio-covers/fearlessOnIceCover.png" className="w-full h-full object-cover border-2 border-gray-50 transition-transform duration-300 ease-in-out transform hover:scale-105" />
+      <p className="text-lg mt-3 text-[#212121] hover:underline">FEARLESS ON ICE</p>
+    </a>
     </div>
     <div className="w-1/3 h-1/3">
-      <img src="/portfolio-covers/livelycover.png" className="w-full h-full object-cover border-2 border-gray-50 transition-transform duration-300 ease-in-out transform hover:scale-105" />
-      <p className="text-lg mt-3 text-[#212121]">LIVELY YOUTH</p>
+    <a href="/eden">
+      <img src="/portfolio-covers/edencover.png" className="w-full h-full object-cover border-2 border-gray-50 transition-transform duration-300 ease-in-out transform hover:scale-105" />
+      <p className="text-lg mt-3 text-[#212121] hover:underline">EDEN</p>
+    </a>
+    </div>
+    <div className="w-1/3 h-1/3 flex flex-col">
+   
+      <img src="/portfolio-covers/metaquestcover.png" className="w-full h-full object-cover border-2 border-gray-50 transition-transform duration-300 ease-in-out transform hover:scale-105" />
+      <p className="text-lg mt-3 text-[#212121]">COMING SOON..</p>
+
     </div>
   </section>
  
