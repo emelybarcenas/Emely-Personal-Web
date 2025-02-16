@@ -39,19 +39,19 @@ const LoopingText = () => {
 
 export default function Footer() {
     return (
-        <div className="w-full h-[70vh] bg-[#212121] text-white flex flex-col pointer-events-auto">
-            <section className="flex gap-[70vw] mt-[5vh]">
+        <div className="w-full h-[70vh] pb-10 bg-[#212121] text-white flex flex-col pointer-events-auto">
+            <section className={`mt-[5vh] ${window.innerWidth<500 ? 'flex flex-col':'gap-[70vw] flex'}`}>
                 <div className="flex flex-start text-[6vh] leading-[10vh] whitespace-nowrap font-bold">
                     
-                <h1 className='flex flex-row font-normal'>
-  {location.pathname === '/about-page' || location.pathname === '/' ? 'Born to' : 
-    <span className="font-bold">LET'S WORK TOGETHER.</span>}
-  {/* Render LoopingText on /about-page and / */}
-  {(location.pathname === '/about-page' || location.pathname === '/') && <LoopingText />}
-</h1>
+                <h1 className={`flex font-normal ${window.innerWidth<500? 'flex-col leading-none' : 'flex-row'}`}>
+                {location.pathname === '/about-page' || location.pathname === '/' ? 'Born to' : 
+                    <span className={`font-bold ${window.innerWidth<500 ? "text-[7vw]" : ""}`}>LET'S WORK TOGETHER.</span>}
+                {/* Render LoopingText on /about-page and / */}
+                {(location.pathname === '/about-page' || location.pathname === '/') && <LoopingText />}
+                </h1>
                 </div>
 
-                <div className="flex flex-end gap-[5vw]">
+                <div className={`flex flex-end gap-[5vw] ${window.innerWidth <400 ? 'mt-[3vh] ml-[3vh]':''}`}>
                     <div>
                         <ul className="flex flex-col">
                             <li><a href="/">Home</a></li>
@@ -81,11 +81,11 @@ export default function Footer() {
                 </div>
             </section>
             <section className="mt-[15vh] text-center w-full ">
-                <h1 className="text-[20vh] leading-[15vh] font-bold">EMELY BARCENAS</h1>
+                <h1 className={`font-bold ${window.innerWidth<500 ? 'text-[8vh] leading-none' : 'text-[20vh] leading-[15vh]'}`}>EMELY BARCENAS</h1>
                 <div className="border-t-2 border-white mt-4 mx-[5vw]"></div>
-                <div className="flex justify-between text-nowrap mt-4 mx-[5vw]">
+                <div className={`flex text-nowrap mx-[5vw] ${window.innerWidth<500 ? 'flex-col bg-[#212121] items-start mt-4' : ' justify-between mt-4'}`}>
                     <h3>© 2025 Emely Barcenas</h3>
-                    <h3>Made with React, Tailwind CSS, & love &lt;3</h3>
+                    <h3 className=''>Made with React, Tailwind CSS, & love &lt;3</h3>
                 </div>
             </section>
         </div>

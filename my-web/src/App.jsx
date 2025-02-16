@@ -18,6 +18,7 @@ import ContactPage from './components/Contact/ContactPage.jsx';
 import ScribbleBg from './components/Scribble-Animation/ScribbleBg.jsx';
 import Footer from './components/Footer.jsx'
 import Carousel from './components/Carousel.jsx';
+import PortfolioTemplate from './components/PortfolioTemplate.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -88,6 +89,7 @@ function App() {
         <Route path="/about-page" element={<AboutPage />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/contact-page" element={<ContactPage />}/>
+        <Route path="/portfolio/:projectID" element={<PortfolioTemplate />} />
       </Routes>
     
      

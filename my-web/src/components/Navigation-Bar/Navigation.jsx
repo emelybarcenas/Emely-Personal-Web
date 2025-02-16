@@ -2,7 +2,7 @@ import "../../index.css";
 import resumeIcon from "../../assets/resume-icon.svg";
 import homeIcon from "../../assets/home-icon.svg";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Navigation({ className }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,7 +40,7 @@ function Navigation({ className }) {
 
   return (
     <div>
-      <nav className="fixed w-screen h-[7vh] flex justify-between items-center p-4 bg-[#212121] text-white z-50 font-sans font-bold">
+      <nav className="fixed w-full h-[7vh] flex justify-between items-center p-4 bg-[#212121] text-white z-50 font-sans font-bold">
         {/* Left navigation items */}
         <div className="justify-start hidden sm:block">
           <a href="/Jan-2025-Resume.pdf" download className="hover:text-gray-400 w-8 bg-transparent mx-4">
@@ -104,7 +104,7 @@ function Navigation({ className }) {
         {/* Hamburger Icon (visible only on mobile screens) */}
         {isMobile && (
           <div
-            className="sm:hidden flex flex-col h-10 right-4 top-4 absolute items-center gap-1" // Added z-60 for better positioning
+            className="sm:hidden flex flex-col h-10 left-4 top-4 absolute items-center gap-1" 
             onClick={toggleMenu}
           >
             <div className="w-6 h-1 bg-white"></div>
@@ -112,12 +112,24 @@ function Navigation({ className }) {
             <div className="w-6 h-1 bg-white"></div>
           </div>
         )}
+
+{isMobile && (
+  <div className="absolute right-4 top-3">
+    <a href="/" className="hover:text-gray-400">
+      <button className="p-0 border-none" style={{ width: '30px', height: '30px' }}>
+        <img src={homeIcon} alt="home icon" className="w-full h-full" />
+      </button>
+    </a>
+  </div>
+)}
+
       </nav>
+     
 
       {/* Mobile Menu (Hamburger - only visible when `isMenuOpen` is true) */}
       {isMobile && (
         <div
-          className={`sm:hidden fixed top-9 right-0 w-screen bg-[#212121] ${isMenuOpen ? 'block' : 'hidden'}`}
+        className={`sm:hidden fixed top-9 left-0 w-full bg-[#212121] z-[10000] ${isMenuOpen ? 'block' : 'hidden'}`}
         >
           <div className="flex flex-col items-center space-y-4 py-4 z-[10000]"> {/* Added z-50 to make sure menu stays on top */}
             <button
@@ -134,7 +146,7 @@ function Navigation({ className }) {
             </button>
             <button
               className="text-white text-lg"
-              onClick={() => handleNavigation("/contact")}
+              onClick={() => handleNavigation("/contact-page")}
             >
               Contact
             </button>
