@@ -10,5 +10,6 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',  // Allows access from external devices
     port: 3000,  // Or any port you prefer
-  }
+  },
+  base: '/Emely-Personal-Web/'
 })

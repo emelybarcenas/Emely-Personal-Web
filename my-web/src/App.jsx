@@ -25,7 +25,7 @@ function App() {
 
   return (
     <>
-
+<Router>
   <Routes>
         <Route path="/" element={
 
@@ -91,7 +91,7 @@ function App() {
         <Route path="/contact-page" element={<ContactPage />}/>
         <Route path="/portfolio/:projectID" element={<PortfolioTemplate />} />
       </Routes>
-    
+</Router>
      
   
     </>
