@@ -43,7 +43,7 @@ return(
 
 <section className="meText text-[1.5vw] mb-[7vh] ml-[5vw] w-2/3 leading-relaxed">
   <span>
-    With experience in <strong>software</strong> development, graphic <strong>design</strong>, branding, and marketing, I love crafting engaging <strong>user
+    With experience in <strong>software</strong> development, graphic <strong>design</strong>, and marketing, I love crafting engaging <strong>user
     experiences</strong>-whether it’s through <strong>web development</strong>, UI/UX design, or interactive projects. My goal is to bridge the gap
     between design and technology, ensuring that every project is not only visually compelling but also user-friendly,
     <strong> efficient</strong>, and impactful.  

@@ -11,7 +11,7 @@ export default function RecentProjects() {
             className="w-full h-full object-cover"
           />
           <a className="self-start ml-[4vh]"
-            href="/portfolio"
+            href="/portfolio/hertechpath"
           >
             <button className="text-[#212121] relative font-bold text-xl translate-y-[-4vh] hover:underline">
             See Work ↗
@@ -25,7 +25,7 @@ export default function RecentProjects() {
             className="w-full h-full object-cover"
           />
           <a className="self-start ml-[4vh]"
-            href="/portfolio"
+            href="/portfolio/binding"
           >
             <button className="text-[#212121] relative font-bold text-xl translate-y-[-4vh] hover:underline">
             See Work ↗
@@ -39,7 +39,7 @@ export default function RecentProjects() {
             className="w-full h-full object-cover"
           />
           <a className="self-start ml-[4vh]"
-            href="/portfolio"
+            href="/portfolio/brilliancesatprep"
           >
             <button className="text-[#212121] relative font-bold text-xl translate-y-[-4vh] hover:underline">
             See Work ↗

@@ -31,8 +31,8 @@ function Home() {
           }}
           transition={{
             type: 'tween',
-            duration: 0.2,
-            ease: 'backOut',
+            duration: 0.3,
+            ease: 'circOut',
           }}
         >
           <h1

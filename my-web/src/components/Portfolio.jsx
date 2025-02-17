@@ -51,21 +51,21 @@ export default function Portfolio() {
                 <section className="flex flex-row w-screen px-[5vw] mt-[5vh] mb-[1vh] gap-[1vw]">
     <div className="w-1/3 h-1/3 flex items-center justify-center flex-col">
         <Link to="/portfolio/binding">
-            <img src="/portfolio-covers/bindingcover.png" className="w-full h-full object-cover border-2 border-gray-50 transition-transform duration-300 ease-in-out transform hover:scale-105" />
+            <img src="/portfolio-covers/bindingcover.png" className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-105" />
             <p className="text-sm sm:text-base md:text-lg mt-3 text-[#212121] hover:underline text-center">BINDING</p>
         </Link>
     </div>
 
     <div className="w-1/3 h-1/3 flex items-center justify-center flex-col">
         <Link to="/portfolio/brilliancesatprep">
-            <img src="/portfolio-covers/brilliancecover.png" className="w-full h-full object-cover border-2 border-gray-50 transition-transform duration-300 ease-in-out transform hover:scale-105" />
+            <img src="/portfolio-covers/brilliancecover.png" className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-105" />
             <p className="text-sm sm:text-base md:text-lg mt-3 text-[#212121] hover:underline text-center">BRILLIANCE SAT PREP</p>
         </Link>
     </div>
 
     <div className="w-1/3 h-1/3 flex items-center justify-center flex-col">
         <Link to="/portfolio/hertechpath">
-            <img src="/portfolio-covers/hertechpathcover.png" className="w-full h-full object-cover border-2 border-gray-50 transition-transform duration-300 ease-in-out transform hover:scale-105" />
+            <img src="/portfolio-covers/hertechpathcover.png" className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-105" />
             <p className="text-sm sm:text-base md:text-lg mt-3 text-[#212121] hover:underline text-center">HERTECHPATH</p>
         </Link>
     </div>
@@ -74,21 +74,21 @@ export default function Portfolio() {
 <section className="flex flex-row w-screen px-[5vw] mb-[1vh] gap-[1vw]">
     <div className="w-1/3 h-1/3 flex items-center justify-center flex-col">
         <Link to="/portfolio/explore-pins">
-            <img src="/portfolio-covers/initpinscover.png" className="w-full h-full object-cover border-2 border-gray-50 transition-transform duration-300 ease-in-out transform hover:scale-105" />
+            <img src="/portfolio-covers/initpinscover.png" className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-105" />
             <p className="text-sm sm:text-base md:text-lg mt-3 text-[#212121] hover:underline text-center">INIT EXPLORE PINS</p>
         </Link>
     </div>
 
     <div className="w-1/3 h-1/3 flex items-center justify-center flex-col">
         <Link to="/portfolio/agilis">
-            <img src="/portfolio-covers/agiliscover1.png" className="w-full h-full object-cover border-2 border-gray-50 transition-transform duration-300 ease-in-out transform hover:scale-105" />
+            <img src="/portfolio-covers/agiliscover1.png" className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-105" />
             <p className="text-sm sm:text-base md:text-lg mt-3 text-[#212121] hover:underline text-center">AGILIS</p>
         </Link>
     </div>
 
     <div className="w-1/3 h-1/3 flex items-center justify-center flex-col">
         <Link to="/portfolio/lively">
-            <img src="/portfolio-covers/livelycover.png" className="w-full h-full object-cover border-2 border-gray-50 transition-transform duration-300 ease-in-out transform hover:scale-105" />
+            <img src="/portfolio-covers/livelycover.png" className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-105" />
             <p className="text-sm sm:text-base md:text-lg mt-3 text-[#212121] hover:underline text-center">LIVELY YOUTH</p>
         </Link>
     </div>
@@ -97,20 +97,20 @@ export default function Portfolio() {
 <section className="flex flex-row w-screen px-[5vw] mb-[1vh] gap-[1vw]">
     <div className="w-1/3 h-1/3 flex items-center justify-center flex-col">
         <Link to="/portfolio/fearlessOnIce">
-            <img src="/portfolio-covers/fearlessOnIceCover.png" className="w-full h-full object-cover border-2 border-gray-50 transition-transform duration-300 ease-in-out transform hover:scale-105" />
+            <img src="/portfolio-covers/fearlessOnIceCover.png" className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-105" />
             <p className="text-sm sm:text-base md:text-lg mt-3 text-[#212121] hover:underline text-center">FEARLESS ON ICE</p>
         </Link>
     </div>
 
     <div className="w-1/3 h-1/3 flex items-center justify-center flex-col">
         <Link to="/portfolio/eden">
-            <img src="/portfolio-covers/edencover.png" className="w-full h-full object-cover border-2 border-gray-50 transition-transform duration-300 ease-in-out transform hover:scale-105" />
+            <img src="/portfolio-covers/edencover.png" className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-105" />
             <p className="text-sm sm:text-base md:text-lg mt-3 text-[#212121] hover:underline text-center">EDEN</p>
         </Link>
     </div>
 
     <div className="w-1/3 h-1/3 flex items-center justify-center flex-col">
-        <img src="/portfolio-covers/metaquestcover.png" className="w-full h-full object-cover border-2 border-gray-50 transition-transform duration-300 ease-in-out transform hover:scale-105" />
+        <img src="/portfolio-covers/metaquestcover.png" className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-105" />
         <p className="text-sm sm:text-base md:text-lg mt-3 text-[#212121] text-center">COMING SOON..</p>
     </div>
 </section>

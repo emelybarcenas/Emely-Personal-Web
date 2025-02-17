@@ -10,8 +10,9 @@ const projectData = {
     binding:{
         title: "Binding Website",
         description: "Binding is an innovative literacy hub that combines reading, writing, and community engagement. The platform empowers users to share their writing, receive personalized book recommendations, and explore educational workshops and events. The goal is to create an accessible and inspiring space where young readers, particularly girls, can expand their literary horizons and engage with enriching, diverse content in a fun and interactive way.",
-        descriptionSpan: "For this project, I utilized HTML, CSS, and React to build an intuitive and visually appealing platform. I implemented responsive layouts using flexbox and grid. Key features include a dark mode toggle for enhanced readability, JavaScript animations for dynamic interactions, and a custom modal for confirmation messages. Additionally, I integrated a calendar feature to allow users to track events and workshops, and a form validation system to ensure data integrity. These skills helped bring the concept to life and deliver an engaging, functional platform.",
-        image: "/portfolio-covers/bindingcover.png"
+        descriptionSpan: "For this project, I utilized HTML, CSS, and JavaScript to build an intuitive and visually appealing platform. I implemented layouts for large screens using flexbox and grid. Key features include a dark mode toggle for enhanced readability, JavaScript animations for dynamic interactions, and a custom modal for confirmation messages. Additionally, I integrated a calendar feature to allow users to track events and workshops, and a form validation system to ensure data integrity. These skills helped bring the concept to life and deliver an engaging, functional platform.",
+        image: "/portfolio-covers/bindingcover.png",
+        link: "https://brave-bubblegum-unicorn-281.vscodeedu.app/#home"
     },
     fearlessOnIce: {
       title: "Fearless On Ice",
@@ -20,9 +21,17 @@ const projectData = {
       image: "/portfolio-covers/fearlessOnIceCover.png",
     },
     eden: {
-      title: "Eden Garden Café",
-      description: "Eden Garden Café is a coffe shop where nature and flavor come together in harmony. Surrounded by lush greenery, it offers a menu of fresh, vibrant dishes and beverages that delight the senses. Whether you're seeking a peaceful retreat or a cozy spot to connect, Eden Garden Café is the perfect escape.",
+      title: "Eden Garden Coffee Shop",
+      description: "Eden Garden is a coffee shop where nature and flavor come together in harmony. Surrounded by lush greenery, it offers a menu of fresh, vibrant dishes and beverages that delight the senses. Whether you're seeking a peaceful retreat or a cozy spot to connect, Eden Garden Café is the perfect escape.",
+      descriptionSpan: "I developed a brand identity where I experimented with typography and logomark design. Using Illustrator, I created a logotype inspired by the concept of the Garden of Eden, incorporating leaf-like, whimsical lettering. To bring the brand to life, I used Photoshop and online assets to create mockups, ranging from billboards to coffee cups.",
       image: "/portfolio-covers/edencover.png",
+      mockups:[
+        "/eden/buildboard.jpg",
+        "/eden/coffee-pouch.jpg",
+        "/eden/cup.jpg",
+         "/eden/engraved.jpg"
+        ]
+      
     },
     brilliancesatprep:{
         title: "Brilliance SAT Prep",
@@ -54,19 +63,40 @@ const projectData = {
         title: "HerTechPath",
         description: "HerTechPath is a platform dedicated to empowering the next generation of women in tech. The project aims to break down the barriers that women face in the technology industry, such as stereotypes, lack of visibility, and limited access to mentors and role models. By providing resources, support, and pathways tailored to women, HerTechPath helps inspire young girls to pursue careers in tech and provides them with the tools they need to succeed.",
         descriptionSpan: "During ShellHacks, Florida's Largest Hackathon, I worked on creating a user-friendly and visually appealing prototype for the HerTechPath platform using Figma. The prototype was designed to feature a personalized quiz to help users discover which tech pathway aligns with their strengths, a detailed exploration of tech career options, and a community blog for sharing inspiring stories from women in tech. The prototype embodies the vision of supporting and encouraging women to embrace their potential in the tech industry. ",
-        image: "/portfolio-covers/hertechpathcover.png"
+        image: "/portfolio-covers/hertechpathcover.png",
+        images: [
+        "/hertechpath/landing-page.png",
+        "/hertechpath/quiz-page.png",
+        "/hertechpath/Pathway.png",
+        ],
+        moreImages:[
+        "/hertechpath/comp-sci-match.png",
+        "/hertechpath/login-page.png",
+        "/hertechpath/connect-page.png",
+        ]
     },
     agilis:{
         title:"Agilis Marketing Agency",
         description: "Agilis is a digital marketing agency focused on promoting emerging sports and athletics businesses. With a target audience of young adults in Florida, Agilis encourages the youth to embrace a healthy and active lifestyle. The agency thrives on transforming insights into engagement and turning strategy into action.",
         descriptionSpan: "In my role as Creative Director, I led a team of designers to develop Agilis' brand identity from the ground up. This included designing the logo and logotype, creating merchandise that reflects the brand's values, and building a website using Google Sites. The process allowed me to contribute to every stage of the creative journey, ensuring that the brand’s message was visually compelling and cohesive across all touchpoints.",
-        image: "/portfolio-covers/agiliscover1.png"
+        image: "/portfolio-covers/agiliscover1.png",
+        link: "https://sites.google.com/miamiartsstudio.com/agilis?usp=sharing",
+        mockups: ["/agilis/ball-mockup.png",
+            "/agilis/workout.png",
+            "/agilis/agilis-cap-mockup.png",
+            "/agilis/drawstring.png",
+        ],
+        moreImages:[
+            "/agilis/Elevating-Your-Business.jpeg",
+            "/agilis/agilis.jpg"
+        ]
     },
     lively:{
         title: "Lively Youth",
         description: "Lively is an engaging youth afterschool program designed to inspire and empower young minds. With a focus on creativity, teamwork, and personal growth, it offers a variety of activities like arts, sports, and skill-building workshops in a supportive environment. Lively helps students develop confidence, build friendships, and discover their unique talents, making every afternoon a fun and enriching experience.",
         descriptionSpan: "For the Florida Scholastic Press Association (FSPA) competition, I conceptualized and designed a comprehensive branding strategy, creating mockups for various promotional items, including frisbees, business cards, popsockets, and more. Each piece was carefully selected to engage the target audience while also serving as a powerful marketing tool. The merchandise was designed to be both visually appealing and practical, fostering brand awareness and creating a memorable experience. This project earned me the Best Branding Award at my high school's tech production banquet.",
-        image: "/portfolio-covers/livelycover.png"
+        image: "/portfolio-covers/livelycover.png",
+        mockups: ["/lively/livelymockups.png"],
     },
     "explore-pins":{
        title: "Init Explore Pins",
@@ -101,10 +131,19 @@ export default function PortfolioTemplate(){
   
   <div className="flex flex-col p-10 mt-[10vh] w-full md:w-1/2">
     <h3 className={`mb-[3vh] font-bold uppercase leading-none ${window.innerWidth < 500 ? "text-[10vw]" : "text-[7vw]"}`}>{project.title}</h3>
-    <h2 className="text-3xl mb-[3vh] font-bold">About the Project</h2>
+    <h2 className="text-3xl mb-[3vh] font-bold uppercase">About the Project</h2>
     <p className="mb-[3vh]">{project.description}</p>
     <p>{project.descriptionSpan}</p>
+
+    {project.link && window.innerWidth > 600 && (
+    <a href={project.link} target="_blank" rel="noopener noreferrer">
+        <button className="bg-[#212121] text-white px-4 py-2 rounded-lg transition mt-[3vh] z-50">
+            View Site
+        </button>
+    </a>
+)}
   </div>
+
 
   <div className="w-full md:w-1/2 mt-[4vh] p-[5vw]">
     <img src={project.image} className="object-cover w-full"/>
@@ -142,7 +181,7 @@ export default function PortfolioTemplate(){
                     key={index} 
                     src={img} 
                     alt={`${project.title} image ${index + 1}`}
-                    className={`max-w-[15vw] h-auto object-contain rounded-lg shadow-md transition-all duration-300 
+                    className={`${projectID === 'hertechpath' ? 'max-w-[25vw]': 'max-w-[15vw] '} h-auto object-contain rounded-lg shadow-md transition-all duration-300 
                         ${index % 2 !== 0 ? "transform -translate-y-4" : ""}`}
                 />
             ))}
@@ -151,7 +190,7 @@ export default function PortfolioTemplate(){
 )}
 
 {/* Mockups */}
-{project.mockups && project.images.length>0 &&(
+{project.mockups && project.mockups.length>0 &&(
 <section className="bg-white w-screen h-auto flex flex-col items-center justify-center">
 <h2 className="text-3xl font-bold justify-center m-10 uppercase">Branding</h2>
 <div className="flex flex-wrap justify-center gap-10 mb-[10vh]">
@@ -160,13 +199,29 @@ export default function PortfolioTemplate(){
       key={index} 
       src={mockup} 
       alt={`Mockup ${index + 1}`}
-      className="w-[40vw] h-[40vw] object-cover shadow-sm"
+      className={`object-cover shadow-sm ${projectID === 'lively' ? 'w-[80vw]' : 'w-[40vw] h-[40vw]'}`}
     />
   ))}
 </div>
 
 </section>
 )}
+
+{project.moreImages &&(
+<section className="flex flex-wrap justify-center items-center bg-white gap-[5vw] mx-[5wv] pb-[10vh]">
+{project.moreImages.map((img, index) => (
+                <img 
+                    key={index} 
+                    src={img} 
+                    alt={`${project.title} image ${index + 1}`}
+                    className={`max-w-[35vw] object-contain rounded-lg shadow-md transition-all duration-300 
+                        ${index === project.moreImages.length - 1 ? "" : ""}`}
+                />
+            ))}
+</section>
+)}
+
+
 </div>
 
             <footer className="pointer-events-auto sticky bottom-0 z-[-1]">

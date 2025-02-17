@@ -42,7 +42,7 @@ function Navigation({ className }) {
     <div>
       <nav className="fixed w-full h-[7vh] flex justify-between items-center p-4 bg-[#212121] text-white z-50 font-sans font-bold">
         {/* Left navigation items */}
-        <div className="justify-start hidden sm:block">
+        <div className="justify-start hidden sm:block mt-2">
           <a href="/Jan-2025-Resume.pdf" download className="hover:text-gray-400 w-8 bg-transparent mx-4">
             <button className="p-0 border-none" style={{ width: '2vw', height: 'auto' }}>
               <img src={resumeIcon} alt="Resume icon" />
@@ -81,7 +81,7 @@ function Navigation({ className }) {
 
         {/* Right Navigation items (for larger screens) */}
         {!isMobile && (
-          <div className="rightNav sm:flex justify-end space-x-4 hidden">
+          <div className="rightNav mr-4 sm:flex justify-end space-x-4 hidden">
             <a
               href="https://github.com/emelybarcenas"
               target="_blank"
