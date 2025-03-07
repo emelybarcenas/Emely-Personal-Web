@@ -129,7 +129,7 @@ function Navigation({ className }) {
       {/* Mobile Menu (Hamburger - only visible when `isMenuOpen` is true) */}
       {isMobile && (
         <div
-        className={`sm:hidden fixed top-9 left-0 w-full bg-[#212121] z-[10000] ${isMenuOpen ? 'block' : 'hidden'}`}
+        className={`sm:hidden fixed top-11 left-0 w-full bg-[#212121] z-[10000] ${isMenuOpen ? 'block' : 'hidden'}`}
         >
           <div className="flex flex-col items-center space-y-4 py-4 z-[10000]"> {/* Added z-50 to make sure menu stays on top */}
             <button

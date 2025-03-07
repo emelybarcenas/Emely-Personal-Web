@@ -153,7 +153,7 @@ return(
 <img src="/me-pink.png" className="w-auto object-fit border-black border-4  "/>
 </section>
 
-<div className="content flex flex-col justify-center items-center">
+<div className="content flex flex-col justify-center items-center mb-10">
 <section className="textArea w-2/3 flex flex-col justify-center items-center gap-[8vw]">
 
         <div className="contentSection mb-8 flex flex-col">

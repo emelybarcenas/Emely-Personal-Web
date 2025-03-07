@@ -116,16 +116,6 @@ z-index:10;
     pointer-events:none;
   }
 
-  @media screen and (max-width: 768px) {
-    .home {
-      font-size: 8vw; /* Adjust for smaller screens */
-    }
-    
-    .designer-text {
-      font-size: 15vw; 
-      top: 33%;
-    }
-  }
   @media screen and (max-width: 1400px) {
     .home {
       font-size: 8vw; 
@@ -138,6 +128,37 @@ z-index:10;
   }
 
   
+  @media screen and (max-width: 768px) {
+    .home {
+      font-size: 8vw; /* Adjust for smaller screens */
+    }
+    
+    .designer-text {
+      font-size: 8vw; 
+      top: 50%;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .home {
+      font-size: 8vw; /* Adjust for smaller screens */
+    }
+    
+    .designer-text {
+      font-size: 7vw; 
+      top: 40%;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    .home {
+      font-size: 8vw; /* Adjust for smaller screens */
+    }
+    
+    .designer-text {
+      font-size: 7vw; 
+      top: 35%;
+    }
+  }
   /* For iPhone 16 (portrait) - approx 390px wide */
 @media screen and (max-width: 390px) {
   .description {
@@ -177,7 +198,17 @@ z-index:10;
     height:6vh;
     animation: bounce 0.8s infinite ease-in-out;
   }
-  
+  @media screen and (max-width: 500px) {
+   
+    .down-arrow{
+      z-index:2;
+      top:70vh;
+      margin-left:4.9vw;
+      position:absolute;
+      height:6vh;
+      animation: bounce 0.8s infinite ease-in-out;
+    }
+  }
   @keyframes bounce {
     0%, 100% {
       transform: translateY(0); /* Default position */
