@@ -5,15 +5,15 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  css:{
-    postcss:'./postcss.config.js',
+  base: "./", // Ensures assets load correctly
+  css: {
+    postcss: "./postcss.config.js",
   },
-  build:{
-    outDir: 'dist'
+  build: {
+    outDir: "dist",
   },
   server: {
-    host: '0.0.0.0',  // Allows access from external devices
-    port: 3000,  // Or any port you prefer
+    host: "0.0.0.0",
+    port: 3000,
   },
-  
-})
+});

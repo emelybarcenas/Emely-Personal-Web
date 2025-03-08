@@ -1,6 +1,4 @@
 import "../../index.css";
-import resumeIcon from "../../assets/resume-icon.svg";
-import homeIcon from "../../assets/home-icon.svg";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -42,18 +40,14 @@ function Navigation({ className }) {
     <div>
       <nav className="fixed w-full h-[7vh] flex justify-between items-center p-4 bg-[#212121] text-white z-50 font-sans font-bold">
         {/* Left navigation items */}
-        <div className="justify-start hidden sm:block mt-2">
-          <a href="/Jan-2025-Resume.pdf" download className="hover:text-gray-400 w-8 bg-transparent mx-4">
-            <button className="p-0 border-none" style={{ width: '2vw', height: 'auto' }}>
-              <img src={resumeIcon} alt="Resume icon" />
-            </button>
-          </a>
-          <a href="/" className="hover:text-gray-400 w-8 bg-transparent mx-4">
-            <button className="p-0 border-none" style={{ width: '2vw', height: 'auto' }}>
-              <img src={homeIcon} alt="home icon" />
-            </button>
-          </a>
-        </div>
+        <div className="justify-start hidden sm:flex mt-2 space-x-4">
+  <a href="/EmelyBarcenasResume.pdf" download className="hover:text-gray-400 bg-transparent mx-4">
+    <img src="/icons/resume icon.svg" alt="Resume icon" className="w-8 h-auto" />
+  </a>
+  <a href="/" className="hover:text-gray-400 bg-transparent mx-4">
+    <img src="/icons/home-icon.svg" alt="home icon" className="w-8 h-auto" />
+  </a>
+</div>
 
         {/* Center navigation items (for larger screens) */}
         {!isMobile && (
@@ -88,7 +82,7 @@ function Navigation({ className }) {
               rel="noopener noreferrer"
               className="hover:text-gray-400 w-8 bg-transparent mx-4"
             >
-              <img src="/github.png" alt="github" />
+              <img src="/icons/github-icon.svg" alt="github" />
             </a>
             <a
               href="https://www.linkedin.com/in/emelybarcenas/"
@@ -96,7 +90,7 @@ function Navigation({ className }) {
               rel="noopener noreferrer"
               className="hover:text-gray-400 w-8 bg-transparent mx-4"
             >
-              <img src="/linkedin.png" alt="linkedin" />
+              <img src="/icons/linkedin.svg" alt="linkedin" />
             </a>
           </div>
         )}
@@ -117,7 +111,7 @@ function Navigation({ className }) {
   <div className="absolute right-4 top-3">
     <a href="/" className="hover:text-gray-400">
       <button className="p-0 border-none" style={{ width: '30px', height: '30px' }}>
-        <img src={homeIcon} alt="home icon" className="w-full h-full" />
+        <img src="/icons/home-icon.svg" alt="home icon" className="w-full h-full" />
       </button>
     </a>
   </div>
@@ -169,7 +163,7 @@ function Navigation({ className }) {
               LinkedIn
             </a>
             <a
-              href="/Jan-2025-Resume.pdf"
+              href="/EmelyBarcenasResume.pdf"
               download
               className="text-white text-lg"
               onClick={() => setIsMenuOpen(false)}

@@ -72,7 +72,7 @@ export default function Footer() {
                                 </a>
                             </li>
                             <li>
-                                <a href="/Jan-2025-Resume.pdf" download>
+                                <a href="/EmelyBarcenasResume.pdf" download>
                                     Resume
                                 </a>
                             </li>
@@ -81,9 +81,9 @@ export default function Footer() {
                 </div>
             </section>
             <section className="mt-[15vh] text-center bg-[#212121] w-full pb-5">
-                <h1 className={`font-bold ${window.innerWidth<500 ? 'text-[8vh] leading-none' : 'text-[20vh] leading-[15vh]'}`}>EMELY BARCENAS</h1>
+                <h1 className={`font-bold ${window.innerWidth<700 ? 'text-[8vh] leading-none' : 'text-[20vh] leading-[15vh]'}`}>EMELY BARCENAS</h1>
                 <div className="border-t-2 border-white mt-4 mx-[5vw]"></div>
-                <div className={`flex text-nowrap mx-[5vw] ${window.innerWidth<500 ? 'flex-col items-start mt-4' : ' justify-between mt-4'}`}>
+                <div className={`flex text-nowrap mx-[5vw] ${window.innerWidth<700 ? 'flex-col items-start mt-4' : ' justify-between mt-4'}`}>
                     <h3>© 2025 Emely Barcenas</h3>
                     <h3 className=''>Made with React, Tailwind CSS, & love &lt;3</h3>
                 </div>
