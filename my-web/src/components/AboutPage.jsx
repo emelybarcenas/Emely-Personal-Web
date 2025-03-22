@@ -105,7 +105,7 @@ export default function AboutPage() {
           </div>
 
           <div className="md:w-1/2 flex justify-center">
-            <img src="/init-group-pic.jpg" className="w-full max-w-[400px]" />
+            <img src="/cuco-phones.jpg" className="w-full max-w-[400px]" />
           </div>
 
         </div>
