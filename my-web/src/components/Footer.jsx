@@ -25,15 +25,14 @@ const LoopingText = () => {
     }, []); // Empty dependency array so this effect runs only once
 
     return (
-        <h3
+        <span
         className='whitespace-nowrap ml-[0.8vw] font-bold'
             style={{
                 opacity: opacity,
                 transition: 'opacity 0.5s ease-in-out', // Apply transition effect for opacity
             }}
         > {currentText}
-        </h3>
-    );
+        </span>    );
 };
 
 
@@ -45,34 +44,34 @@ export default function Footer() {
                     
                 <h1 className={`flex font-normal ${window.innerWidth<500? 'flex-col leading-none' : 'flex-row'}`}>
                 {location.pathname === '/about-page' || location.pathname === '/' ? 'Born to' : 
-                    <span className={`font-bold ${window.innerWidth<500 ? "text-[7vw]" : ""}`}>LET'S WORK TOGETHER.</span>}
+                    <span className={`font-bold ${window.innerWidth<500 ? "text-[7vw]" : ""}`}>Let's work together.</span>}
                 {/* Render LoopingText on /about-page and / */}
                 {(location.pathname === '/about-page' || location.pathname === '/') && <LoopingText />}
                 </h1>
                 </div>
 
-                <div className={`flex flex-end gap-[5vw] ${window.innerWidth <400 ? 'mt-[3vh] ml-[3vh]':''}`}>
+                <div className={`flex flex-end gap-[5vw]${window.innerWidth <400 ? 'mt-[3vh] ml-[3vh]':''}`}>
                     <div>
                         <ul className="flex flex-col">
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/portfolio">Portfolio</a></li>
-                            <li><a href="/contact-page">Contact Me</a></li>
+                            <li><a href="/" className='hover:underline '>Home</a></li>
+                            <li><a href="/portfolio" className='hover:underline '>Portfolio</a></li>
+                            <li><a href="/contact-page" className='hover:underline '>Contact Me</a></li>
                         </ul>
                     </div>
                     <div>
                         <ul className="flex flex-col pointer-events-auto">
                             <li>
-                                <a href="https://www.linkedin.com/in/emelybarcenas/" target="_blank" rel="noopener noreferrer">
+                                <a href="https://www.linkedin.com/in/emelybarcenas/" target="_blank" rel="noopener noreferrer" className='hover:underline '>
                                     LinkedIn
                                 </a>
                             </li>
                             <li>
-                                <a href="https://github.com/emelybarcenas" target="_blank" rel="noopener noreferrer">
+                                <a href="https://github.com/emelybarcenas" target="_blank" rel="noopener noreferrer" className='hover:underline '>
                                     Github
                                 </a>
                             </li>
                             <li>
-                                <a href="/EmelyBarcenasResume.pdf" download>
+                                <a href="/EmelyBarcenasResume.pdf" download className='hover:underline '>
                                     Resume
                                 </a>
                             </li>

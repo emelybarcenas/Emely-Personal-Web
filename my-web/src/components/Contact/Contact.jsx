@@ -45,7 +45,7 @@ function Contact() {
         <input
           type="hidden"
           name="access_key"
-          value="1899da86-5d02-4f2e-9267-8af3112bd437"
+          value={import.meta.env.VITE_PUBLIC_ACCESS_KEY}
         />
         <div className={styles.nameContainer}>
           <input

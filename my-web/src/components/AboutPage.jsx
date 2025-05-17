@@ -21,7 +21,64 @@ export default function AboutPage() {
 
   },[]);
   
-  
+function ExperienceSection({ experiences }) {
+  return (
+    <section className="bg-white w-full h-auto mx-auto text-[#212121] p-8 flex flex-row gap-5">
+      {/* Left: All text */}
+      <div className="flex flex-col w-1/2  pr-8">
+        <h3 className="text-2xl font-bold mb-8">EXPERIENCE</h3>
+        {experiences.map((exp, idx) => (
+          <div key={idx} className="mb-12">
+            <p className="mb-2 font-bold text-xl">{exp.title}</p>
+            {exp.subtitle && <p className="italic text-lg">{exp.subtitle}</p>}
+            <p className="mb-2 text-lg">{exp.description}</p>
+          </div>
+        ))}
+      </div>
+      {/* Right: All images */}
+      <div className="flex flex-col w-1/2 justify-center items-center gap-8">
+        {experiences.map((exp, idx) => 
+          exp.img?(
+          <div
+            key={idx}
+            className="w-full max-w-[600px] h-[400px] overflow-hidden border-8 border-[#FF97DB] flex items-center justify-center bg-white"
+          >
+            <img
+              src={exp.img}
+              alt={exp.imgAlt || exp.title}
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+        ) : null )}
+      </div>
+    </section>
+  );
+}
+  const experiences = [
+    {
+      title: "Miami Heat - Software Engineer Intern",
+      subtitle: "Break Through Tech Sprinternship, May 2025",
+      description:
+        "Collaborated with other interns to redesign and implement the frontend of a key application for an enhanced user experience. We used Figma for UI/UX design, React and TypeScript for development, and Azure DevOps for version control and task management.",
+      img: "/me-miamiheat.JPG",
+      imgAlt: "Miami Heat Internship",
+    },
+    {
+      title: "The CuCompany - Graphic Design Intern",
+      subtitle: "Summer Youth Internship Program, Summer 2023",
+      description:
+        "During my internship, I created daily Spanish social media content for a nursing home and produced content for a restaurant. I also redesigned Instagram highlight covers improving branding and increasing reach. Writing about marketing trends and new technology increased my knowledge on the evolving digital landscape. Knowing Spanish allowed me to bridge cultural and communication gaps in a global work environment.",
+      img: "/cuco-phones.jpg",
+      imgAlt: "CuCompany Internship",
+    },
+    {
+      title: "Private Tutor",
+      subtitle:"Feb 2022 - Present",
+      description:
+        "I privately tutor middle and high school students in foundational subjects, with a focus on Algebra. My sessions simplify complex concepts, boost understanding, and build confidence in problem-solving."
+    },
+  ];
+
   return (
     <main>
     <div className="flex flex-col">
@@ -89,12 +146,31 @@ export default function AboutPage() {
 
 {isMobile && (
       <section className='bg-white w-full min-h-[50vh] text-[#212121] p-4 md:p-8 flex flex-col gap-8'>
+       
+       <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex flex-col md:w-1/2">
+          <h3 className="text-2xl font-bold mb-2">EXPERIENCE</h3>
+          <p className="mb-2 font-bold">Miami Heat - Software Engineer Intern</p>
+          <p className="italic">Break Through Tech Sprinternship, May 2025</p>
+            <p className="mt-2 mb-2">
+                Collaborated with other interns to redesign 
+                and implement the frontend of a key application
+                for an enhanced user experience. We used Figma 
+                for UI/UX design, React and TypeScript for development, 
+                and Azure DevOps for version control and task management.
+             </p>
+          </div>
+          <div className="md:w-1/2 flex justify-center">
+            <img src="/me-miamiheat.JPG" className="w-full max-w-[400px]" />
+          </div>
+        </div>
+       
         <div className="flex flex-col md:flex-row gap-8">
           <div className="flex flex-col md:w-1/2">
-            <h3 className="text-2xl font-bold mb-2">EXPERIENCE</h3>
+           
             <p className="mb-2 font-bold">The CuCompany - Graphic Design Intern</p>
             <p className="italic">Summer Youth Internship Program, Summer 2023</p>
-            <p>
+            <p className="mt-2 mb-2">
             During my internship, I created daily <strong>Spanish social media content</strong> for
             a nursing home and produced  content for a restaurant. I also <strong>redesigned
             Instagram highlight covers </strong> improving branding and increasing reach. Writing 
@@ -113,7 +189,7 @@ export default function AboutPage() {
         <div className="flex flex-col md:flex-row gap-8">
           <div className="flex flex-col md:w-1/2">
           <p className="mb-2 font-bold">Private Tutor</p>
-            <p className="mb-2">
+            <p className="mb-2 mt-2">
             I privately tutor middle and high school students in foundational subjects,
             with a focus on Algebra. My sessions simplify complex concepts,
             boost understanding, and build confidence in problem-solving.
@@ -123,6 +199,10 @@ export default function AboutPage() {
             <img src="/me-junior-ring.PNG" className="w-full max-w-[400px]" />
           </div>
         </div>
+
+         
+
+        
       </section>
 )}
 
@@ -193,46 +273,13 @@ export default function AboutPage() {
 
     <img src="/codepath-group-pic.jpg" className="w-full h-auto object-cover border-[#FF97DB] border-8"/>
   </div>
+        </section>
+
+
+<section className='bg-pink bg-white border w-full h-auto mx-auto text-[#212121] p-8 flex'>
+<ExperienceSection experiences={experiences} />
 </section>
-
-
-    <section className='bg-pink bg-white border w-full h-auto mx-auto text-[#212121] p-8 flex'>
-    <div className="left w-1/2 h-auto flex flex-row">
-            <div className="flex flex-col p-8">
-            <h3 className="text-2xl font-bold mb-2">EXPERIENCE</h3>
-            <p className="mb-2 font-bold text-xl">The CuCompany - Graphic Design Intern</p>
-            <p className="italic mb-2 text-lg">Summer Youth Internship Program, Summer 2023</p>
-            <p className="text-lg">
-            During my internship, I created daily <strong>Spanish social media content</strong> for
-            a nursing home and produced  content for a restaurant. I also <strong>redesigned
-            Instagram highlight covers </strong> improving branding and increasing reach. Writing 
-            about <strong>marketing trends</strong> and <strong>new technology</strong> increased my knowledge on the evolving 
-            <strong> digital landscape</strong>. Knowing <strong>spanish</strong> allowed me to bridge cultural and communication
-            gaps in a global work environment.
-            </p>
-            </div>
-            
-    </div>
-
-    <div className="right w-1/2 h-auto flex flex-col p-8 items-end">
-    <div className="flex flex-col w-full p-8">
-      <div>
-    <div className="flex justify-end w-full h-1/2">
-            <img src="/cuco-phones.jpg" className=" w-full object-cover border-8 border-[#FF97DB]"/>
-    </div>
-    <div>
-    <p className="mb-2 mt-10 font-bold text-right text-xl">Private Tutor</p>
-    <p className="mb-2 text-right text-lg">
-
-            I privately tutor middle and high school students in foundational subjects,
-            with a focus on Algebra. My sessions simplify complex concepts,
-            boost understanding, and build confidence in problem-solving.
-    </p>
-    </div>
-    </div>
-    </div>
-    </div>
-    </section>
+   
     </div>
   )}
 

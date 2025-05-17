@@ -27,18 +27,18 @@ function Description({ x, y, size, isHovered, onMouseEnter, onMouseLeave,classNa
     >
       {isSmallScreen ? (
          <>
-   <span>Driven by a passion for tech</span>
-   <span>and design, I’m a Computer</span>
-   <span>Science student who </span>
-   <span>thrives on coding</span>
-   <span>smart solutions.</span>
+   <span>Passionate about tech and design,</span>
+   <span>I’m a Computer Science student </span>
+   <span>who thrives on crafting </span>
+   <span>user-centered digital</span>
+   <span> experiences.</span>
         </>
       ) : (
         <>
      <span>Driven by a passion for tech and design,</span>
           <span>I’m a Computer Science student who</span>
-          <span>thrives on coding innovative solutions</span>
-          <span>and creating captivating designs.</span>
+          <span>thrives on crafting user-centered</span>
+          <span>digital experiences.</span>
         </>
       )}
     </p>

@@ -1,7 +1,7 @@
 function DesignerText() {
     return (
       <div className="designer-text">
-        Designer && Developer
+        Designer & Developer
       </div>
     );
   }
