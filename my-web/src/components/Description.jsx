@@ -27,11 +27,11 @@ function Description({ x, y, size, isHovered, onMouseEnter, onMouseLeave,classNa
     >
       {isSmallScreen ? (
          <>
-   <span>Passionate about tech and design,</span>
-   <span>I’m a Computer Science student </span>
+   <span>Passionate about tech and </span>
+   <span>design, I’m a CS student</span>
    <span>who thrives on crafting </span>
    <span>user-centered digital</span>
-   <span> experiences.</span>
+   <span>experiences.</span>
         </>
       ) : (
         <>

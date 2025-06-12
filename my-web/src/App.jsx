@@ -19,6 +19,7 @@ import ScribbleBg from './components/Scribble-Animation/ScribbleBg.jsx';
 import Footer from './components/Footer.jsx'
 import Carousel from './components/Carousel.jsx';
 import PortfolioTemplate from './components/PortfolioTemplate.jsx';
+import PlateItForward from './components/plateItForward.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -44,6 +45,7 @@ function App() {
      <a href="#about">
       <button>
         <img src={downArrowIcon} alt="Down arrow" className='down-arrow' />
+     
         </button>
         </a>
         <div>
@@ -56,13 +58,13 @@ function App() {
 
 
     <div className='about containerSec' id="about">
-    <About />
+     <RecentProjects className="projRectangles"/>
     </div>
 
   </div>
 
-
-  <RecentProjects className="projRectangles"/>
+  <About />
+ 
 
 
     <div id="contact" className='containerSec'>
@@ -89,6 +91,7 @@ function App() {
         <Route path="/about-page" element={<AboutPage />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/contact-page" element={<ContactPage />}/>
+        <Route path="/portfolio/plateItForward" element={<PlateItForward />}/>
         <Route path="/portfolio/:projectID" element={<PortfolioTemplate />} />
       </Routes>
 

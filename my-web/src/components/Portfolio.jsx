@@ -38,71 +38,134 @@ const LoopingText = () => {
 };
 // Data for portfolio projects
 const projects = [
+    {
+        title: "PLATEITFORWARD",
+        path: "/portfolio/plateItForward",
+        tags: ["UI/UX", "Case Study"],
+        img: "/portfolio-covers/plateItForwardCover.png"
+    },
       {
         title: "TINKER",
         path: "/portfolio/tinker",
+        tags: ["Full-stack", "Supabase", "React"],
         img: "/portfolio-covers/tinkercover.png"
     },
     {
         title: "BINDING",
         path: "/portfolio/binding",
+        tags: ["HTML", "CSS", "JavaScript", "Figma"],
         img: "/portfolio-covers/bindingcover.png"
     },
      {
         title: "PAWS UP",
         path: "/portfolio/pawsUpXR",
+        tags: ["Meta Quest", "Unity", "Blender", "Branding"],
         img: "/portfolio-covers/pawsUpcover.jpg"
     },
     {
         title: "BRILLIANCE SAT PREP",
         path: "/portfolio/brilliancesatprep",
+        tags: ["Figma", "UI", "Prototyping"],
         img: "/portfolio-covers/brilliancecover.png"
     },
     {
         title: "HERTECHPATH",
         path: "/portfolio/hertechpath",
+        tags: ["Figma", "UI"],
         img: "/portfolio-covers/hertechpathcover.png"
     },
     {
         title: "INIT EXPLORE PINS",
         path: "/portfolio/explorePins",
+        tags: ["Branding", "Photoshop", "Mockups"],
         img: "/portfolio-covers/initpinscover.png"
     },
     {
         title: "AGILIS",
         path: "/portfolio/agilis",
+        tags: ["Branding", "Web Design"],
         img: "/portfolio-covers/agiliscover1.png"
     },
     {
         title: "LIVELY YOUTH",
         path: "/portfolio/lively",
+        tags: ["Branding", "Graphic Design", "Photoshop", "Illustrator"],
         img: "/portfolio-covers/livelycover.png"
     },
     {
         title: "EDEN",
         path: "/portfolio/eden",
+        tags: ["Branding", "Graphic Design", "Photoshop", "Illustrator"],
         img: "/portfolio-covers/edencover.png"
     },
     {
         title: "FEARLESS ON ICE",
         path: "/portfolio/fearlessOnIce",
+         tags: ["Storytelling", "Illustrator"],
         img: "/portfolio-covers/fearlessOnIceCover.png"
     }
    
 ];
 // Reusable project card (thumbnail, path, image)
-function ProjectCard({ title, path, img }) {
+function ProjectCard({ title, path, img, tags }) {
     return (
         <div className="w-1/3 h-1/3 flex items-center justify-center flex-col">
             {path ? (
-                <Link to={path}>
-                    <img src={img} className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-105" />
-                    <p className="text-sm sm:text-base md:text-lg mt-3 text-[#212121] hover:underline text-center">{title}</p>
+                <Link to={path} className="group">
+                    <div className="relative w-full h-full">
+                        <img
+                            src={img}
+                            className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
+                        />
+                        {tags && Array.isArray(tags) && (
+                            <div className="absolute bottom-2 left-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                {tags.map((tag, idx) => (
+                                    <span
+                                        key={idx}
+                                        className="px-3 py-1 bg-white text-black text-xs rounded-full border border-[#E0E0E0] font-medium "
+                                    >
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                        )}
+                        {tags && !Array.isArray(tags) && (
+                            <span className="absolute bottom-2 left-2 px-3 py-1 bg-white text-black text-xs rounded-full border border-[#E0E0E0] font-medium  opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                {tags}
+                            </span>
+                        )}
+                    </div>
+                    <div className="flex flex-row justify-between items-center w-full mt-3">
+                        <p className="text-sm sm:text-base md:text-lg text-black text-left group-hover:underline">
+                            {title}
+                        </p>
+                    </div>
                 </Link>
             ) : (
                 <>
-                    <img src={img} className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-105" />
-                    <p className="text-sm sm:text-base md:text-lg mt-3 text-[#212121] text-center">{title}</p>
+                    <div className="relative w-full h-full">
+                        <img src={img} className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-105" />
+                        {tags && Array.isArray(tags) && (
+                            <div className="absolute bottom-2 left-2 flex gap-2 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                {tags.map((tag, idx) => (
+                                    <span
+                                        key={idx}
+                                        className="px-3 py-1 bg-[#F3F3F3] text-black text-xs rounded-full border border-[#E0E0E0] font-medium shadow"
+                                    >
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                        )}
+                        {tags && !Array.isArray(tags) && (
+                            <span className="absolute left-2 right-2 px-3 py-1 bg-[#F3F3F3] text-black text-xs rounded-full border border-[#E0E0E0] font-medium shadow opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                {tags}
+                            </span>
+                        )}
+                    </div>
+                    <div className="flex flex-row justify-between items-center w-full mt-3">
+                        <p className="text-sm sm:text-base md:text-lg text-black text-left">{title}</p>
+                    </div>
                 </>
             )}
         </div>
