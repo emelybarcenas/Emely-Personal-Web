@@ -18,7 +18,7 @@ function ProjectCover({ imgSrc, alt, href }) {
 export default function RecentProjects() {
   return (
     <div className="h-auto w-full bg-white flex flex-col items-center justify-center">
-      <h3 className={`recProj text-[#212121] ${window.innerWidth<540 ? "text-[10vw]" : "text-[8vw] mx-[1vw]"} mt-[2vh] font-bold`}>FEATURED ✦ PROJECTS</h3>
+      <h3 className={`recProj text-[#212121] ${window.innerWidth<540 ? "text-[7vw]" : "text-[8vw] mx-[1vw]"} mt-[2vh] font-bold`}>FEATURED ✦ PROJECTS</h3>
       <div className="flex justify-center items-center p-0 m-10 mb-20">
         <div className="flex justify-center items-center flex-wrap gap-10">
          <ProjectCover

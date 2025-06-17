@@ -249,21 +249,22 @@ export default function PortfolioTemplate(){
 </section>
 )}
 
-<div className="flex justify-between m-10 bg-white p-8">
- <Link
-        to={`/portfolio/${prevProjectID}`}
-        className="flex items-center bg-white hover:bg-[#9E76FF] text-[#212121] font-bold px-6 py-3 rounded-full shadow-lg transition z-10"
-        >
-        <ArrowRight size={24} className="rotate-180 mr-2" />
-        {prevProject.title}
-    </Link>
- 
-    <Link
+<div className="flex flex-col md:flex-row items-center md:justify-between gap-4 md:gap-0 m-4 md:m-10 bg-white p-4 md:p-8">
+  <Link
+    to={`/portfolio/${prevProjectID}`}
+    className="flex items-center justify-center bg-white hover:bg-[#9E76FF] text-[#212121] font-bold w-[300px] md:w-auto px-3 py-2 md:px-6 md:py-3 rounded-full shadow-lg transition z-10 text-xs md:text-base"
+  >
+    <ArrowRight size={20} className="rotate-180 mr-2" />
+    {prevProject.title}
+  </Link>
+
+  <Link
     to={`/portfolio/${nextProjectID}`}
-    className="flex items-center bg-white hover:bg-[#9E76FF] text-[#212121] font-bold px-6 py-3 rounded-full shadow-lg transition">
+    className="flex items-center justify-center bg-white hover:bg-[#9E76FF] text-[#212121] font-bold w-[300px] md:w-auto px-3 py-2 md:px-6 md:py-3 rounded-full shadow-lg transition text-xs md:text-base"
+  >
     <span className="mr-2">{nextProject.title}</span>
-    <ArrowRight size={24} />
-    </Link>
+    <ArrowRight size={20} />
+  </Link>
 </div>
 
 </div>

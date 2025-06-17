@@ -21,7 +21,7 @@ function FeaturesCarousel() {
         {
           src: "/plateItForward/donationSpot.gif",
           alt: "Donation Spot",
-          className: "w-full max-w-[300px] h-[520px] sm:max-w-[400px] sm:h-[550px]",
+          className: "w-full max-w-[200px] h-[320px] sm:max-w-[420px] sm:h-[480px]",
         },
       ],
     },
@@ -34,7 +34,7 @@ function FeaturesCarousel() {
         {
           src: "/plateItForward/scan.gif",
           alt: "Scan & Serve",
-          className: "w-full max-w-[300px] h-[520px] sm:max-w-[400px] sm:h-[550px]",
+          className: "w-full max-w-[200px] h-[320px] sm:max-w-[420px] sm:h-[480px]",
         },
       ],
     },
@@ -90,11 +90,12 @@ function FeaturesCarousel() {
   const prev = () => setCurrent((current - 1 + features.length) % features.length);
   const next = () => setCurrent((current + 1) % features.length);
 
+
   return (
     <div className="mx-0 mb-20">
       <div className="w-full max-w-[1600px] mx-auto">
-    
-        <div className="flex w-full items-center justify-center gap-2 sm:gap-6 md:gap-10">
+        {/* Desktop: arrows beside card */}
+        <div className="hidden md:flex w-full items-center justify-center gap-2 sm:gap-6 md:gap-10">
           {/* Left Arrow */}
           <button
             onClick={prev}
@@ -141,6 +142,53 @@ function FeaturesCarousel() {
             <svg width="24" height="24" fill="none"><path d="M9 6l6 6-6 6" stroke="#0E956D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </button>
         </div>
+   
+
+{/* Mobile: Card only, arrows beside card but with margin from edge */}
+<div className="flex flex-col md:hidden gap-6 items-center w-full">
+  <div className="flex flex-row w-full items-center justify-between px-4">
+    <button
+      onClick={prev}
+      aria-label="Previous"
+      className="bg-white border rounded-full shadow p-2 z-10 hover:bg-gray-100"
+      style={{ minWidth: 36, minHeight: 36 }}
+    >
+      <span className="sr-only">Previous</span>
+      <svg width="24" height="24" fill="none"><path d="M15 18l-6-6 6-6" stroke="#0E956D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+    </button>
+    <div className="flex-1 flex flex-col  rounded-2xl p-4 max-w-[95vw] min-w-[220px]">
+      <Feature
+        title={features[current].title}
+        subtitle={features[current].subtitle}
+        description={features[current].description}
+      />
+      <div className={`flex ${features[current].images.length > 1 ? "flex-row" : "flex-col"} justify-center items-center mt-4 gap-4`}>
+        {features[current].images.map((img, idx) => (
+          <div
+            key={idx}
+            className={`${img.className} flex items-center justify-center rounded-lg `}
+            style={{ minWidth: img.className.includes("max-w") ? undefined : "120px" }}
+          >
+            <img
+              src={img.src}
+              alt={img.alt}
+              className="object-contain h-full"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+    <button
+      onClick={next}
+      aria-label="Next"
+      className="bg-white border rounded-full shadow p-2 z-10 hover:bg-gray-100"
+      style={{ minWidth: 36, minHeight: 36 }}
+    >
+      <span className="sr-only">Next</span>
+      <svg width="24" height="24" fill="none"><path d="M9 6l6 6-6 6" stroke="#0E956D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+    </button>
+  </div>
+</div>
         {/* Dots */}
         <div className="flex justify-center mt-6 gap-2 sm:gap-3">
           {features.map((_, idx) => (
@@ -156,6 +204,7 @@ function FeaturesCarousel() {
     </div>
   );
 }
+
 const projectData = {
     plateItForward: {
         title: "PlateItForward",
@@ -447,29 +496,91 @@ export default function PlateItForward(){
   </div>
 </CaseBlock>
 
+
+
      
-          <div className="mx-10 md:mx-10 py-10 flex flex-col gap-2  border-gray-200">
-            <div className="mx-4 md:mx-40 w-full md:w-3/5">
-                <p className="text-gray-500  whitespace-nowrap">Solution</p>
-                <p className="text-2xl font-bold"> Giving students the <span className="text-[#0E956D]">tools </span> for impact & the <span className="text-[#0E956D]">motivation</span> to keep going</p>
-            </div>
-            <div className="my-5 mx-4 md:mx-40">
-                   Our solution allows students 
-        to donate effortlessly, stay engaged, 
-        and feel connected to a larger 
-        mission—transforming small daily
-        choices into lasting change.
-            </div>
-         <p className="text-2xl font-bold mt-10 mb-10 mx-4 md:mx-40">
-  <span>
-    Here’s <span className="text-[#0E956D]">how </span>we brought it to life...
-  </span>
-</p>
-        </div>
+<CaseBlock subtitle="Solution" title={<>Giving students the <span className="text-[#0E956D]">tools</span> for impact &amp; the <span className="text-[#0E956D]">motivation</span> to keep going</>}>
+  <p>
+    Our solution allows students to donate effortlessly, stay engaged, and feel connected to a larger mission—transforming small daily choices into lasting change.
+  </p>
+    <p className="mt-4">Our Approach:</p>
+    <ul className="list-disc pl-6 my-4 space-y-2">
+        <li>Make food donation easier to find and faster to use</li>
+        <li>
+      Boost engagement with gamified, community experiences
+        </li>
+         <li>
+      Show students their impact and why it matters
+        </li>
+      </ul>
+   <div className="flex justify-center">
+    <img src="/plateItForward/earlyiterations.jpg" className="w-full max-w-[800px] mt-4" alt="Early Iterations" />
+  </div>
+</CaseBlock>
+
+ <CaseBlock subtitle={"Testing & Improvements"}>
+  <div className="space-y-8">
+    {/* 1. Refining Point System */}
+    <div>
+      <p className="text-2xl font-bold mb-2">1. Refining Point System</p>
+      <p>
+        Our original gamification model 
+        awarded students points for every donation made. 
+        However, after initial testing, we realized this 
+        system risked incentivizing quantity over quality, 
+        potentially encouraging unhealthy behaviors.
+      </p>
+      <p className="mt-4">To shift the focus toward meaningful engagement, we redesigned the system so that:</p>
+      <ul className="list-disc pl-6 my-4 space-y-2">
+        <li>Points are earned through completing educational lessons, not donating.</li>
+        <li>
+          After donation, students can nudge a friend as a social call-to-action or share their impact via social media, maintaining visibility and motivation without encouraging mindless contributions.
+        </li>
+      </ul>
+    </div>
+
+    {/* 2. Improving Scanning Flow */}
+    <div>
+      <p className="text-2xl font-bold mb-2">2. Improving Scanning Flow</p>
+      <p>
+        During early feedback sessions, we identified a gap in the item scanning flow. Originally, there was no way for students to add or review multiple items efficiently. It felt tedious and unclear.
+      </p>
+      <p className="mt-4">To improve this:</p>
+      <ul className="list-disc pl-6 my-4 space-y-2">
+        <li>We added confirmation screens and subtle microcopy indicating when an item was successfully added.</li>
+        <li>
+          We introduced a "donation list" view, resembling a shopping cart, where students could:
+          <ul className="list-disc pl-6 mt-2 space-y-1">
+            <li>View all scanned items at once</li>
+            <li>Edit quantities or remove items</li>
+            <li>Submit all donations in one streamlined action, rather than approving each individually</li>
+          </ul>
+        </li>
+      </ul>
+      <p>
+        This significantly sped up the donation process while giving users more control and clarity.
+      </p>
+    </div>
+
+    {/* 3. Enhancing Long-Term Engagement */}
+    <div>
+      <p className="text-2xl font-bold mb-2">3. Enhancing Long-Term Engagement</p>
+      <p>
+        To further encourage returning users without relying solely on points, we:
+      </p>
+      <ul className="list-disc pl-6 my-4 space-y-2">
+        <li>Introduced unlockable personalization features (e.g. character customization)</li>
+        <li>Added impact metrics, like “meals saved” or “friends nudged,” to visually show a student’s contribution</li>
+        <li>Ensured that the main CTA (Call to Action) was consistently visible on the homepage for ease of access and clarity</li>
+      </ul>
+    </div>
+  </div>
+</CaseBlock>       
 
 
-
+<CaseBlock subtitle={"Final Product"} title={"Here's how we brought it all together"}>
 <FeaturesCarousel />
+</CaseBlock>
 
    <CaseBlock
   subtitle="Prospective Impact"
@@ -497,23 +608,26 @@ export default function PlateItForward(){
   </div>
 </CaseBlock>
 
+<div className="flex flex-col md:flex-row items-center md:justify-between gap-4 md:gap-0 m-4 md:m-10 bg-white p-4 md:p-8">
+  <Link
+    to={`/portfolio/${prevProjectID}`}
+    className="flex items-center justify-center bg-white hover:bg-[#9E76FF] text-[#212121] font-bold w-[300px] md:w-auto px-3 py-2 md:px-6 md:py-3 rounded-full shadow-lg transition z-10 text-xs md:text-base"
+  >
+    <ArrowRight size={20} className="rotate-180 mr-2" />
+    {prevProject.title}
+  </Link>
 
-        <div className="flex justify-between m-10 p-8">
-            <Link
-                to={`/portfolio/${prevProjectID}`}
-                className="flex items-center hover:bg-[#9E76FF] text-[#212121] font-bold px-6 py-3 rounded-full -lg transition z-10"
-                >
-                <ArrowRight size={24} className="rotate-180 mr-2" />
-                {prevProject.title}
-            </Link>
-        
-            <Link
-            to={`/portfolio/${nextProjectID}`}
-            className="flex items-center hover:bg-[#9E76FF] text-[#212121] font-bold px-6 py-3 rounded-full -lg transition">
-            <span className="mr-2">{nextProject.title}</span>
-            <ArrowRight size={24} />
-            </Link>
-        </div>
+  <Link
+    to={`/portfolio/${nextProjectID}`}
+    className="flex items-center justify-center bg-white hover:bg-[#9E76FF] text-[#212121] font-bold w-[300px] md:w-auto px-3 py-2 md:px-6 md:py-3 rounded-full shadow-lg transition text-xs md:text-base"
+  >
+    <span className="mr-2">{nextProject.title}</span>
+    <ArrowRight size={20} />
+  </Link>
+</div>
+ 
+
+
     </div>
 
 
