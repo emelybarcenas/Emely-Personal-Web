@@ -387,11 +387,11 @@ export default function GoRedesign(){
   <div className="flex flex-col gap-5">
     <p className="w-full">
       Users shouldn’t have to use 3 different apps to
-      find navigation information. I decided to compare
-      3 transportation apps with 4.6+ ratings to identify
+      find navigation information. I decided to <b> compare
+      3 transportation apps with 4.6+ ratings</b> to identify
       design patterns and features that address common
-      user pain points. Next, I evaluated the current
-      app using a SWOT Analysis.
+      user pain points. Next, I <b>evaluated the current
+      app </b>using a SWOT Analysis.
     </p>
     <div className="flex gap-2">
       <img src="/goApp/CA1.jpg" className="w-1/2 h-fit" alt="SWOT Analysis" />
