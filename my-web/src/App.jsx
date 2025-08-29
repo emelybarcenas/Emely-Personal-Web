@@ -20,6 +20,7 @@ import Footer from './components/Footer.jsx'
 import Carousel from './components/Carousel.jsx';
 import PortfolioTemplate from './components/PortfolioTemplate.jsx';
 import PlateItForward from './components/plateItForward.jsx';
+import GoRedesign from './components/GoRedesign.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -92,6 +93,7 @@ function App() {
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/contact-page" element={<ContactPage />}/>
         <Route path="/portfolio/plateItForward" element={<PlateItForward />}/>
+        <Route path="/portfolio/goTransitRedesign" element={<GoRedesign />}/>
         <Route path="/portfolio/:projectID" element={<PortfolioTemplate />} />
       </Routes>
 

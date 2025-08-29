@@ -39,6 +39,13 @@ const LoopingText = () => {
 // Data for portfolio projects
 const projects = [
     {
+        title: "GO TRANSIT REDESIGN",
+        path: "/portfolio/goTransitRedesign",
+        tags: ["UI/UX", "Case Study", "Research"],
+        img: "/portfolio-covers/goAppCover.png"
+        
+    },
+    {
         title: "PLATEITFORWARD",
         path: "/portfolio/plateItForward",
         tags: ["UI/UX", "Case Study"],

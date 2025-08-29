@@ -1,11 +1,13 @@
 import Navigation from "./Navigation-Bar/Navigation"
 import Footer from "./Footer"
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 import { ArrowRight, Cog, ChartColumnDecreasing, BadgeHelp, Lightbulb, Heart, MonitorSmartphone } from "lucide-react"; 
 
 import { Link } from 'react-router-dom'
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // ...existing imports...
 
 // ...existing code...
@@ -206,7 +208,10 @@ function FeaturesCarousel() {
 }
 
 const projectData = {
-    plateItForward: {
+      goTransitRedesign:{
+        title: "GO Transit Redesign",
+      },  
+  plateItForward: {
         title: "PlateItForward",
         
     },
@@ -346,6 +351,7 @@ export function CaseStudyInfo() {
 
     return (
         <div className="flex flex-col md:flex-row mx-4 md:mx-40">
+            {/* About the Project */}
             <div className="w-full md:w-1/2 flex flex-col gap-1 mb-6 md:mb-0">
                 <h2 className="text-gray-500">About the Project</h2>
                 <p className="w-full md:w-3/4">
@@ -357,9 +363,11 @@ export function CaseStudyInfo() {
                     accessible solution that makes action easier and more meaningful. 
                     We focused on a user-first design approach that combined clarity, connection, and purpose.
                     Throughout the process, we received valuable feedback from multiple Amazonian designers,
-                    helping us refine the experience for real-world impact
+                    helping us refine the experience for real-world impact.
                 </p>
             </div>
+
+            {/* Project Details */}
             <div className="flex flex-col gap-3 w-full md:w-1/2">
                 {details.map((detail, idx) => (
                     <div key={idx}>
@@ -382,6 +390,7 @@ export function CaseStudyInfo() {
         </div>
     );
 }
+
 
 
 
@@ -410,6 +419,11 @@ export function Feature({title, subtitle, description}){
    )
 }
 export default function PlateItForward(){
+
+    useEffect(() => {
+      AOS.init({ duration: 800, once: true });
+    }, []);
+
     const projectKeys = Object.keys(projectData);
     const currentIndex = projectKeys.indexOf("plateItForward");
     const prevIndex = (currentIndex - 1 + projectKeys.length) % projectKeys.length;
@@ -425,18 +439,38 @@ export default function PlateItForward(){
     </nav>
 
     <div className="bg-white">
-        <section className="w-screen h-auto flex flex-col md:flex-row">
-          <div className="flex flex-col px-10 mt-[10vh] items-center justify-center">
-            <h3 className={`mb-[3vh] font-bold leading-none self-start
-                ${window.innerWidth < 500 ? "text-[8vw]" : "text-[7vw]"}`}>PlateItForward</h3>
-            <div>
-            <img src="/banners/plateItForwardBanner.png" className="w-full mb-6" />
-            </div>
-            <div className="w-full border-t border-b border-gray-200 py-8">
-              <CaseStudyInfo />
-            </div>
-          </div>
-        </section>
+<section className="w-screen h-auto flex flex-col md:flex-row">
+  <div className="flex flex-col px-4 md:px-20 mt-[10vh] justify-center w-full">
+    <h3
+      className={`mt-[2vh] font-bold leading-none self-start ${window.innerWidth < 500 ? "text-[10vw]" : "text-[10vw]"}`}
+      data-aos="fade-up"
+    >
+      PlateItForward
+    </h3>
+
+    <div data-aos="fade-up">
+      <p className={`${window.innerWidth < 500 ? "text-[2vw]" : "text-[2.5vw]"} mb-8`}>
+        From Leftover to Impact - Students Leading the Way
+      </p>
+    </div>
+
+    {/* Full-width banner */}
+    <div className="-mx-4 md:-mx-20 w-screen">
+      <img
+        src="/banners/plateItForwardBanner.png"
+        className="w-full object-cover mb-6"
+        alt="PlateItForward Banner"
+      />
+    </div>
+
+    {/* CaseStudyInfo */}
+    <div className="w-full border-t border-b border-gray-200 py-8 px-8">
+      <CaseStudyInfo />
+    </div>
+  </div>
+</section>
+
+
 
          <CaseBlock 
          subtitle={"Problem"} 

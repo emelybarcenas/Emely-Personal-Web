@@ -1,5 +1,3 @@
-
-
 {
   "homepage": "https://emelybarcenas.github.io/Emely-Personal-Web",
   "name": "my-web",
@@ -13,9 +11,9 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
-
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "framer-motion": "^12.4.1",
     "lucide-react": "^0.475.0",
     "react": "^18.3.1",
