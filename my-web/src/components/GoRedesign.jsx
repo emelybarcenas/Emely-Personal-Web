@@ -62,9 +62,11 @@ export function CaseStudyInfo() {
 }
 
 const projectData = {
+    GoRedesign: {
+        title: "GO Transit Redesign",
+    },
     plateItForward: {
         title: "PlateItForward",
-
 
     },
     tinker:{
@@ -201,7 +203,7 @@ export default function GoRedesign(){
   }, []);
 
   const projectKeys = Object.keys(projectData);
-    const currentIndex = projectKeys.indexOf("plateItForward");
+    const currentIndex = projectKeys.indexOf("GoRedesign");
     const prevIndex = (currentIndex - 1 + projectKeys.length) % projectKeys.length;
     const nextIndex = (currentIndex + 1) % projectKeys.length;
     const prevProjectID = projectKeys[prevIndex];
@@ -210,7 +212,7 @@ export default function GoRedesign(){
     const nextProject = projectData[nextProjectID];
     
     return(
-      <main>
+      <main className="overflow-x-hidden">
      <nav>
          <Navigation />
     </nav>
@@ -225,7 +227,7 @@ export default function GoRedesign(){
     </h3>
 
     <div >
-      <p className={`${window.innerWidth < 600 ? "text-[2.5vw]" : "text-[2vw]"} mb-8`}>
+      <p className={`${window.innerWidth < 600 ? "text-[4vw]" : "text-[2vw]"} mb-8`}>
         Transforming Transit Apps - Starting at Home
       </p>
     </div>
@@ -258,7 +260,7 @@ export default function GoRedesign(){
 </CaseBlock>
 
 
-{/* User Research Section */}
+{/* App Store Reviews */}
        <section className="mx-4 md:mx-10 py-10 flex flex-col gap-2" data-aos="fade-up">
   <div className="mx-4 md:mx-20">
     <div className="w-full">
@@ -276,7 +278,7 @@ export default function GoRedesign(){
         <div key={i} className="w-full md:w-1/4 h-40 overflow-hidden rounded-xl shadow-lg">
           <img
             src={`/goApp/${img}.png`}
-            className="w-full h-full object-cover scale-150 md:scale-[1.75]"
+            className="w-full h-full object-cover scale-110 md:scale-[1.75]"
             alt={`Review ${i + 1}`}
           />
         </div>
@@ -286,7 +288,7 @@ export default function GoRedesign(){
 </section>
 
 
-{/* User Interviews Section */}
+{/* On-Site Interviews (Convos on the Go) Section */}
 <section className="mx-4 md:mx-10 pb-10 flex flex-col gap-2" data-aos="fade-up">
   <div className="mx-4 md:mx-20">
     <div className="w-full">
@@ -306,7 +308,7 @@ export default function GoRedesign(){
         , gaining valuable  perspectives
         to complement my initial research.
       </p>
-      <div className="flex gap-1 justify-center">
+      <div className="flex flex-col md:flex-row gap-1 justify-center">
         <div className="flex flex-col items-center">
           <img src="/goApp/affinitymapping.png" className="w-full max-w-[300px] sm:w-auto h-40 object-cover" />
           <p className="text-gray-500 whitespace-nowrap text-xs md:text-base">Affinity mapping from user quotes</p>
@@ -371,14 +373,13 @@ export default function GoRedesign(){
 
 {/* Personas Section */}
           <CaseBlock subtitle={"Personas"} title="Meet the Users" data-aos="fade-up">
-            <div className="flex w-fit">
-              <img src="/goApp/mariaP.png" alt="Personas" className="w-1/2" />
-              <img src="/goApp/nicolas.png" alt="Personas" className="w-1/2" />
+            <div className="flex flex-col md:flex-row w-fit">
+              <img src="/goApp/mariaP.png" alt="Personas" className="md:w-1/2" />
+              <img src="/goApp/nicolas.png" alt="Personas" className="md:w-1/2" />
             </div>
           </CaseBlock>
 
 
-{/* Competitive Analysis + SWOT Section */}
 <CaseBlock
   subtitle="Competitive Analysis + SWOT Analysis"
   title="Transit Apps Under the Lens"
@@ -387,22 +388,43 @@ export default function GoRedesign(){
   <div className="flex flex-col gap-5">
     <p className="w-full">
       Users shouldn’t have to use 3 different apps to
-      find navigation information. I decided to <b> compare
+      find navigation information. I decided to <b>compare
       3 transportation apps with 4.6+ ratings</b> to identify
       design patterns and features that address common
       user pain points. Next, I <b>evaluated the current
       app </b>using a SWOT Analysis.
     </p>
-    <div className="flex gap-2">
-      <img src="/goApp/CA1.jpg" className="w-1/2 h-fit" alt="SWOT Analysis" />
-      <img src="/goApp/CA2.jpg" className="w-1/2 h-fit" alt="SWOT Analysis" />
+
+    {/* First row */}
+    <div className="flex flex-col md:flex-row gap-2">
+      <img
+        src="/goApp/CA1.jpg"
+        className="w-full md:w-1/2 max-w-full h-auto rounded-lg shadow"
+        alt="SWOT Analysis"
+      />
+      <img
+        src="/goApp/CA2.jpg"
+        className="w-full md:w-1/2 max-w-full h-auto rounded-lg shadow"
+        alt="SWOT Analysis"
+      />
     </div>
-    <div className="flex gap-2">
-      <img src="/goApp/CA3.jpg" className="w-1/2 h-fit" alt="SWOT Analysis" />
-      <img src="/goApp/SWOT.jpg" className="w-1/2 h-fit" alt="SWOT Analysis" />
+
+    {/* Second row */}
+    <div className="flex flex-col md:flex-row gap-2">
+      <img
+        src="/goApp/CA3.jpg"
+        className="w-full md:w-1/2 max-w-full h-auto rounded-lg shadow"
+        alt="SWOT Analysis"
+      />
+      <img
+        src="/goApp/SWOT.jpg"
+        className="w-full md:w-1/2 max-w-full h-auto rounded-lg shadow"
+        alt="SWOT Analysis"
+      />
     </div>
   </div>
 </CaseBlock>
+
 
 
 {/* Design Goals Section */}
@@ -429,16 +451,16 @@ export default function GoRedesign(){
     </div>
     {/* Images + Caption Section */}
     <div className="w-full md:w-1/2 flex flex-col items-center gap-2">
-      <div className="flex gap-2">
+      <div className="flex flex-col md:flex-row gap-2">
         <img
           src="/goApp/low-fidelity.png"
           alt="low-fidelity mockups"
-          className="max-w-full h-[180px] md:h-[260px] rounded-lg shadow object-cover"
+          className="max-w-full  md:h-[260px] rounded-lg shadow object-cover"
         />
         <img
           src="/goApp/sketches.png"
           alt="sketches"
-          className="max-w-full h-[180px] md:h-[260px] rounded-lg shadow object-cover"
+          className="max-w-full  md:h-[260px] rounded-lg shadow object-cover"
         />
       </div>
       <p className="text-gray-500 text-xs md:text-base mt-2 text-center">
@@ -448,7 +470,6 @@ export default function GoRedesign(){
   </div>
 </CaseBlock>
 
-{/* Final Product Section */}
 
 {/* Final Product Section */}
 <CaseBlock
