@@ -40,8 +40,8 @@ function Navigation({ className }) {
     <div>
       <nav className="fixed w-full h-[7vh] flex justify-between items-center p-4 bg-[#212121] text-white z-50 font-sans font-bold">
         {/* Left navigation items */}
-        <div className="justify-start hidden sm:flex mt-2 space-x-4">
-  <a href="/EmelyBarcenasResume.pdf" download className="hover:text-gray-400 bg-transparent mx-4">
+        <div className="justify-start hidden sm:flex space-x-4">
+  <a href="/Emely_Barcenas_Resume_Aug30.pdf" download className="hover:text-gray-400 bg-transparent mx-4">
     <img src="/icons/resume icon.svg" alt="Resume icon" className="w-8 h-auto" />
   </a>
   <a href="/" className="hover:text-gray-400 bg-transparent mx-4">
@@ -62,7 +62,7 @@ function Navigation({ className }) {
               href="/portfolio"
               className="px-6 py-2 text-[1vw] sm:text-base rounded-full bg-[#9E76FF] hover:bg-white hover:text-black text-[#212121] transition-colors font-sans"
             >
-              Portfolio
+             Work
             </a>
             <a
               href="/contact-page"

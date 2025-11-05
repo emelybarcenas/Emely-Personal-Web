@@ -1,79 +1,89 @@
-function ProjectCover({ imgSrc, alt, href, title, description, projectType }) {
-  // turn "UI/UX Case Study | Personal Project" into an array
+import downArrowIcon from "../assets/down-arrow-icon.svg";
+import { useState } from "react";
+
+function ProjectCover({ imgSrc, alt, href, title, caption, description, projectType }) {
   const tags = projectType.includes("|")
     ? projectType.split("|").map((t) => t.trim())
-    : projectType;
+    : [projectType];
 
   return (
-    <div className="group rounded-2xl overflow-hidden shadow-lg w-[60vw] sm:w-[40vw] md:w-[30vw] lg:w-[22vw] bg-white flex flex-col gap-0 justify-center items-center transition-transform duration-300 ease-in-out transform hover:scale-105 relative">
-      <div className="relative w-full">
-        <img
-          src={imgSrc}
-          alt={alt}
-          className="w-full aspect-square object-cover"
-        />
-
-        {/* projectType tags overlay on image */}
-        {Array.isArray(tags) ? (
-          <div className="absolute bottom-2 left-2 flex flex-wrap gap-1">
-            {tags.map((tag, idx) => (
-              <span
-                key={idx}
-                className="px-2 py-0.5 bg-white text-black text-[10px] rounded-full border border-[#E0E0E0] font-medium shadow-sm"
-
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
+    <div className="flex flex-col items-center w-full max-w-2xl group px-4 sm:px-0">
+      <div className="relative flex flex-col items-center w-full">
+        {href ? (
+          <a href={href} className="block w-full">
+            <div className="relative mx-auto w-full max-w-[420px] sm:max-w-lg md:max-w-xl">
+              <img
+                src={imgSrc}
+                alt={alt}
+                className="w-full h-56 md:h-56 lg:h-64 object-cover rounded-2xl shadow-lg bg-[#212121] transition-transform duration-300 group-hover:scale-[1.03]"
+              />
+              {/* Diagonal arrow icon on hover */}
+              <img
+                src={downArrowIcon}
+                alt="Arrow Icon"
+                className="absolute right-6 top-6 w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                style={{ transform: "rotate(225deg)" }}
+              />
+              {/* Tags overlay on hover */}
+              <div className="absolute left-0 right-0 bottom-0 flex flex-wrap gap-1 justify-start items-end pb-2 pl-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {tags.map((tag, idx) => (
+                  <span
+                    key={idx}
+                    className="px-3 py-1 bg-white text-black text-xs rounded-full border border-gray-300 font-medium shadow-sm m-1 whitespace-nowrap"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </a>
         ) : (
-          <span className="absolute bottom-2 left-2 px-3 py-1 bg-white text-black text-xs rounded-full border border-[#E0E0E0] font-medium shadow-sm">
-            {tags}
-          </span>
+          <div className="relative mx-auto w-full max-w-[420px] sm:max-w-lg md:max-w-xl">
+            <img
+              src={imgSrc}
+              alt={alt}
+              className="w-full h-40 md:h-56 lg:h-64 object-cover rounded-2xl shadow-lg bg-[#212121]"
+            />
+          </div>
         )}
       </div>
-
-      <div className="w-full px-6 py-4 flex flex-col items-start">
-        <a href={href}>
-          <h4 className="text-[#212121] font-bold text-xl hover:underline">
-            {title}
-          </h4>
-        </a>
-        <p className="text-gray-500 text-sm mt-1">{description}</p>
+      {/* Text block matches image width and alignment */}
+      <div className="mt-6 flex flex-col items-center w-full">
+        <div className="mx-auto w-full max-w-[420px] sm:max-w-lg md:max-w-xl">
+          <h4 className="text-black font-medium text-lg md:text-3xl mb-2 text-left">{caption || title}</h4>
+          <p className="text-gray-700 text-base md:text-md mb-2 text-left">{description}</p>
+        </div>
       </div>
     </div>
   );
 }
 
+
+
+
 export default function RecentProjects() {
   return (
-    <div className="h-auto w-full bg-white flex flex-col items-center justify-center">
-      <h3 className={`recProj text-[#212121] ${window.innerWidth<540 ? "text-[7vw]" : "text-[8vw] mx-[1vw]"} mt-[2vh] font-bold`}>FEATURED ✦ PROJECTS</h3>
-      <div className="flex justify-center items-center p-0 m-10 mb-20">
-        <div className="flex justify-center items-center flex-wrap gap-10">
+    <div className="w-full flex flex-col items-center justify-center rounded-t-xl recentProjects bg-white py-12">
+      <h3 className={`featuredProjects text-black ${window.innerWidth<540 ? "text-[10vw]" : "text-[4vw] mx-[1vw]"} mb-10`}>
+        Featured ✦ Projects
+      </h3>
+      <div className="flex justify-center items-start w-full">
+        <div className="flex flex-col md:flex-row gap-20 items-start w-full max-w-5xl">
           <ProjectCover
-            imgSrc="/portfolio-covers/goAppCover.png"
+            imgSrc="/goApp/goCover.jpg"
             alt="GO Transit Redesign"
             href="/portfolio/goTransitRedesign"
             title="GO Transit Redesign"
-            description="Transforming transit apps - starting at home with GO transit redesign"
+            description="Turning complexity into clarity through thoughtful app design"
             projectType={"UI/UX Case Study | Personal Project | User Research "}
           />
           <ProjectCover
-            imgSrc="/portfolio-covers/plateItForwardCover.png"
+            imgSrc="/banners/plateItForwardBanner.png"
             alt="PlateItForward"
             href="/portfolio/plateItForward"
-            title="Plate It Forward"
-            description="From leftovers to impact: students leading the way in food waste reduction"
+            title="PlateItForward"
+            description="Designing for action: making food donations simple and rewarding"
             projectType={"UI/UX Case Study | CodePath x AmazonNext 2025 "}
-          />
-          <ProjectCover
-            imgSrc="/portfolio-covers/tinkercover.png"
-            alt="Tinker"
-            href="/portfolio/tinker"
-            title="Tinker"
-            description="Where creative technologists share what they can’t stop building"
-            projectType={"Full Stack Development | Intermediate Web Dev Course"}
           />
         </div>
       </div>

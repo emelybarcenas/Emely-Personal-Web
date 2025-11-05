@@ -7,7 +7,7 @@ import Home from "./components/Home/Home.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 import Navigation from './components/Navigation-Bar/Navigation.jsx';
 import ThreeScene from './components/ThreeScene.jsx';
-import DesignerText from './components/DesignerText.jsx';
+import DesignerText from './components/SubTitle.jsx';
 import downArrowIcon from "./assets/down-arrow-icon.svg";
 import RecentProjects from './components/RecentProjects.jsx';
 import About from './components/About.jsx';
@@ -21,6 +21,7 @@ import Carousel from './components/Carousel.jsx';
 import PortfolioTemplate from './components/PortfolioTemplate.jsx';
 import PlateItForward from './components/plateItForward.jsx';
 import GoRedesign from './components/GoRedesign.jsx';
+import SubTitle from './components/SubTitle.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -39,39 +40,25 @@ function App() {
     </div>
 
 <div className='firstTwoContainer'>
+<div className="app-container containerSec">
+  
+  <Home />
+  <SubTitle />
+</div>   
 
-    <div className="app-container containerSec">
-      <Home />
-      <DesignerText />
-     <a href="#about">
-      <button>
-        <img src={downArrowIcon} alt="Down arrow" className='down-arrow' />
-     
-        </button>
-        </a>
-        <div>
-          <img src="/circle-lines.svg" className='circleLinesBott'/>
-        </div>
-        <div>
-          <img src="/circle-lines.svg" className='circleLinesTop'/>
-        </div>
-    </div>
-
-
-    <div className='about containerSec' id="about">
-     <RecentProjects className="projRectangles"/>
-    </div>
-
-  </div>
-
-  <About />
+{/* About section starts here, sticky/scrolling effect applies here */}
+<div className='about containerSec'>
+<RecentProjects />
+<About />
+</div>
  
+</div>
+
 
 
     <div id="contact" className='containerSec'>
       <ScribbleBg className="scribbleBg"/>
       </div>
- 
 
     <div className='bg-black flex flex-row'>
       <ThreeScene modelname="scene"/>
@@ -81,7 +68,7 @@ function App() {
    
 </div>
 
-<footer className='sticky bottom-0 z-[-10] w-100 pointer-events-auto'>
+<footer className='sticky bottom-0 z-0 w-100 pointer-events-auto'>
 <Footer className="footer"/>
 </footer>
 

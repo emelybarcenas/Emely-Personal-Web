@@ -88,7 +88,7 @@ export default function Scene() {
 
   return (
     <div className="absolute top-0 left-0 w-full h-full">
-      {dimension.width === 0 && <div className="absolute w-full h-full bg-black" />}
+      {dimension.width === 0 && <div className="absolute w-full h-full" />}
       
       <canvas 
         ref={bottomCanvas} 

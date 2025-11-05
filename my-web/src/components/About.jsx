@@ -1,3 +1,5 @@
+import Navigation from "./Navigation-Bar/Navigation.jsx";
+import Footer from "./Footer.jsx";
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
 
@@ -53,33 +55,33 @@ export default function About() {
     { label: "Adobe Certified Professional", text: "Visual Design using Adobe Photoshop" }
   ];
   const experience = [
-     { label: <>Miami HEAT | <em className="font-normal italic">May 2025</em></>, text: "Software Engineer Intern" },
+    { label: <>Miami HEAT | <em className="font-normal italic">May 2025</em></>, text: "Software Engineer Intern" },
     { label: <>The CuCompany | <em className="font-normal italic">Jul - Aug 2023</em></>, text: "Graphic Design & Social Media Marketing Intern" },
     { label: <>Private Tutor | <em className="font-normal italic">Feb 2022 - Current</em></>, text: <>Assist middle and high school students in mastering <span>essential topics like Algebra.</span></> }
   ];
 
   // Desktop Layout
   const desktopContent = (
-    <section className="h-auto w-[100vw] pb-[1vh] bg-[#212121] top-0 flex flex-col">
-      <h3 className="text-white font-sans font-bold text-[16vw] w-[100vw] leading-none mb-10 ml-1 mr-1 mt-0 whitespace-nowrap overflow-hidden flex justify-center">
+    <section className="h-auto w-full max-w-screen pb-[1vh] bg-[#212121] top-0 flex flex-col">
+      <h3 className="text-white font-sans font-bold text-[16vw] w-full leading-none mb-10 ml-1 mr-1 mt-0 whitespace-nowrap overflow-hidden flex justify-center">
         ABOUT ✦ ME
       </h3>
       <section className="meText text-[1.5vw] mb-[7vh] ml-[5vw] w-2/3 leading-relaxed text-white">
         <span>
-          With experience in <strong>software</strong> development, graphic <strong>design</strong>, and marketing, I love crafting engaging <strong>user
-            experiences</strong>-whether it’s through <strong>web development</strong>, UI/UX design, or interactive projects. My goal is to bridge the gap
-          between design and technology, ensuring that every project is not only visually compelling but also user-friendly,
-          <strong> efficient</strong>, and impactful.
+        I specialize in designing and developing user-centered digital experiences.
+         My background in UI/UX, software engineering, and visual design helps 
+         me bridge design and technology—building products that are both intuitive 
+         and impactful.
         </span>
         <a href="/about-page">
-          <span className="ml-4 font-bold underline cursor-pointer whitespace-nowrap">Read More</span> ↗
+          <span className="ml-4 font-bold underline cursor-pointer whitespace-nowrap text-white">Read More</span> ↗
         </a>
       </section>
       <div className={`content flex text-white ${windowWidth > 1200 ? "flex-row" : "flex-col"}`}>
         <div className="textArea flex flex-col gap-[2vw] ml-[5vw]">
           <div className="flex flex-col md:flex-row gap-[3vw]">
-            <section className="w-full md:w-1/2  text-white"><InfoSection title="Technical" items={technical} /></section>
-            <section className="w-full md:w-1/2  text-white"><InfoSection title="Design" items={design} /></section>
+            <section className="w-full md:w-1/2 text-white"><InfoSection title="Technical" items={technical} /></section>
+            <section className="w-full md:w-1/2 text-white"><InfoSection title="Design" items={design} /></section>
           </div>
           <div className="flex flex-col md:flex-row gap-[3vw]">
             <section className="w-full md:w-1/2"><InfoSection title="Experience" items={experience} /></section>
@@ -94,20 +96,17 @@ export default function About() {
   );
 
   // Mobile Layout
-const mobileContent = (
-    <section className="h-auto w-[100vw] bg-[#212121] top-0 flex flex-col justify-center items-center">
-      <h3 className="text-white font-sans font-bold text-[16vw] w-[100vw] leading-none mb-10 ml-1 mr-1 mt-0 whitespace-nowrap overflow-hidden flex justify-center">
+  const mobileContent = (
+    <section className="h-auto w-full max-w-screen bg-[#212121] top-0 flex flex-col justify-center items-center">
+      <h3 className="text-white font-sans font-bold text-[16vw] w-full leading-none mb-10 ml-1 mr-1 mt-0 whitespace-nowrap overflow-hidden flex justify-center">
         ABOUT ✦ ME
       </h3>
       <section className="meText text-[4vw] w-3/4 leading-relaxed text-white">
         <span>
-          With experience in <strong>software</strong> development, graphic <strong>design</strong>, branding, and marketing, I love crafting engaging <strong>user
-            experiences</strong>-whether it’s through <strong>web development</strong>, UI/UX design, or interactive projects. My goal is to bridge the gap
-          between design and technology, ensuring that every project is not only visually compelling but also user-friendly,
-          <strong> efficient</strong>, and impactful.
+         I specialize in designing and developing user-centered digital experiences. My background in UI/UX, software engineering, and visual design helps me bridge design and technology—building products that are both intuitive and impactful.
         </span>
         <a href="/about-page">
-          <span className="ml-4 font-bold underline cursor-pointer whitespace-nowrap">Read More</span> ↗
+          <span className="ml-4 font-bold underline cursor-pointer whitespace-nowrap text-white">Read More</span> ↗
         </a>
       </section>
       <section className="photoArea w-3/4 m-[5vw] ">
@@ -124,5 +123,14 @@ const mobileContent = (
     </section>
   );
 
-  return <div>{isMobile ? mobileContent : desktopContent}</div>;
+  return (
+    <div className="relative min-h-screen">
+      <Navigation />
+      
+      <div className="relative bg-[#212121] z-10">
+        {isMobile ? mobileContent : desktopContent}
+      </div>
+    
+    </div>
+  );
 }

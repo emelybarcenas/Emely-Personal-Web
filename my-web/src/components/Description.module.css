@@ -1,24 +1,22 @@
-.description{
-   
-    text-align: right;
-    font-size: 2.5vw;
-    font-weight: 200;
+.description {
+  text-align: center;
+  font-size: 2.5vw;
+  font-weight: 200;
   line-height: 1.0em;
-  max-width: fit-content;
-    margin-left: auto;
-  
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  }
-.description span{
-    display: block;  
-    margin: 0;
-    padding: 0;
-    pointer-events: none;
+.description span {
+  display: block;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
 }
 
 @media screen and (max-width: 480px) {
-    .description {
-      font-size: 6vw;
-      
-    }
+  .description {
+    font-size: 6vw;
+  }
 }

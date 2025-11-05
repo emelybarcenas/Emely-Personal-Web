@@ -13,36 +13,36 @@ function Description({ x, y, size, isHovered, onMouseEnter, onMouseLeave,classNa
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return (
-    <p
-      className={styles.description}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      style={{
-        maskPosition: `${x - size / 2}px ${y - size / 2}px`,
-        WebkitMaskPosition: `${x - size / 2}px ${y - size / 2}px`,
-        WebkitMaskSize: `${size}px`,
+  // return (
+  //   <p
+  //     className={styles.description}
+  //     onMouseEnter={onMouseEnter}
+  //     onMouseLeave={onMouseLeave}
+  //     style={{
+  //       maskPosition: `${x - size / 2}px ${y - size / 2}px`,
+  //       WebkitMaskPosition: `${x - size / 2}px ${y - size / 2}px`,
+  //       WebkitMaskSize: `${size}px`,
         
-      }}
-    >
-      {isSmallScreen ? (
-         <>
-   <span>Passionate about tech and </span>
-   <span>design, I’m a CS student</span>
-   <span>who thrives on crafting </span>
-   <span>user-centered digital</span>
-   <span>experiences.</span>
-        </>
-      ) : (
-        <>
-     <span>Driven by a passion for tech and design,</span>
-          <span>I’m a Computer Science student who</span>
-          <span>thrives on crafting user-centered</span>
-          <span>digital experiences.</span>
-        </>
-      )}
-    </p>
-  );
+  //     }}
+  //   >
+  //     {isSmallScreen ? (
+  //        <>
+  //  <span>Passionate about tech and </span>
+  //  <span>design, I’m a CS student</span>
+  //  <span>who thrives on crafting </span>
+  //  <span>user-centered digital</span>
+  //  <span>experiences.</span>
+  //       </>
+  //     ) : (
+  //       <>
+  //    <span>Driven by a passion for tech and design,</span>
+  //         <span>I’m a Computer Science student who</span>
+  //         <span>thrives on crafting user-centered</span>
+  //         <span>digital experiences.</span>
+  //       </>
+  //     )}
+  //   </p>
+  // );
 }
 
 export default Description;

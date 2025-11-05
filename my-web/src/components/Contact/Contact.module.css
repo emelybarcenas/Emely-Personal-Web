@@ -33,18 +33,12 @@ gap:20px;
   border-radius: 10px;
   border: solid #CEDD3E 4px;
   width: 100%;
-  padding-top: 0vh;
+  padding-top: 1vh;
   padding-bottom: 5vh;
+  padding-left: 1vh;
 }
 
-.contactMessageInput {
-  border-radius: 10px;
-  border: solid #CEDD3E 4px;
-  width: 100%;
-  height: 10vh;
-  padding-top: 0vh; /* Add padding at the top to align text to the top */
-  text-align: left; /* Ensure text is aligned to the left */
-}
+
 
 .submitButton {
   border-radius: 8px;

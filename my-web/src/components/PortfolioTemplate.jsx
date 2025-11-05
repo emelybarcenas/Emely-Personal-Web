@@ -151,11 +151,11 @@ export default function PortfolioTemplate(){
 
    
     return(
-        <main>
-            <nav>
+        <div className="relative min-h-screen">
+            <nav className="fixed top-0 left-0 right-0 z-50 w-full">
                 <Navigation />
             </nav>
-        <div className="bg-white">
+            <div className="relative bg-white z-10 pt-16 md:pt-20">
         <section className="bg-white w-screen h-auto flex flex-col md:flex-row">
         <div className="flex flex-col p-10 mt-[10vh] w-full md:w-1/2">
             <h3 className={`mb-[3vh] font-bold leading-none ${window.innerWidth < 500 ? "text-[10vw]" : "text-[7vw]"}`}>{project.title}</h3>
@@ -267,11 +267,10 @@ export default function PortfolioTemplate(){
   </Link>
 </div>
 
-</div>
-
-            <footer className="pointer-events-auto sticky bottom-0 z-[-1]">
+            </div>
+            <footer className="pointer-events-auto sticky bottom-0 z-5 w-full">
                 <Footer className="pointer-events-auto"/>
             </footer>
-        </main>
+        </div>
     )
 }

@@ -44,15 +44,15 @@ export default function Footer() {
                     
                 <h1 className={`flex font-normal ${window.innerWidth<500? 'flex-col leading-none' : 'flex-row'}`}>
                 {location.pathname === '/about-page' || location.pathname === '/' ? 'Born to' : 
-                    <span className={`font-bold ${window.innerWidth<500 ? "text-[7vw]" : ""}`}>Let's work together.</span>}
+                    <span className={`font-bold ${window.innerWidth<500 ? "text-[7vw] mb-[2vh]" : ""}`}>Let's work together.</span>}
                 {/* Render LoopingText on /about-page and / */}
                 {(location.pathname === '/about-page' || location.pathname === '/') && <LoopingText />}
                 </h1>
                 </div>
 
-                <div className={`flex flex-end gap-[5vw]${window.innerWidth <400 ? 'mt-[3vh] ml-[3vh]':''}`}>
+                <div className={`flex flex-end gap-[5vw]${window.innerWidth <400 ? 'mt-[5vh] ml-[3vh] gap-[6vw]':''}`}>
                     <div>
-                        <ul className="flex flex-col">
+                        <ul className="flex flex-col pointer-events-auto">
                             <li><a href="/" className='hover:underline '>Home</a></li>
                             <li><a href="/portfolio" className='hover:underline '>Portfolio</a></li>
                             <li><a href="/contact-page" className='hover:underline '>Contact Me</a></li>

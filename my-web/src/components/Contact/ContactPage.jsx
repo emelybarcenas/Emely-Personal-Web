@@ -23,12 +23,18 @@ export default function ContactPage() {
   }, []);
 
   return (
-    <div> {/* Adds margin-top only for mobile */}
-    <Navigation />
-      <ScribbleBg />
-      <div className='sticky bottom-0'>
-        <Footer className="pointer-events-auto"/>
+     <div className="relative min-h-screen"> 
+      <Navigation />
+      
+      {/* Content area with padding-bottom to reveal footer */}
+      <div className="relative bg-white z-10">
+        <ScribbleBg />
       </div>
+      
+      {/* Footer sticky at bottom, behind content */}
+      <footer className="sticky bottom-0 z-0">
+        <Footer />
+      </footer>
     </div>
   );
 }
