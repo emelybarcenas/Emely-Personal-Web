@@ -1,5 +1,6 @@
 import Navigation from "./Navigation-Bar/Navigation.jsx";
 import Footer from "./Footer.jsx";
+import LazyImage from "./LazyImage.jsx";
 import {useState, useEffect} from "react";
 
 export default function AboutPage() {
@@ -23,7 +24,7 @@ export default function AboutPage() {
   
 function ExperienceSection({ experiences }) {
   return (
-    <section className="bg-[#212121] w-full h-auto mx-auto text-white p-8 flex flex-row gap-5">
+    <section className="bg-[#181818] w-full h-auto mx-auto text-white p-8 flex flex-row gap-5">
         <div className="flex flex-col w-1/2 justify-center items-center gap-8">
         {experiences.map((exp, idx) => 
           exp.img?(
@@ -31,7 +32,7 @@ function ExperienceSection({ experiences }) {
             key={idx}
             className="w-full max-w-[600px] h-[400px] overflow-hidden border-8 border-[#FF97DB] flex items-center justify-center bg-white"
           >
-            <img
+            <LazyImage
               src={exp.img}
               alt={exp.imgAlt || exp.title}
               className="w-full h-full object-cover object-center"
@@ -109,13 +110,13 @@ function ExperienceSection({ experiences }) {
                       </div>
 
                       <div className="picsOfMe flex flex-col justify-center items-center md:w-1/2 mt-8 gap-4">
-                        <img src="/me-init.jpg" className="w-full max-w-[400px] h-auto object-cover" />
+                        <LazyImage src="/me-init.jpg" className="w-full max-w-[400px] h-auto object-cover" />
                       </div>
                     </section>
           )}
 
           {isMobile && (
-                    <section className='bg-[#212121] w-full min-h-[50vh] text-white p-4 md:p-8 flex flex-col gap-8'>
+                    <section className='bg-[#181818] w-full min-h-[50vh] text-white p-4 md:p-8 flex flex-col gap-8'>
                     
                     <div className="flex flex-col md:flex-row gap-8">
                         <div className="flex flex-col md:w-1/2">
@@ -131,7 +132,7 @@ function ExperienceSection({ experiences }) {
                           </p>
                         </div>
                         <div className="md:w-1/2 flex justify-center">
-                          <img src="/me-miamiheat.JPG" className="w-full max-w-[400px]" />
+                          <LazyImage src="/me-miamiheat.JPG" className="w-full max-w-[400px]" />
                         </div>
                       </div>
                     
@@ -151,7 +152,7 @@ function ExperienceSection({ experiences }) {
                         </div>
 
                         <div className="md:w-1/2 flex justify-center">
-                          <img src="/cuco-phones.jpg" className="w-full max-w-[400px]" />
+                          <LazyImage src="/cuco-phones.jpg" className="w-full max-w-[400px]" />
                         </div>
 
                       </div>
@@ -166,14 +167,14 @@ function ExperienceSection({ experiences }) {
                   </p>
                         </div>
                         <div className="md:w-1/2 flex justify-center">
-                          <img src="/me-junior-ring.PNG" className="w-full max-w-[400px]" />
+                          <LazyImage src="/me-junior-ring.PNG" className="w-full max-w-[400px]" />
                         </div>
                       </div>
                     </section>
           )}
 
           {isMobile && (
-                    <section className='bg-white w-full min-h-[50vh] text-[#212121] p-4 md:p-8 flex flex-col gap-8'>
+                    <section className='bg-white w-full min-h-[50vh] text-[#181818] p-4 md:p-8 flex flex-col gap-8'>
                       <div className="flex flex-col md:flex-row gap-8">
                       
                         <div className="flex flex-col md:w-1/2">
@@ -188,7 +189,7 @@ function ExperienceSection({ experiences }) {
                           </p>
                         </div>
                         <div className="md:w-1/2 flex justify-center">
-                          <img src="/init-group-pic.jpg" className="w-full max-w-[400px]" />
+                          <LazyImage src="/init-group-pic.jpg" className="w-full max-w-[400px]" />
                         </div>
                       </div>
 
@@ -200,7 +201,7 @@ function ExperienceSection({ experiences }) {
                           </p>
                         </div>
                         <div className="md:w-1/2 flex justify-center">
-                          <img src="/codepath-group-pic.jpg" className="w-full max-w-[400px]" />
+                          <LazyImage src="/codepath-group-pic.jpg" className="w-full max-w-[400px]" />
                         </div>
                       </div>
                     </section>
@@ -232,19 +233,19 @@ function ExperienceSection({ experiences }) {
 
                         <div className="picsOfMe flex flex-col justify-center items-center w-1/2 overflow-hidden mt-10 p-2 gap-2">
                 <div className="h-[90%] w-full flex justify-center items-center">
-                  <img src="/me-init.jpg" className="w-full h-full object-cover border-[#FF97DB] border-8" />
+                  <LazyImage src="/me-init.jpg" className="w-full h-full object-cover border-[#FF97DB] border-8" />
                 </div>
                         </div>
                       </section>
                   
-                      <section className='bg-[#212121] w-full h-auto mx-auto p-8 flex'>
+                      <section className='bg-[#181818] w-full h-auto mx-auto p-8 flex'>
                       <ExperienceSection experiences={experiences} />
                       </section>
 
-                      <section className="bg-white w-full h-fit text-[#212121] p-8 flex flex-row gap-8">
+                      <section className="bg-white w-full h-fit text-[#181818] p-8 flex flex-row gap-8">
                         {/* Left Column (INIT FIU Image + CodePath Text) */}
                         <div className="w-1/2 flex flex-col gap-8 m-10 ">
-                          <img src="/init-group-pic.jpg" className="w-full h-auto object-cover border-[#FF97DB] border-8"/>
+                          <LazyImage src="/init-group-pic.jpg" className="w-full h-auto object-cover border-[#FF97DB] border-8"/>
 
                           <div className="flex flex-col">
                             <p className="mb-2 font-bold text-xl">CodePath Emerging Engineers Empowerment Program</p>
@@ -268,7 +269,7 @@ function ExperienceSection({ experiences }) {
                             </p>
                           </div>
 
-                          <img src="/codepath-group-pic.jpg" className="w-full h-auto object-cover border-[#FF97DB] border-8"/>
+                          <LazyImage src="/codepath-group-pic.jpg" className="w-full h-auto object-cover border-[#FF97DB] border-8"/>
                         </div>
                       </section>
                   </div>

@@ -1,5 +1,6 @@
 import Navigation from "./Navigation-Bar/Navigation";
 import Footer from "./Footer";
+import LazyImage from "./LazyImage.jsx";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { projectData } from "../data/projectData";
@@ -324,7 +325,7 @@ export default function PlateItForward() {
       <div className="relative bg-white z-10 pt-16 md:pt-20">
         <div className="mx-auto max-w-5xl w-full px-6 md:px-0 mt-[10vh]">
         
-          <img
+          <LazyImage
             src="/banners/plateItForwardBanner.png"
             alt="PlateItForward Banner"
             className="w-full object-cover mb-6 rounded-2xl mt-[5vh]"
@@ -421,7 +422,7 @@ export default function PlateItForward() {
               <li>Show students their impact and why it matters</li>
             </ul>
             <div className="flex justify-center">
-              <img src="/plateItForward/earlyiterations.jpg" className="w-full max-w-[800px] mt-4" alt="Early Iterations" />
+              <LazyImage src="/plateItForward/earlyiterations.jpg" className="w-full max-w-[800px] mt-4" alt="Early Iterations" />
             </div>
           </CaseBlock>
 
@@ -530,14 +531,14 @@ export default function PlateItForward() {
           <div className="flex flex-col md:flex-row items-center md:justify-between gap-4 md:gap-0 my-10">
             <Link
               to={`/portfolio/${prevProjectID}`}
-              className="flex items-center justify-center bg-white hover:bg-[#9E76FF] text-[#212121] font-bold w-[300px] md:w-auto px-3 py-2 md:px-6 md:py-3 rounded-full shadow-lg transition z-10 text-xs md:text-base"
+              className="flex items-center justify-center bg-white hover:bg-[#9E76FF] text-[#181818] font-bold w-[300px] md:w-auto px-3 py-2 md:px-6 md:py-3 rounded-full shadow-lg transition z-10 text-xs md:text-base"
             >
               <ArrowRight size={20} className="rotate-180 mr-2" />
               {prevProject.title}
             </Link>
             <Link
               to={`/portfolio/${nextProjectID}`}
-              className="flex items-center justify-center bg-white hover:bg-[#9E76FF] text-[#212121] font-bold w-[300px] md:w-auto px-3 py-2 md:px-6 md:py-3 rounded-full shadow-lg transition text-xs md:text-base"
+              className="flex items-center justify-center bg-white hover:bg-[#9E76FF] text-[#181818] font-bold w-[300px] md:w-auto px-3 py-2 md:px-6 md:py-3 rounded-full shadow-lg transition text-xs md:text-base"
             >
               <span className="mr-2">{nextProject.title}</span>
               <ArrowRight size={20} />

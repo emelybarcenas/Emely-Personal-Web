@@ -1,79 +1,79 @@
-'use client';
-import useMousePosition from '../../utils/useMousePosition';
-import styles from './Home.module.css';
-import { motion } from 'framer-motion';
 import { useState } from 'react';
-import Description from '../Description';
+import styles from './Home.module.css';
+
+function HeroCopy({ className = '', onTextEnter, onTextLeave }) {
+  return (
+    <section className={`${styles.intro} ${className}`}>
+      <h1
+        className={styles.reveal}
+        onPointerEnter={onTextEnter}
+        onPointerLeave={onTextLeave}
+      >
+        EMELY BARCENAS
+      </h1>
+      <p
+        className={`${styles.lead} ${styles.reveal}`}
+        onPointerEnter={onTextEnter}
+        onPointerLeave={onTextLeave}
+      >
+        Designing thoughtful products with strategy and engineering
+      </p>
+      <div className={`${styles.details} ${styles.reveal}`}>
+        <div>
+          <strong onPointerEnter={onTextEnter} onPointerLeave={onTextLeave}>
+            <em>Previously designing at IBM and engineering at Miami Heat</em>
+          </strong>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function Home() {
-  const { x, y } = useMousePosition();
-  const [isHovered, setIsHovered] = useState(false);
-  const [isActive, setIsActive] = useState(false); // Tracks if mouse is in the div
-  const size = isHovered ? 300 : 40;
+  const [pointer, setPointer] = useState({ x: 0, y: 0 });
+  const [isPointerInside, setIsPointerInside] = useState(false);
+  const [isTextHovering, setIsTextHovering] = useState(false);
+
+  const handlePointerMove = (event) => {
+    const bounds = event.currentTarget.getBoundingClientRect();
+    setPointer({
+      x: event.clientX - bounds.left,
+      y: event.clientY - bounds.top,
+    });
+  };
 
   return (
-    <>
-      <main
-        id="home"
-        className={`${styles.main} home`}
-        onMouseEnter={() => setIsActive(true)} // Activate when mouse enters the div
-        onMouseLeave={() => setIsActive(false)} // Deactivate when mouse leaves the div
+    <main
+      id="home"
+      className={styles.main}
+      onPointerEnter={() => setIsPointerInside(true)}
+      onPointerLeave={() => setIsPointerInside(false)}
+      onPointerMove={handlePointerMove}
+    >
+      <div className={`${styles.orbit} ${styles.orbitOne}`} aria-hidden="true" />
+      <div className={`${styles.orbit} ${styles.orbitTwo}`} aria-hidden="true" />
+      <div className={`${styles.orbit} ${styles.orbitThree}`} aria-hidden="true" />
+      <div className={styles.content}>
+        <HeroCopy
+          onTextEnter={() => setIsTextHovering(true)}
+          onTextLeave={() => setIsTextHovering(false)}
+        />
+      </div>
+      <div
+        className={`${styles.maskLayer} ${isTextHovering ? styles.maskLayerVisible : ''}`}
+        style={{ '--pointer-x': `${pointer.x}px`, '--pointer-y': `${pointer.y}px` }}
+        aria-hidden="true"
       >
-        {isActive && (
-          // Only render the mask effect when active
-          <motion.div
-            className={styles.mask}
-            style={{
-              maskPosition: `${x - size / 2}px ${y - size / 2}px`,
-              WebkitMaskPosition: `${x - size / 2}px ${y - size / 2}px`,
-              WebkitMaskSize: `${size}px`,
-            }}
-            transition={{
-              type: 'tween',
-              duration: 0.3,
-              ease: 'circOut',
-            }}
-          >
-            <h2
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-              className="font-bold home-name mt-12"
-              style={{
-                maskPosition: `${x - size / 2}px ${y - size / 2}px`,
-                WebkitMaskPosition: `${x - size / 2}px ${y - size / 2}px`,
-                WebkitMaskSize: `${size}px`,
-              }}
-            >
-              EMELY BARCENAS
-            </h2>
-            <div className={`${window.innerWidth < 540 ? "mt-[20vh]" : "mt-[55vh]"} ml-[10vw] mr-[5vw]`}>
-              <Description
-                isHovered={isHovered}
-                x={x}
-                y={y}
-                size={size}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-              />
-            </div>
-          </motion.div>
-        )}
-
-        <motion.div className={`${styles.body} font-bold mt-12`}>
-          <h2 className='home-name'>EMELY BARCENAS</h2>
-          <div className={`${window.innerWidth < 540 ? "mt-[25vh]" : "mt-[25vh]"} ml-[10vw] mr-[5vw]`}>
-            <Description
-              isHovered={isHovered}
-              x={x}
-              y={y}
-              size={size}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            />
-          </div>
-        </motion.div>
-      </main>
-    </>
+        <div className={styles.content}>
+          <HeroCopy className={styles.maskIntro} />
+        </div>
+      </div>
+      <div
+        className={`${styles.cursorRing} ${isPointerInside ? styles.cursorRingVisible : ''} ${isTextHovering ? styles.cursorRingLarge : ''}`}
+        style={{ left: pointer.x, top: pointer.y }}
+        aria-hidden="true"
+      />
+    </main>
   );
 }
 

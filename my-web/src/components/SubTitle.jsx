@@ -1,5 +1,6 @@
 import { Search, Layout, PenTool, Code } from "lucide-react";
 import RecentProjects from "./RecentProjects";
+import LazyImage from "./LazyImage.jsx";
 import { useEffect, useState } from "react";
 
 
@@ -39,7 +40,7 @@ function SubTitle() {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <img
+          <LazyImage
             src={imgSrc}
             alt={alt}
             className="w-full aspect-[2/1] object-cover"
@@ -62,7 +63,7 @@ function SubTitle() {
           )}
         </div>
         <div className="w-full px-6 py-4 flex flex-col items-start">
-          <h4 className="text-[#212121] font-bold text-lg mb-2">{caption || title}</h4>
+          <h4 className="text-[#181818] font-bold text-lg mb-2">{caption || title}</h4>
           <p className="text-gray-500 text-sm mb-2">{description}</p>
           <div className="flex flex-wrap gap-1 mt-2">
             {Array.isArray(tags)

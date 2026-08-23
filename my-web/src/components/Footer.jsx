@@ -37,20 +37,28 @@ const LoopingText = () => {
 
 
 export default function Footer() {
+    const location = useLocation();
+    const isAbout = location.pathname === '/about-page';
+    const isHome = location.pathname === '/';
+
     return (
-        <div className="w-full h-[70vh] pb-10 bg-[#212121] text-white flex flex-col pointer-events-auto">
-            <section className={`mt-[5vh] ${window.innerWidth<500 ? 'flex flex-col':'gap-[70vw] flex'}`}>
-                <div className="flex flex-start text-[6vh] leading-[10vh] whitespace-nowrap font-bold">
-                    
-                <h1 className={`flex font-normal ${window.innerWidth<500? 'flex-col leading-none' : 'flex-row'}`}>
-                {location.pathname === '/about-page' || location.pathname === '/' ? 'Born to' : 
-                    <span className={`font-bold ${window.innerWidth<500 ? "text-[7vw] mb-[2vh]" : ""}`}>Let's work together.</span>}
-                {/* Render LoopingText on /about-page and / */}
-                {(location.pathname === '/about-page' || location.pathname === '/') && <LoopingText />}
-                </h1>
+        <div className="footerContent w-full h-[70vh] px-6 sm:px-[5vw] pb-8 sm:pb-10 bg-[#181818] text-white flex flex-col pointer-events-auto">
+            <section className="footerTop mt-[5vh] flex flex-col md:flex-row md:items-start justify-between gap-8">
+                <div className={`footerIntro flex leading-tight font-bold ${isHome ? 'text-[clamp(1.75rem,4vh,3rem)]' : 'text-[clamp(1.5rem,3.4vh,2.5rem)]'}`}>
+
+                {isAbout ? (
+                    <h1 className="flex flex-col sm:flex-row font-normal">
+                        Born to
+                        <LoopingText />
+                    </h1>
+                ) : isHome ? (
+                    <h1 className="font-medium">Thanks for stopping by :)</h1>
+                ) : (
+                    <h1 className="font-bold">Let's work together.</h1>
+                )}
                 </div>
 
-                <div className={`flex flex-end gap-[5vw]${window.innerWidth <400 ? 'mt-[5vh] ml-[3vh] gap-[6vw]':''}`}>
+                <div className="footerLinks flex gap-8 sm:gap-[5vw]">
                     <div>
                         <ul className="flex flex-col pointer-events-auto">
                             <li><a href="/" className='hover:underline '>Home</a></li>
@@ -79,10 +87,13 @@ export default function Footer() {
                     </div>
                 </div>
             </section>
-            <section className="mt-[15vh] text-center bg-[#212121] w-full pb-5">
-                <h1 className={`font-bold ${window.innerWidth<700 ? 'text-[8vh] leading-none' : 'text-[20vh] leading-[15vh]'}`}>EMELY BARCENAS</h1>
-                <div className="border-t-2 border-white mt-4 mx-[5vw]"></div>
-                <div className={`flex text-nowrap mx-[5vw] ${window.innerWidth<700 ? 'flex-col items-start mt-4' : ' justify-between mt-4'}`}>
+            <section className="footerSignature mt-auto text-left bg-[#181818] w-full pb-1">
+                <h1 className="footerName font-bold flex flex-col">
+                    <span>EMELY</span>
+                    <span>BARCENAS</span>
+                </h1>
+                <div className="footerRule border-t-2 border-white mt-4"></div>
+                <div className="footerMeta flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mt-4 text-left">
                     <h3>© 2025 Emely Barcenas</h3>
                     <h3 className=''>Made with React, Tailwind CSS, & love &lt;3</h3>
                 </div>

@@ -1,11 +1,37 @@
 import "../../index.css";
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-function Navigation({ className }) {
+function LinkedinIcon({ size = 20 }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  );
+}
+
+const NAV_LINKS = [
+  { label: "play", path: "/portfolio", color: "#CDDC3D" },
+  { label: "about", path: "/about-page", color: "#FF97DB" },
+  { label: "contact", path: "/contact-page", color: "#9E76FF" },
+];
+
+function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false); // New state to track mobile view
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isActivePath = (path) =>
+    location.pathname === path || location.pathname.startsWith(`${path}/`);
 
   // Detect screen size and update state
   const updateMobileView = () => {
@@ -38,59 +64,41 @@ function Navigation({ className }) {
 
   return (
     <div>
-      <nav className="fixed w-full h-[7vh] flex justify-between items-center p-4 bg-[#212121] text-white z-50 font-sans font-bold">
-        {/* Left navigation items */}
-        <div className="justify-start hidden sm:flex space-x-4">
-  <a href="/Emely_Barcenas_Resume_Aug30.pdf" download className="hover:text-gray-400 bg-transparent mx-4">
-    <img src="/icons/resume icon.svg" alt="Resume icon" className="w-8 h-auto" />
-  </a>
-  <a href="/" className="hover:text-gray-400 bg-transparent mx-4">
-    <img src="/icons/home-icon.svg" alt="home icon" className="w-8 h-auto" />
-  </a>
-</div>
+      <nav className="fixed top-0 left-0 w-full h-[7vh] flex justify-between items-center px-4 sm:px-6 bg-[#181818] text-white z-50 font-sans font-bold">
+        {/* Left: logo / home */}
+        <a href="/" className="flex items-center hover:opacity-80 transition-opacity bg-transparent">
+          <img src="/icons/eb-logo.svg" alt="Emely Barcenas home" className="w-6 h-auto" />
+        </a>
 
-        {/* Center navigation items (for larger screens) */}
+        {/* Right navigation items (desktop) */}
         {!isMobile && (
-          <div className="centerNav sm:flex sm:flex-row justify-center sm:space-x-8 space-y-4 sm:space-y-0 mx-auto">
-            <a
-              href="/about-page"
-              className="px-6 py-2 text-[1vw] sm:text-base rounded-full bg-[#FF97DB] hover:bg-white text-[#212121] transition-colors"
-            >
-              About
-            </a>
-            <a
-              href="/portfolio"
-              className="px-6 py-2 text-[1vw] sm:text-base rounded-full bg-[#9E76FF] hover:bg-white hover:text-black text-[#212121] transition-colors font-sans"
-            >
-             Work
-            </a>
-            <a
-              href="/contact-page"
-              className="px-6 py-2 text-[1vw] sm:text-base rounded-full bg-[#CDDC3D] text-[#212121] hover:bg-white hover:text-black transition-colors font-sans"
-            >
-              Contact
-            </a>
-          </div>
-        )}
-
-        {/* Right Navigation items (for larger screens) */}
-        {!isMobile && (
-          <div className="rightNav mr-4 sm:flex justify-end space-x-4 hidden">
-            <a
-              href="https://github.com/emelybarcenas"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gray-400 w-8 bg-transparent mx-4"
-            >
-              <img src="/icons/github-icon.svg" alt="github" />
-            </a>
+          <div className="flex items-center space-x-8">
+            {NAV_LINKS.map(({ label, path, color }) => {
+              const active = isActivePath(path);
+              return (
+                <a
+                  key={path}
+                  href={path}
+                  className={`flex items-center gap-2 px-1 py-2 text-[1vw] sm:text-base hover:text-white hover:-translate-y-0.5 transition-all font-sans ${active ? "font-bold" : "font-medium"}`}
+                  style={{ color }}
+                >
+                  <span
+                    className={`h-1.5 w-1.5 rounded-full transition-opacity ${active ? "opacity-100" : "opacity-0"}`}
+                    style={{ backgroundColor: color }}
+                    aria-hidden="true"
+                  />
+                  {label}
+                </a>
+              );
+            })}
             <a
               href="https://www.linkedin.com/in/emelybarcenas/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gray-400 w-8 bg-transparent mx-4"
+              className="hover:text-gray-400 transition-colors"
+              aria-label="LinkedIn"
             >
-              <img src="/icons/linkedin.svg" alt="linkedin" />
+              <LinkedinIcon size={20} />
             </a>
           </div>
         )}
@@ -98,7 +106,7 @@ function Navigation({ className }) {
         {/* Hamburger Icon (visible only on mobile screens) */}
         {isMobile && (
           <div
-            className="sm:hidden flex flex-col h-10 left-4 top-4 absolute items-center gap-1" 
+            className="flex flex-col h-10 items-center justify-center gap-1"
             onClick={toggleMenu}
           >
             <div className="w-6 h-1 bg-white"></div>
@@ -106,44 +114,32 @@ function Navigation({ className }) {
             <div className="w-6 h-1 bg-white"></div>
           </div>
         )}
-
-{isMobile && (
-  <div className="absolute right-4 top-3">
-    <a href="/" className="hover:text-gray-400">
-      <button className="p-0 border-none" style={{ width: '30px', height: '30px' }}>
-        <img src="/icons/home-icon.svg" alt="home icon" className="w-full h-full" />
-      </button>
-    </a>
-  </div>
-)}
-
       </nav>
-     
 
       {/* Mobile Menu (Hamburger - only visible when `isMenuOpen` is true) */}
       {isMobile && (
         <div
-        className={`sm:hidden fixed top-11 left-0 w-full bg-[#212121] z-[10000] ${isMenuOpen ? 'block' : 'hidden'}`}
+        className={`sm:hidden fixed top-11 left-0 w-full bg-[#181818] z-[10000] ${isMenuOpen ? 'block' : 'hidden'}`}
         >
           <div className="flex flex-col items-center space-y-4 py-4 z-[10000]"> {/* Added z-50 to make sure menu stays on top */}
-            <button
-              className="text-white text-lg"
-              onClick={() => handleNavigation("/about-page")}
-            >
-              About
-            </button>
-            <button
-              className="text-white text-lg"
-              onClick={() => handleNavigation("/portfolio")}
-            >
-              Portfolio
-            </button>
-            <button
-              className="text-white text-lg"
-              onClick={() => handleNavigation("/contact-page")}
-            >
-              Contact
-            </button>
+            {NAV_LINKS.map(({ label, path, color }) => {
+              const active = isActivePath(path);
+              return (
+                <button
+                  key={path}
+                  className={`flex items-center gap-2 text-lg ${active ? "font-bold" : "font-medium"}`}
+                  style={{ color }}
+                  onClick={() => handleNavigation(path)}
+                >
+                  <span
+                    className={`h-1.5 w-1.5 rounded-full transition-opacity ${active ? "opacity-100" : "opacity-0"}`}
+                    style={{ backgroundColor: color }}
+                    aria-hidden="true"
+                  />
+                  {label.charAt(0).toUpperCase() + label.slice(1)}
+                </button>
+              );
+            })}
             <a
               href="https://github.com/emelybarcenas"
               target="_blank"

@@ -1,5 +1,6 @@
 import Navigation from "./Navigation-Bar/Navigation";
 import Footer from "./Footer";
+import LazyImage from "./LazyImage.jsx";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';  
@@ -97,7 +98,7 @@ export default function GoRedesign() {
       <div className="relative bg-white z-10 pt-16 md:pt-20">
         <div className="mx-auto max-w-5xl w-full px-8 md:px-0">
           {/* Banner image */}
-          <img
+          <LazyImage
             src="/goApp/goCover.jpg"
             alt="GO App Cover"
             className="w-full  object-cover mb-6 rounded-2xl mt-[5vh] sm:h-56 md:h-[70vh]"
@@ -149,7 +150,7 @@ export default function GoRedesign() {
             <div className="grid grid-cols-2 md:flex mt-10 gap-4">
               {["review1r", "review2r", "review3r", "review4r"].map((img, i) => (
                 <div key={i} className="w-full md:w-1/4 h-40 overflow-hidden rounded-xl shadow-lg">
-                  <img
+                  <LazyImage
                     src={`/goApp/${img}.png`}
                     className="w-full h-full object-cover scale-110 md:scale-[1.75]"
                     alt={`Review ${i + 1}`}
@@ -179,11 +180,11 @@ export default function GoRedesign() {
                 </p>
                 <div className="flex flex-col md:flex-row gap-1 justify-center">
                   <div className="flex flex-col items-center">
-                    <img src="/goApp/affinitymapping.png" className="w-full max-w-[300px] sm:w-auto h-40 object-cover" />
+                    <LazyImage src="/goApp/affinitymapping.png" className="w-full max-w-[300px] sm:w-auto h-40 object-cover" />
                     <p className="text-gray-500 whitespace-nowrap text-xs md:text-base">Affinity mapping from user quotes</p>
                   </div>
                   <div className="flex flex-col items-center text-gray-500 whitespace-nowrap">
-                    <img src="/goApp/surveys.jpg" className="w-full max-w-[300px] sm:w-auto h-40 object-cover" />
+                    <LazyImage src="/goApp/surveys.jpg" className="w-full max-w-[300px] sm:w-auto h-40 object-cover" />
                     <p className="text-xs md:text-base">Survey Insights</p>
                   </div>
                 </div>
@@ -199,7 +200,7 @@ export default function GoRedesign() {
           >
             <div className="flex flex-col md:flex-row gap-8 md:gap-10 justify-between items-start">
               <div className="w-full md:w-1/3 flex flex-col items-center mb-8 md:mb-0">
-                <img
+                <LazyImage
                   src="/goApp/Puzzled.png"
                   className="h-20 w-20 mb-4 object-contain"
                   alt="Confusing UI"
@@ -210,7 +211,7 @@ export default function GoRedesign() {
                 </div>
               </div>
               <div className="w-full md:w-1/3 flex flex-col items-center mb-8 md:mb-0">
-                <img
+                <LazyImage
                   src="/goApp/Browse page.png"
                   className="h-20 w-20 mb-4 object-contain"
                   alt="Difficulty Finding Transit Information"
@@ -221,7 +222,7 @@ export default function GoRedesign() {
                 </div>
               </div>
               <div className="w-full md:w-1/3 flex flex-col items-center">
-                <img
+                <LazyImage
                   src="/goApp/Split Money.png"
                   className="h-20 w-20 mb-4 object-contain"
                   alt="Weak Integration of Passes"
@@ -237,8 +238,8 @@ export default function GoRedesign() {
           {/* Personas Section */}
           <CaseBlock subtitle="Personas" title="Meet the Users" data-aos="fade-up">
             <div className="flex flex-col md:flex-row w-fit">
-              <img src="/goApp/mariaNew.png" alt="Personas" className="md:w-1/2" />
-              <img src="/goApp/nicolasNew.png" alt="Personas" className="md:w-1/2" />
+              <LazyImage src="/goApp/mariaNew.png" alt="Personas" className="md:w-1/2" />
+              <LazyImage src="/goApp/nicolasNew.png" alt="Personas" className="md:w-1/2" />
             </div>
           </CaseBlock>
 
@@ -259,12 +260,12 @@ export default function GoRedesign() {
               </p>
               {/* First row */}
               <div className="flex flex-col md:flex-row gap-2">
-                <img
+                <LazyImage
                   src="/goApp/CA1.jpg"
                   className="w-full md:w-1/2 max-w-full h-auto rounded-lg shadow"
                   alt="SWOT Analysis"
                 />
-                <img
+                <LazyImage
                   src="/goApp/CA2.jpg"
                   className="w-full md:w-1/2 max-w-full h-auto rounded-lg shadow"
                   alt="SWOT Analysis"
@@ -272,12 +273,12 @@ export default function GoRedesign() {
               </div>
               {/* Second row */}
               <div className="flex flex-col md:flex-row gap-2">
-                <img
+                <LazyImage
                   src="/goApp/CA3.jpg"
                   className="w-full md:w-1/2 max-w-full h-auto rounded-lg shadow"
                   alt="SWOT Analysis"
                 />
-                <img
+                <LazyImage
                   src="/goApp/SWOT.jpg"
                   className="w-full md:w-1/2 max-w-full h-auto rounded-lg shadow"
                   alt="SWOT Analysis"
@@ -311,12 +312,12 @@ export default function GoRedesign() {
               {/* Images + Caption Section */}
               <div className="w-full md:w-1/2 flex flex-col items-center gap-2">
                 <div className="flex flex-col md:flex-row gap-2">
-                  <img
+                  <LazyImage
                     src="/goApp/low-fidelity.png"
                     alt="low-fidelity mockups"
                     className="max-w-full md:h-[260px] rounded-lg shadow object-cover"
                   />
-                  <img
+                  <LazyImage
                     src="/goApp/sketches.png"
                     alt="sketches"
                     className="max-w-full md:h-[260px] rounded-lg shadow object-cover"
@@ -340,8 +341,8 @@ export default function GoRedesign() {
               <div className="flex flex-col items-center gap-2">
                 <p className="font-bold text-center">Before</p>
                 <div className="flex gap-2 flex-wrap justify-center md:flex-nowrap">
-                  <img src="/goApp/og1.png" className="w-48 sm:w-56 md:w-64 h-96 object-contain" alt="Mockup 1" />
-                  <img src="/goApp/og2.png" className="w-48 sm:w-56 md:w-64 h-96 object-contain" alt="Mockup 2" />
+                  <LazyImage src="/goApp/og1.png" className="w-48 sm:w-56 md:w-64 h-96 object-contain" alt="Mockup 1" />
+                  <LazyImage src="/goApp/og2.png" className="w-48 sm:w-56 md:w-64 h-96 object-contain" alt="Mockup 2" />
                 </div>
               </div>
               {/* Arrow only visible on wider screens */}
@@ -350,13 +351,13 @@ export default function GoRedesign() {
               <div className="flex flex-col items-center gap-2">
                 <p className="font-bold text-center">After</p>
                 <div className="flex gap-2 flex-wrap justify-center md:flex-nowrap">
-                  <img src="/goApp/finalHome.png" className="w-48 sm:w-56 md:w-64 h-96 object-contain" alt="Mockup 3" />
-                  <img src="/goApp/finalTracker.png" className="w-48 sm:w-56 md:w-64 h-96 object-contain" alt="Mockup 4" />
+                  <LazyImage src="/goApp/finalHome.png" className="w-48 sm:w-56 md:w-64 h-96 object-contain" alt="Mockup 3" />
+                  <LazyImage src="/goApp/finalTracker.png" className="w-48 sm:w-56 md:w-64 h-96 object-contain" alt="Mockup 4" />
                 </div>
               </div>
             </div>
             <p className="text-2xl font-bold mt-8 text-left">Key Improvements at a Glance</p>
-            <img src="/goApp/finalKeyFeatures.jpg" className="w-full object-contain mt-4" alt="Key Features" />
+            <LazyImage src="/goApp/finalKeyFeatures.jpg" className="w-full object-contain mt-4" alt="Key Features" />
           </CaseBlock>
 
           {/* Conclusion Section */}
@@ -387,14 +388,14 @@ export default function GoRedesign() {
           <div className="flex flex-col md:flex-row items-center md:justify-between gap-4 md:gap-0 my-10">
             <Link
               to={`/portfolio/${prevProjectID}`}
-              className="flex items-center justify-center bg-white hover:bg-[#9E76FF] text-[#212121] font-bold w-[300px] md:w-auto px-3 py-2 md:px-6 md:py-3 rounded-full shadow-lg transition z-10 text-xs md:text-base"
+              className="flex items-center justify-center bg-white hover:bg-[#9E76FF] text-[#181818] font-bold w-[300px] md:w-auto px-3 py-2 md:px-6 md:py-3 rounded-full shadow-lg transition z-10 text-xs md:text-base"
             >
               <ArrowRight size={20} className="rotate-180 mr-2" />
               {prevProject.title}
             </Link>
             <Link
               to={`/portfolio/${nextProjectID}`}
-              className="flex items-center justify-center bg-white hover:bg-[#9E76FF] text-[#212121] font-bold w-[300px] md:w-auto px-3 py-2 md:px-6 md:py-3 rounded-full shadow-lg transition text-xs md:text-base"
+              className="flex items-center justify-center bg-white hover:bg-[#9E76FF] text-[#181818] font-bold w-[300px] md:w-auto px-3 py-2 md:px-6 md:py-3 rounded-full shadow-lg transition text-xs md:text-base"
             >
               <span className="mr-2">{nextProject.title}</span>
               <ArrowRight size={20} />

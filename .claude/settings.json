@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx vite *)",
+      "Bash(npx eslint *)",
+      "Bash(lsof -ti:5173)",
+      "Bash(xargs -r kill)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5174/portfolio/ibmDeveloperPortal)"
+    ]
+  }
+}

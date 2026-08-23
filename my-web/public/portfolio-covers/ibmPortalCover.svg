@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none">
+  <rect width="1600" height="1000" fill="#161616"/>
+  <rect width="1600" height="12" fill="#0F62FE"/>
+  <rect x="0" y="988" width="1600" height="12" fill="#0F62FE"/>
+  <text x="80" y="430" fill="#A6C8FF" font-family="Arial, Helvetica, sans-serif" font-size="28" letter-spacing="8">IBM</text>
+  <text x="80" y="530" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="92" font-weight="700">Developer Portal</text>
+  <text x="80" y="600" fill="#C6C6C6" font-family="Arial, Helvetica, sans-serif" font-size="28">Making tools and docs easier to find, trust, and use.</text>
+</svg>

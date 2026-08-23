@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -10,7 +10,6 @@ import ThreeScene from './components/ThreeScene.jsx';
 import DesignerText from './components/SubTitle.jsx';
 import downArrowIcon from "./assets/down-arrow-icon.svg";
 import RecentProjects from './components/RecentProjects.jsx';
-import About from './components/About.jsx';
 import AboutPage from './components/AboutPage.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Portfolio from './components/Portfolio.jsx';
@@ -21,10 +20,25 @@ import Carousel from './components/Carousel.jsx';
 import PortfolioTemplate from './components/PortfolioTemplate.jsx';
 import PlateItForward from './components/plateItForward.jsx';
 import GoRedesign from './components/GoRedesign.jsx';
-import SubTitle from './components/SubTitle.jsx';
+import IBMDeveloperPortal from './components/IBMDeveloperPortal.jsx';
+import FeaturedCase from './components/FeaturedCase.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
+  const [footerVisible, setFooterVisible] = useState(false)
+
+  useEffect(() => {
+    const revealSentinel = document.querySelector('.footerRevealSentinel')
+    if (!revealSentinel) return undefined
+
+    const observer = new IntersectionObserver(([entry]) => {
+      const viewportBottom = entry.rootBounds?.bottom ?? window.innerHeight
+      setFooterVisible(entry.boundingClientRect.top <= viewportBottom)
+    })
+
+    observer.observe(revealSentinel)
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <>
@@ -32,47 +46,44 @@ function App() {
   <Routes>
         <Route path="/" element={
 
+      <>
 <main className='mainPage'>
+  <div id="navigation">
+    <Navigation />
+  </div>
 
-<div className="everything">
-     <div id="navigation"> 
-        <Navigation />
-    </div>
+  <section className="homeLayer">
+    <Home />
+  </section>
 
-<div className='firstTwoContainer'>
-<div className="app-container containerSec">
-  
-  <Home />
-  <SubTitle />
-</div>   
+  <div className="middleLayer">
+    <section className="featuredLayer">
+      <RecentProjects />
+    </section>
 
-{/* About section starts here, sticky/scrolling effect applies here */}
-<div className='about containerSec'>
-<RecentProjects />
-<About />
-</div>
- 
-</div>
+    <section className="aboutLayer min-h-[40vh] flex items-center justify-center">
+      <h2 className="text-white text-[8vh] font-bold">WHAT I'M UP TO</h2>
+    </section>
 
-
-
-    <div id="contact" className='containerSec'>
+    <section id="contact" className="contactLayer">
       <ScribbleBg className="scribbleBg"/>
-      </div>
+    </section>
 
-    <div className='bg-black flex flex-row'>
+    <section className="sceneLayer bg-black flex flex-row">
       <ThreeScene modelname="scene"/>
       <ThreeScene modelname="scene" />
-    </div>
-   
-   
-</div>
+    </section>
 
-<footer className='sticky bottom-0 z-0 w-100 pointer-events-auto'>
+    <div className="footerRevealSentinel" aria-hidden="true" />
+  </div>
+
+ </main>
+
+<footer className={`footerLayer pointer-events-auto ${footerVisible ? 'footerVisible' : 'footerHidden'}`}>
 <Footer className="footer"/>
 </footer>
 
-</main>
+</>
 
         } />
         
@@ -81,6 +92,8 @@ function App() {
         <Route path="/contact-page" element={<ContactPage />}/>
         <Route path="/portfolio/plateItForward" element={<PlateItForward />}/>
         <Route path="/portfolio/goTransitRedesign" element={<GoRedesign />}/>
+        <Route path="/portfolio/ibmDeveloperPortal" element={<IBMDeveloperPortal />}/>
+        <Route path="/portfolio/cleanSlate" element={<FeaturedCase projectId="cleanSlate" />}/>
         <Route path="/portfolio/:projectID" element={<PortfolioTemplate />} />
       </Routes>
 

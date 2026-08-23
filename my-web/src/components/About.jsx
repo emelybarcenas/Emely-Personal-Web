@@ -62,7 +62,7 @@ export default function About() {
 
   // Desktop Layout
   const desktopContent = (
-    <section className="h-auto w-full max-w-screen pb-[1vh] bg-[#212121] top-0 flex flex-col">
+    <section className="h-auto w-full max-w-screen pb-[1vh] bg-[#181818] top-0 flex flex-col">
       <h3 className="text-white font-sans font-bold text-[16vw] w-full leading-none mb-10 ml-1 mr-1 mt-0 whitespace-nowrap overflow-hidden flex justify-center">
         ABOUT ✦ ME
       </h3>
@@ -97,7 +97,7 @@ export default function About() {
 
   // Mobile Layout
   const mobileContent = (
-    <section className="h-auto w-full max-w-screen bg-[#212121] top-0 flex flex-col justify-center items-center">
+    <section className="h-auto w-full max-w-screen bg-[#181818] top-0 flex flex-col justify-center items-center">
       <h3 className="text-white font-sans font-bold text-[16vw] w-full leading-none mb-10 ml-1 mr-1 mt-0 whitespace-nowrap overflow-hidden flex justify-center">
         ABOUT ✦ ME
       </h3>
@@ -127,7 +127,7 @@ export default function About() {
     <div className="relative min-h-screen">
       <Navigation />
       
-      <div className="relative bg-[#212121] z-10">
+      <div className="relative bg-[#181818] z-10">
         {isMobile ? mobileContent : desktopContent}
       </div>
     
