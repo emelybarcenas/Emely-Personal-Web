@@ -4,7 +4,7 @@ export const CASE_STUDIES = [
     imgSrc: "/portfolio-covers/ibmPortalCover.jpg",
     href: "/portfolio/ibmDeveloperPortal",
     title: "IBM Developer Portal",
-    description: "Designing a seamless, scalable developer journey with IBM's Carbon Design System",
+    description: "Designing and AI-prototyping a seamless, scalable developer journey on IBM's Carbon Design System",
   },
   {
     id: "cleanSlate",

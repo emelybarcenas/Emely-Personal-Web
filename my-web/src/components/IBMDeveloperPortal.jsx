@@ -665,7 +665,7 @@ export default function IBMDeveloperPortal() {
                   IBM Developer Portal
                 </h3>
                 <p className="text-left text-lg md:text-xl mb-8">
-                  Designing a seamless developer journey with IBM's Carbon Design System
+                  Designing and AI-prototyping a seamless, scalable developer journey on IBM's Carbon Design System
                 </p>
 
                 <div className="border-t border-b border-gray-200 py-8 mb-8">
@@ -679,8 +679,10 @@ export default function IBMDeveloperPortal() {
                       <p className="text-gray-600 mt-4">
                         As the sole product designer during my 12-week IBM internship, I owned the
                         redesign from research through development handoff, using IBM's Carbon
-                        Design System. I also prototyped the experience in code. The redesigned
-                        portal is set to deploy soon.
+                        Design System. Instead of stopping at static mockups, I used AI coding
+                        tools like IBM Bob to rapidly turn designs into working Angular prototypes,
+                        testing and iterating on real interactions in hours instead of weeks. The
+                        redesigned portal is set to deploy soon.
                       </p>
                       <p className="text-gray-600 text-sm font-medium mt-3">
                         <span className="font-bold">Confidentiality:</span> Final product screenshots
@@ -701,7 +703,7 @@ export default function IBMDeveloperPortal() {
                       <div>
                         <h2 className="text-gray-500">Skills</h2>
                         <div className="flex flex-col">
-                          {["Design Systems", "Information Architecture", "Angular Development"].map((skill) => (
+                          {["Design Systems", "Information Architecture", "Angular Development", "AI Prototyping"].map((skill) => (
                             <span key={skill}>{skill}</span>
                           ))}
                         </div>
@@ -809,8 +811,14 @@ export default function IBMDeveloperPortal() {
                     size="text-lg md:text-xl"
                   />
                   <p className="mt-8 text-gray-600">
-                    I moved fluidly between Figma, coded prototypes, and validation, using A/B
+                    I moved fluidly between Figma, AI-built prototypes, and validation, using A/B
                     tests and weekly design critiques to refine each iteration.
+                  </p>
+                  <p className="mt-4 text-gray-600">
+                    AI was central to how I worked. Using IBM Bob, I translated Figma designs into
+                    functional Angular prototypes in hours, not weeks. That speed meant I could
+                    explore multiple directions, put real interactions in front of users, and fold
+                    feedback into the next iteration while the design was still taking shape.
                   </p>
                   <div className="mt-8 rounded-xl overflow-hidden border border-gray-200">
                     <LazyImage
@@ -821,10 +829,10 @@ export default function IBMDeveloperPortal() {
                   </div>
 
                   <Callout>
-                    💡 My engineering background helped bridge design and implementation.
-                    Building the prototype in Angular let me validate interactions and technical
-                    feasibility before handoff, giving engineering a functional reference alongside
-                    the design specs.
+                    💡 Pairing AI with my engineering background helped bridge design and
+                    implementation. Rapidly prototyping in Angular with AI let me validate
+                    interactions and technical feasibility before handoff, giving engineering a
+                    functional reference alongside the design specs.
                   </Callout>
                 </Block>
               </section>

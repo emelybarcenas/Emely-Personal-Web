@@ -218,7 +218,7 @@ export default function CleanSlate() {
                       <div>
                         <h2 className="text-gray-500">Skills</h2>
                         <div className="flex flex-col">
-                          {["UI/UX", "Figma", "Angular", "TypeScript", "Azure DevOps"].map((skill) => (
+                          {["UI/UX", "Figma", "Angular", "TypeScript", "Azure DevOps", "AI Prototyping"].map((skill) => (
                             <span key={skill}>{skill}</span>
                           ))}
                         </div>
