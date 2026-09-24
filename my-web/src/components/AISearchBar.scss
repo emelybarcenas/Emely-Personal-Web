@@ -1,0 +1,15 @@
+// Scoped Carbon component styles — only the text-input and button
+// partials are pulled in (not Carbon's global reset), so this can't
+// bleed into the rest of the site, which is otherwise plain Tailwind.
+// `layout` only emits :root custom properties (--cds-layout-size-*) that
+// the size="lg" variants above read from — without it every Carbon
+// component here silently collapses to its unsized intrinsic content box.
+@use '@carbon/react/scss/layout';
+@use '@carbon/react/scss/components/text-input';
+@use '@carbon/react/scss/components/button';
+
+// The outer wrapper already has its own blue bottom border for the
+// "active" accent, so Carbon's own input underline is redundant here.
+.ai-search-bar .cds--text-input {
+  border-bottom: none;
+}

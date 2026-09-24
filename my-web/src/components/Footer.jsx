@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Heart } from 'lucide-react';
 
 // LoopingText Component with transition
 const LoopingText = () => {
@@ -61,9 +62,9 @@ export default function Footer() {
                 <div className="footerLinks flex gap-8 sm:gap-[5vw]">
                     <div>
                         <ul className="flex flex-col pointer-events-auto">
-                            <li><a href="/" className='hover:underline '>Home</a></li>
-                            <li><a href="/portfolio" className='hover:underline '>Portfolio</a></li>
-                            <li><a href="/contact-page" className='hover:underline '>Contact Me</a></li>
+                            <li><a href="/" className='hover:underline '>Work</a></li>
+                            <li><a href="/portfolio" className='hover:underline '>Play</a></li>
+                            <li><a href="/about-page" className='hover:underline '>About</a></li>
                         </ul>
                     </div>
                     <div>
@@ -71,11 +72,6 @@ export default function Footer() {
                             <li>
                                 <a href="https://www.linkedin.com/in/emelybarcenas/" target="_blank" rel="noopener noreferrer" className='hover:underline '>
                                     LinkedIn
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/emelybarcenas" target="_blank" rel="noopener noreferrer" className='hover:underline '>
-                                    Github
                                 </a>
                             </li>
                             <li>
@@ -95,7 +91,9 @@ export default function Footer() {
                 <div className="footerRule border-t-2 border-white mt-4"></div>
                 <div className="footerMeta flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mt-4 text-left">
                     <h3>© 2025 Emely Barcenas</h3>
-                    <h3 className=''>Made with React, Tailwind CSS, & love &lt;3</h3>
+                    <h3 className='flex items-center gap-1.5'>
+                        Designed & coded with <Heart size={16} className="fill-current" />
+                    </h3>
                 </div>
             </section>
         </div>

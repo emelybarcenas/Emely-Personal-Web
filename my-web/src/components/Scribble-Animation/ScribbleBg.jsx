@@ -1,5 +1,4 @@
 import React from 'react';
-import ContactPage from "../Contact/ContactPage";
 import Scene from "../Scribble-Animation/Scene";
 import Navigation from '../Navigation-Bar/Navigation';
 import Text from "../Scribble-Animation/Text"

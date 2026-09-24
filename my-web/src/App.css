@@ -77,15 +77,21 @@ html, body {
   left: 0;
   width: 100%;
   z-index: 0;
-  height: 78vh;
+  height: 70vh;
   background: #181818;
 }
 
 .middleLayer {
   position: relative;
   z-index: 2;
-  margin-top: 78vh;
+  margin-top: 70vh;
   padding-bottom: 70vh;
+  /* The padding-bottom above exists only to create scroll room that reveals
+     the fixed footer beneath it. Without pointer-events: none here, that
+     empty (but still higher-stacked) space would swallow clicks meant for
+     the footer once it's scrolled into view. Real content sections opt
+     back into pointer-events below. */
+  pointer-events: none;
 }
 
 .footerRevealSentinel {
@@ -102,6 +108,7 @@ html, body {
 .sceneLayer {
   position: relative;
   z-index: 1;
+  pointer-events: auto;
 }
 
 .featuredLayer { background: #ffffff; }

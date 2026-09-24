@@ -4,7 +4,6 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import './index.css'; 
 import Home from "./components/Home/Home.jsx";
-import Contact from "./components/Contact/Contact.jsx";
 import Navigation from './components/Navigation-Bar/Navigation.jsx';
 import ThreeScene from './components/ThreeScene.jsx';
 import DesignerText from './components/SubTitle.jsx';
@@ -13,7 +12,6 @@ import RecentProjects from './components/RecentProjects.jsx';
 import AboutPage from './components/AboutPage.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Portfolio from './components/Portfolio.jsx';
-import ContactPage from './components/Contact/ContactPage.jsx';
 import ScribbleBg from './components/Scribble-Animation/ScribbleBg.jsx';
 import Footer from './components/Footer.jsx'
 import Carousel from './components/Carousel.jsx';
@@ -21,7 +19,7 @@ import PortfolioTemplate from './components/PortfolioTemplate.jsx';
 import PlateItForward from './components/plateItForward.jsx';
 import GoRedesign from './components/GoRedesign.jsx';
 import IBMDeveloperPortal from './components/IBMDeveloperPortal.jsx';
-import FeaturedCase from './components/FeaturedCase.jsx';
+import CleanSlate from './components/CleanSlate.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -57,7 +55,7 @@ function App() {
   </section>
 
   <div className="middleLayer">
-    <section className="featuredLayer">
+    <section id="work" className="featuredLayer scroll-mt-24">
       <RecentProjects />
     </section>
 
@@ -65,13 +63,13 @@ function App() {
       <h2 className="text-white text-[8vh] font-bold">WHAT I'M UP TO</h2>
     </section>
 
-    <section id="contact" className="contactLayer">
-      <ScribbleBg className="scribbleBg"/>
-    </section>
-
     <section className="sceneLayer bg-black flex flex-row">
       <ThreeScene modelname="scene"/>
       <ThreeScene modelname="scene" />
+    </section>
+
+    <section id="contact" className="contactLayer">
+      <ScribbleBg className="scribbleBg"/>
     </section>
 
     <div className="footerRevealSentinel" aria-hidden="true" />
@@ -89,11 +87,10 @@ function App() {
         
         <Route path="/about-page" element={<AboutPage />} />
         <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/contact-page" element={<ContactPage />}/>
         <Route path="/portfolio/plateItForward" element={<PlateItForward />}/>
         <Route path="/portfolio/goTransitRedesign" element={<GoRedesign />}/>
         <Route path="/portfolio/ibmDeveloperPortal" element={<IBMDeveloperPortal />}/>
-        <Route path="/portfolio/cleanSlate" element={<FeaturedCase projectId="cleanSlate" />}/>
+        <Route path="/portfolio/cleanSlate" element={<CleanSlate />}/>
         <Route path="/portfolio/:projectID" element={<PortfolioTemplate />} />
       </Routes>
 

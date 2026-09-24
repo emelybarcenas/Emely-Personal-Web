@@ -1,6 +1,7 @@
 import Navigation from "./Navigation-Bar/Navigation.jsx";
 import Footer from "./Footer.jsx";
 import LazyImage from "./LazyImage.jsx";
+import LazyVideo from "./LazyVideo.jsx";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -35,53 +36,90 @@ const LoopingText = () => {
 };
 
 const gallery = [
-  { title: "TINKER", path: "/portfolio/tinker", img: "/portfolio-covers/tinkercover.png", tags: ["Full-stack", "Supabase", "React"] },
-  { title: "BINDING", path: "/portfolio/binding", img: "/portfolio-covers/bindingcover.png", tags: ["HTML", "CSS", "JavaScript", "Figma"] },
-  { title: "PAWS UP", path: "/portfolio/pawsUpXR", img: "/portfolio-covers/pawsUpcover.jpg", tags: ["Meta Quest", "Unity", "Blender", "Branding"] },
-  { title: "HERTECHPATH", path: "/portfolio/hertechpath", img: "/portfolio-covers/hertechpathcover.png", tags: ["Figma", "UI"] },
-  { title: "INIT EXPLORE PINS", path: "/portfolio/explorePins", img: "/portfolio-covers/initpinscover.png", tags: ["Branding", "Photoshop", "Mockups"] },
-  { title: "AGILIS", path: "/portfolio/agilis", img: "/portfolio-covers/agiliscover1.png", tags: ["Branding", "Web Design"] },
-  { title: "LIVELY YOUTH", path: "/portfolio/lively", img: "/portfolio-covers/livelycover.png", tags: ["Branding", "Graphic Design", "Photoshop", "Illustrator"] },
-  { title: "EDEN", path: "/portfolio/eden", img: "/portfolio-covers/edencover.png", tags: ["Branding", "Graphic Design", "Photoshop", "Illustrator"] },
+  { title: "Paws Up", path: "/portfolio/pawsUpXR", video: "/pawsup.mp4", w: 1920, h: 1080, square: true, tags: ["Meta Quest", "Unity", "Blender", "Branding"] },
+  { title: "Cipher", img: "/play/cipher.png", w: 1920, h: 1080 },
+  { title: "ShellHacks X", href: "https://shellhacks.net", video: "/play/shell-on-computer.mp4", w: 1920, h: 1080 },
+  { title: "Eden", path: "/portfolio/eden", img: "/eden/cup-square.jpg", w: 1200, h: 1200, tags: ["Branding", "Graphic Design", "Photoshop", "Illustrator"] },
+  { title: "Agilis", path: "/portfolio/agilis", img: "/portfolio-covers/agiliscover1.png", w: 3164, h: 3164, square: true, tags: ["Branding", "Web Design"] },
+  { title: "Lively Youth", path: "/portfolio/lively", img: "/lively/allmockups-web.jpg", w: 2000, h: 1333, tags: ["Branding", "Graphic Design", "Photoshop", "Illustrator"] },
+  { title: "Tinker", path: "/portfolio/tinker", img: "/portfolio-covers/tinkercover.png", w: 928, h: 568, tags: ["Full-stack", "Supabase", "React"] },
+  { title: "Init Explore Pins", path: "/portfolio/explorePins", img: "/portfolio-covers/initpinscover.png", w: 798, h: 788, tags: ["Branding", "Photoshop", "Mockups"] },
+  { title: "HerTechPath", path: "/portfolio/hertechpath", img: "/portfolio-covers/hertechpathcover.png", w: 951, h: 705, tags: ["Figma", "UI"] },
 ];
 
-function GalleryTile({ title, path, img, tags }) {
-  const Wrapper = path ? Link : "div";
-  const wrapperProps = path ? { to: path } : {};
+function useColumnCount() {
+  const getCount = () => {
+    if (typeof window === "undefined") return 3;
+    if (window.innerWidth < 640) return 1;
+    if (window.innerWidth < 1024) return 2;
+    return 3;
+  };
+  const [count, setCount] = useState(getCount);
+
+  useEffect(() => {
+    const handleResize = () => setCount(getCount());
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return count;
+}
+
+function GalleryTile({ title, path, href, img, video, square, w, h, tags }) {
+  const Wrapper = path ? Link : href ? "a" : "div";
+  const wrapperProps = path
+    ? { to: path }
+    : href
+    ? { href, target: "_blank", rel: "noopener noreferrer" }
+    : {};
 
   return (
-    <figure className="w-1/3 flex items-center justify-center flex-col group">
-      <Wrapper {...wrapperProps} className="relative w-full">
-        <LazyImage src={img} alt={title} className="w-full h-auto transition-transform duration-300 ease-in-out transform group-hover:scale-105" />
-        {tags?.length > 0 && (
-          <div className="absolute bottom-2 left-2 hidden md:flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            {tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-3 py-1 bg-white text-black text-xs rounded-full border border-[#E0E0E0] font-medium"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
-      </Wrapper>
-      <div className="flex flex-row justify-between items-center w-full mt-3">
-        {path ? (
-          <Link to={path} className="text-sm sm:text-base md:text-lg text-black text-left hover:underline">{title}</Link>
+    <figure className="w-full mb-[1.5vw] break-inside-avoid flex flex-col group">
+      <Wrapper {...wrapperProps} className="relative w-full rounded-lg overflow-hidden bg-gray-100">
+        {video ? (
+          <LazyVideo
+            src={video}
+            width={w}
+            height={h}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className={`w-full ${square ? "aspect-square object-cover" : "h-auto"} transition-transform duration-300 ease-in-out transform group-hover:scale-105`}
+          />
         ) : (
-          <p className="text-sm sm:text-base md:text-lg text-black text-left">{title}</p>
+          <LazyImage
+            src={img}
+            alt={title}
+            width={w}
+            height={h}
+            className={`w-full ${square ? "aspect-square object-cover" : "h-auto"} transition-transform duration-300 ease-in-out transform group-hover:scale-105`}
+          />
         )}
-      </div>
+        <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2 p-3 pt-10 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <p className="text-white text-sm sm:text-base font-medium">{title}</p>
+          {tags?.length > 0 && (
+            <div className="hidden md:flex flex-wrap gap-1">
+              {tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1 bg-white text-black text-xs rounded-full border border-[#E0E0E0] font-medium"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+      </Wrapper>
     </figure>
   );
 }
 
 export default function Portfolio() {
-  const rows = [];
-  for (let i = 0; i < gallery.length; i += 3) {
-    rows.push(gallery.slice(i, i + 3));
-  }
+  const columnCount = useColumnCount();
+  const columns = Array.from({ length: columnCount }, () => []);
+  gallery.forEach((item, i) => columns[i % columnCount].push(item));
 
   return (
     <div className="relative min-h-screen">
@@ -91,18 +129,18 @@ export default function Portfolio() {
 
       <div className="relative bg-white z-10 pb-10">
         <section className="flex flex-col items-center justify-center mt-[10vh]">
-          <h3 className="text-[7vh] text-[#181818] font-bold">PLAY</h3>
+          <h3 className="text-[7vh] text-[#181818] font-bold">TINKERING</h3>
           <h3 className="text-3xl text-[#181818]">
             <LoopingText />
           </h3>
         </section>
-        <div className="mt-10">
-          {rows.map((row) => (
-            <section key={row.map((p) => p.title).join("-")} className="flex flex-row w-full px-[5vw] mb-[1vh] gap-[1vw]">
-              {row.map((item) => (
+        <div className="mt-10 px-[5vw] flex flex-row gap-[1vw]">
+          {columns.map((col, i) => (
+            <div key={i} className="flex flex-col flex-1">
+              {col.map((item) => (
                 <GalleryTile key={item.title} {...item} />
               ))}
-            </section>
+            </div>
           ))}
         </div>
       </div>

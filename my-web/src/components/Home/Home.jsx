@@ -16,12 +16,12 @@ function HeroCopy({ className = '', onTextEnter, onTextLeave }) {
         onPointerEnter={onTextEnter}
         onPointerLeave={onTextLeave}
       >
-        Designing thoughtful products with strategy and engineering
+        Where thoughtful product design meets engineering
       </p>
       <div className={`${styles.details} ${styles.reveal}`}>
         <div>
           <strong onPointerEnter={onTextEnter} onPointerLeave={onTextLeave}>
-            <em>Previously designing at IBM and engineering at Miami Heat</em>
+            <em>CS Student • Prev @ IBM + Miami Heat</em>
           </strong>
         </div>
       </div>

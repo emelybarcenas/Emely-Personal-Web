@@ -2,7 +2,7 @@
   --ink: #f5f5f5;
   --paper: #181818;
   --lime: #d5e843;
-  min-height: 78vh;
+  min-height: 72vh;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -67,6 +67,7 @@
 .maskLayer .maskIntro .eyebrow,
 .maskLayer .maskIntro .details span { color: #181818; }
 .maskLayer .maskIntro .details { border-color: rgba(33, 33, 33, 0.45); }
+.maskLayer .maskIntro .details em { color: #fff; }
 
 .cursorRing {
   position: absolute;
@@ -97,9 +98,9 @@
   align-items: center;
   box-sizing: border-box;
   width: min(90vw, 72rem);
-  min-height: 78vh;
+  min-height: 72vh;
   margin: 0 auto;
-  padding: 4rem 0;
+  padding: 3.25rem 0;
   position: relative;
   z-index: 1;
 }
@@ -165,7 +166,7 @@ h1.reveal {
 .lead {
   width: 100%;
   max-width: 100%;
-  margin: 0.8rem auto 0;
+  margin: 1.8rem auto 0;
   font-size: clamp(1.1rem, 2.4vw, 2.1rem);
   font-weight: 300;
   color: #dce86a;
@@ -191,6 +192,7 @@ h1.reveal {
   margin-top: 1.15rem;
   padding-top: 0.5rem;
   width: 100%;
+  max-width: fit-content;
   border-top: 1px solid rgba(185, 177, 216, 0.45);
 }
 
@@ -199,13 +201,11 @@ h1.reveal {
   flex-direction: column;
   align-items: center;
   gap: 0.4rem;
-  transition: transform 220ms ease;
 }
 
-.details div:hover { transform: translateX(0.45rem); }
 .details span { color: #bdbdbd; }
-.details strong { font-size: 0.95rem; font-weight: 500; }
-.details em { color: #b9b1d8; font-weight: 400; transition: color 200ms ease; }
+.details strong { font-size: 1.15rem; font-weight: 500; }
+.details em { color: #b9b1d8; font-weight: 400; white-space: nowrap; transition: color 200ms ease; }
 .details strong:hover em { color: var(--ink); }
 
 .scrollNote { position: absolute; right: 5vw; bottom: 1.5rem; color: #bdbdbd; }
@@ -221,13 +221,9 @@ h1.reveal {
 @keyframes headlineReveal {
   from {
     opacity: 0;
-    clip-path: inset(0 100% 0 0);
-    transform: translateX(-1.5rem);
   }
   to {
     opacity: 1;
-    clip-path: inset(0 0 0 0);
-    transform: translateX(0);
   }
 }
 
@@ -263,7 +259,8 @@ h1.reveal {
   .content { width: min(84vw, 30rem); padding-top: 6rem; }
   .intro h1 { font-size: clamp(3.2rem, 16vw, 5rem); }
   .lead { margin-top: 2rem; font-size: 1.1rem; }
-  .details { gap: 1.5rem; margin-top: 2.5rem; }
+  .details { gap: 1.5rem; margin-top: 2.5rem; max-width: 100%; }
+  .details em { white-space: normal; }
   .scrollNote { display: none; }
   .orbitOne { right: -10rem; }
   .orbitThree { left: 45vw; }

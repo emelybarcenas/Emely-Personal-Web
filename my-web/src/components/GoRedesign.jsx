@@ -1,13 +1,22 @@
 import Navigation from "./Navigation-Bar/Navigation";
 import Footer from "./Footer";
 import LazyImage from "./LazyImage.jsx";
+import { CaseStudyTabNav, useScrollSpyTabs } from "./CaseStudy/CaseStudyTabNav.jsx";
+import ExploreCaseStudies from "./CaseStudy/ExploreCaseStudies.jsx";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect } from 'react';  
+import { useEffect } from 'react';
 import { ArrowRight } from "lucide-react";
-import { projectData } from "../data/projectData";
-import { Link } from 'react-router-dom';
 import React from "react";
+
+const TABS = [
+  { id: "context", label: "Context" },
+  { id: "problem", label: "Problem" },
+  { id: "research", label: "Research" },
+  { id: "approach", label: "Design Approach" },
+  { id: "solution", label: "Solution" },
+  { id: "reflection", label: "Reflection" },
+];
 
 export function CaseStudyInfo() {
   const details = [
@@ -29,7 +38,7 @@ export function CaseStudyInfo() {
     <div className="flex flex-col md:flex-row gap-8">
       <div className="w-full md:w-1/2 flex flex-col gap-1 mb-6 md:mb-0">
         <h2 className="text-gray-500">About the Project</h2>
-        <p>
+        <p className="text-gray-600">
           During an internship, I relied on Miami-Dade public transit for the first time and noticed the GO app made navigation unnecessarily frustrating. Thinking as a designer, I took the initiative to reimagine the app.
           I translated commuter frustrations into a concept redesign of the GO app, crafting wireframes that make the app more accessible, efficient, and easier to navigate.
         </p>
@@ -74,18 +83,12 @@ export function CaseBlock({ subtitle, title, children, ...props }) {
 
 
 export default function GoRedesign() {
+  const { activeTab, selectTab } = useScrollSpyTabs(TABS);
+
   useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     AOS.init({ duration: 800, once: true });
   }, []);
-
-  const projectKeys = Object.keys(projectData);
-  const currentIndex = projectKeys.indexOf("goTransitRedesign");
-  const prevIndex = (currentIndex - 1 + projectKeys.length) % projectKeys.length;
-  const nextIndex = (currentIndex + 1) % projectKeys.length;
-  const prevProjectID = projectKeys[prevIndex];
-  const nextProjectID = projectKeys[nextIndex];
-  const prevProject = projectData[prevProjectID];
-  const nextProject = projectData[nextProjectID];
 
   return (
     <div className="relative min-h-screen">
@@ -95,40 +98,49 @@ export default function GoRedesign() {
       </nav>
 
       {/* Content with padding for fixed nav */}
-      <div className="relative bg-white z-10 pt-16 md:pt-20">
-        <div className="mx-auto max-w-5xl w-full px-8 md:px-0">
-          {/* Banner image */}
-          <LazyImage
-            src="/goApp/goCover.jpg"
-            alt="GO App Cover"
-            className="w-full  object-cover mb-6 rounded-2xl mt-[5vh] sm:h-56 md:h-[70vh]"
-            width={1200}
-            height={400}
-            loading="eager"
-            decoding="async"
-            fetchpriority="high"
-          />
+      <div className="relative bg-white z-10 pt-16 md:pt-20 pb-16 md:pb-20">
+        <div className="mx-auto max-w-[86rem] w-full px-8 md:px-0">
+          <div className="lg:grid lg:items-start lg:gap-x-14 lg:grid-cols-[minmax(10rem,1fr)_min(56rem,100%)_minmax(10rem,1fr)]">
+            <CaseStudyTabNav tabs={TABS} activeTab={activeTab} onSelect={selectTab} accent="#9E76FF" />
 
-          {/* Headings */}
-          <h3 className="font-bold leading-none text-[2.5rem] md:text-[3.5rem] mt-2 mb-2 text-left">
-            GO Redesign
-          </h3>
-          <p className="text-left text-lg md:text-xl mb-8">
-            Transforming Transit Apps – Starting at Home
-          </p>
+            <div className="min-w-0">
+              {/* ======================== CONTEXT ======================== */}
+              <section id="context" className="scroll-mt-28">
+                {/* Banner image */}
+                <LazyImage
+                  src="/goApp/goCover.jpg"
+                  alt="GO App Cover"
+                  className="w-full  object-cover mb-6 rounded-2xl mt-[5vh] sm:h-56 md:h-[70vh]"
+                  width={1200}
+                  height={400}
+                  loading="eager"
+                  decoding="async"
+                  fetchpriority="high"
+                />
 
-          {/* CaseStudyInfo */}
-          <div className="border-t border-b border-gray-200 py-8 mb-8" data-aos="fade-up">
-            <CaseStudyInfo />
-          </div>
+                {/* Headings */}
+                <h3 className="font-bold leading-none text-[2.5rem] md:text-[3.5rem] mt-2 mb-2 text-left">
+                  GO Redesign
+                </h3>
+                <p className="text-left text-lg md:text-xl mb-8">
+                  Transforming Transit Apps – Starting at Home
+                </p>
 
-          {/* Problem Section */}
-          <CaseBlock
-            subtitle="Problem"
-            title="The problem that hit too close to home..."
-            data-aos="fade-up"
-          >
-            <p>
+                {/* CaseStudyInfo */}
+                <div className="border-t border-b border-gray-200 py-8 mb-8" data-aos="fade-up">
+                  <CaseStudyInfo />
+                </div>
+              </section>
+
+              {/* ======================== PROBLEM ======================== */}
+              <section id="problem" className="scroll-mt-28">
+              {/* Problem Section */}
+              <CaseBlock
+                subtitle="Problem"
+                title="The problem that hit too close to home..."
+                data-aos="fade-up"
+              >
+            <p className="text-gray-600">
               As a native Miamian, relying on the GO app for public transport revealed a
               navigation experience that was far from intuitive and often frustrating.
               Cluttered layouts, distracting ads, and unclear icons made navigation
@@ -137,13 +149,16 @@ export default function GoRedesign() {
               struggling, I had to find a better solution.
             </p>
           </CaseBlock>
+              </section>
 
+              {/* ======================== RESEARCH ======================== */}
+              <section id="research" className="scroll-mt-28">
           {/* App Store Reviews */}
           <section className="py-10 flex flex-col gap-2" data-aos="fade-up">
             <div>
               <p className="text-gray-500 whitespace-nowrap">App Store Reviews</p>
               <p className="text-2xl font-bold">Stories Behind the Stars</p>
-              <p>
+              <p className="text-gray-600">
                 I analyzed <span className="font-bold">25+ App Store Reviews.</span> Feedback consistently mentioned difficulties finding information, confusing interfaces, and inefficient payment UX.
               </p>
             </div>
@@ -166,7 +181,7 @@ export default function GoRedesign() {
               <p className="text-gray-500 whitespace-nowrap">On-Site Interviews</p>
               <p className="text-2xl font-bold">Conversations on the Go</p>
               <div className="flex flex-col md:flex-row gap-5 mt-3">
-                <p className="w-full text-base ">
+                <p className="w-full text-base text-gray-600">
                   Reading reviews was just the start;
                   to feel users' real frustration, I met
                   them where it mattered most—at the Park
@@ -207,7 +222,7 @@ export default function GoRedesign() {
                 />
                 <div className="text-center md:text-left">
                   <p className="font-bold">Confusing & Visually Inconsistent Interface</p>
-                  <p>Cluttered layouts, overwhelming menus, misplaced ads, pixelated icons, misaligned text, and limited accessibility options made navigation difficult.</p>
+                  <p className="text-gray-600">Cluttered layouts, overwhelming menus, misplaced ads, pixelated icons, misaligned text, and limited accessibility options made navigation difficult.</p>
                 </div>
               </div>
               <div className="w-full md:w-1/3 flex flex-col items-center mb-8 md:mb-0">
@@ -218,7 +233,7 @@ export default function GoRedesign() {
                 />
                 <div className="text-center md:text-left">
                   <p className="font-bold">Difficulty Finding Transit Information</p>
-                  <p>Routes, stops, and schedules were buried or hard to access, making trips slower and more stressful.</p>
+                  <p className="text-gray-600">Routes, stops, and schedules were buried or hard to access, making trips slower and more stressful.</p>
                 </div>
               </div>
               <div className="w-full md:w-1/3 flex flex-col items-center">
@@ -229,7 +244,7 @@ export default function GoRedesign() {
                 />
                 <div className="text-center md:text-left">
                   <p className="font-bold">Weak integration of passes and Easy Cards</p>
-                  <p>Users struggled to add or use Easy Cards and passes within the app, with unintuitive steps and lack of integration with mobile wallets.</p>
+                  <p className="text-gray-600">Users struggled to add or use Easy Cards and passes within the app, with unintuitive steps and lack of integration with mobile wallets.</p>
                 </div>
               </div>
             </div>
@@ -250,7 +265,7 @@ export default function GoRedesign() {
             data-aos="fade-up"
           >
             <div className="flex flex-col gap-5">
-              <p>
+              <p className="text-gray-600">
                 Users shouldn't have to use 3 different apps to
                 find navigation information. I decided to <b>compare
                 3 transportation apps with 4.6+ ratings</b> to identify
@@ -286,7 +301,10 @@ export default function GoRedesign() {
               </div>
             </div>
           </CaseBlock>
+              </section>
 
+              {/* ======================== DESIGN APPROACH ======================== */}
+              <section id="approach" className="scroll-mt-28">
           {/* Design Goals Section */}
           <CaseBlock
             subtitle="Design Goals in Action"
@@ -296,15 +314,15 @@ export default function GoRedesign() {
             <div className="flex flex-col md:flex-row gap-8 md:gap-10 items-center">
               {/* Text Section */}
               <div className="w-full md:w-1/2 flex flex-col gap-6">
-                <p>
+                <p className="text-gray-600">
                   <span className="font-bold">1. Create a clean, accessible interface</span><br />
                   Reduce clutter, bring consistency to the UI, and use clearer iconography with a modern, accessible design system (including dark and light modes) to make navigation more intuitive.
                 </p>
-                <p>
+                <p className="text-gray-600">
                   <span className="font-bold">2. Surface key information faster</span><br />
                   Highlight routes, stops, and schedules upfront with fewer steps and added search functionality.
                 </p>
-                <p>
+                <p className="text-gray-600">
                   <span className="font-bold">3. Streamline Cards & Passes</span><br />
                   Integrate Easy Cards and passes more smoothly, reducing friction and enabling mobile wallet support.
                 </p>
@@ -329,7 +347,10 @@ export default function GoRedesign() {
               </div>
             </div>
           </CaseBlock>
+              </section>
 
+              {/* ======================== SOLUTION ======================== */}
+              <section id="solution" className="scroll-mt-28">
           {/* Final Product Section */}
           <CaseBlock
             subtitle="High Fidelity Mockups"
@@ -359,21 +380,24 @@ export default function GoRedesign() {
             <p className="text-2xl font-bold mt-8 text-left">Key Improvements at a Glance</p>
             <LazyImage src="/goApp/finalKeyFeatures.jpg" className="w-full object-contain mt-4" alt="Key Features" />
           </CaseBlock>
+              </section>
 
+              {/* ======================== REFLECTION ======================== */}
+              <section id="reflection" className="scroll-mt-28">
           {/* Conclusion Section */}
           <CaseBlock
             subtitle="Conclusion"
             title="Takeaways & Next Steps"
             data-aos="fade-up"
           >
-            <p>
+            <p className="text-gray-600">
               This project gave me the chance to design with real users and real feedback,
               highlighting the power of user interviews and meeting users where they are.
               Many simple changes can make a big impact and can make two experiences feel like night and day.
             </p>
             <div className="mt-6 flex flex-col gap-3">
-              <p><span className="font-bold">Validated insights:</span> Conversations with users informed not just the app's design but also ideas for broader improvements.  </p>
-              <p><span className="font-bold">Future impact:</span> Propose this solution to Miami-Dade County to make a tangible, city-wide improvement.</p>
+              <p className="text-gray-600"><span className="font-bold">Validated insights:</span> Conversations with users informed not just the app's design but also ideas for broader improvements.  </p>
+              <p className="text-gray-600"><span className="font-bold">Future impact:</span> Propose this solution to Miami-Dade County to make a tangible, city-wide improvement.</p>
               <p className="font-bold mt-2">Opportunities for iteration:</p>
               <ul className="list-disc ml-6">
                 <li>Enhance accessibility for all users</li>
@@ -383,23 +407,12 @@ export default function GoRedesign() {
               </ul>
             </div>
           </CaseBlock>
+              </section>
+            </div>
+          </div>
 
-          {/* Navigation Links */}
-          <div className="flex flex-col md:flex-row items-center md:justify-between gap-4 md:gap-0 my-10">
-            <Link
-              to={`/portfolio/${prevProjectID}`}
-              className="flex items-center justify-center bg-white hover:bg-[#9E76FF] text-[#181818] font-bold w-[300px] md:w-auto px-3 py-2 md:px-6 md:py-3 rounded-full shadow-lg transition z-10 text-xs md:text-base"
-            >
-              <ArrowRight size={20} className="rotate-180 mr-2" />
-              {prevProject.title}
-            </Link>
-            <Link
-              to={`/portfolio/${nextProjectID}`}
-              className="flex items-center justify-center bg-white hover:bg-[#9E76FF] text-[#181818] font-bold w-[300px] md:w-auto px-3 py-2 md:px-6 md:py-3 rounded-full shadow-lg transition text-xs md:text-base"
-            >
-              <span className="mr-2">{nextProject.title}</span>
-              <ArrowRight size={20} />
-            </Link>
+          <div className="max-w-[56rem] mx-auto">
+            <ExploreCaseStudies currentId="goTransitRedesign" />
           </div>
         </div>
       </div>

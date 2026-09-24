@@ -1,6 +1,6 @@
 import "../../index.css";
 import { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function LinkedinIcon({ size = 20 }) {
   return (
@@ -19,19 +19,15 @@ function LinkedinIcon({ size = 20 }) {
 }
 
 const NAV_LINKS = [
+  { label: "work", path: "/", color: "#b9b1d8", scrollTo: "work" },
   { label: "play", path: "/portfolio", color: "#CDDC3D" },
   { label: "about", path: "/about-page", color: "#FF97DB" },
-  { label: "contact", path: "/contact-page", color: "#9E76FF" },
 ];
 
 function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false); // New state to track mobile view
   const navigate = useNavigate();
-  const location = useLocation();
-
-  const isActivePath = (path) =>
-    location.pathname === path || location.pathname.startsWith(`${path}/`);
 
   // Detect screen size and update state
   const updateMobileView = () => {
@@ -62,6 +58,17 @@ function Navigation() {
     setIsMenuOpen(false);
   };
 
+  const scrollToSection = (id) => {
+    if (window.location.pathname === "/") {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 150);
+    }
+  };
+
   return (
     <div>
       <nav className="fixed top-0 left-0 w-full h-[7vh] flex justify-between items-center px-4 sm:px-6 bg-[#181818] text-white z-50 font-sans font-bold">
@@ -73,24 +80,24 @@ function Navigation() {
         {/* Right navigation items (desktop) */}
         {!isMobile && (
           <div className="flex items-center space-x-8">
-            {NAV_LINKS.map(({ label, path, color }) => {
-              const active = isActivePath(path);
-              return (
-                <a
-                  key={path}
-                  href={path}
-                  className={`flex items-center gap-2 px-1 py-2 text-[1vw] sm:text-base hover:text-white hover:-translate-y-0.5 transition-all font-sans ${active ? "font-bold" : "font-medium"}`}
-                  style={{ color }}
-                >
-                  <span
-                    className={`h-1.5 w-1.5 rounded-full transition-opacity ${active ? "opacity-100" : "opacity-0"}`}
-                    style={{ backgroundColor: color }}
-                    aria-hidden="true"
-                  />
-                  {label}
-                </a>
-              );
-            })}
+            {NAV_LINKS.map(({ label, path, color, scrollTo }) => (
+              <a
+                key={path}
+                href={path}
+                onClick={
+                  scrollTo
+                    ? (e) => {
+                        e.preventDefault();
+                        scrollToSection(scrollTo);
+                      }
+                    : undefined
+                }
+                className="px-1 py-2 text-[1vw] sm:text-base font-medium hover:text-white hover:-translate-y-0.5 transition-all font-sans"
+                style={{ color }}
+              >
+                {label}
+              </a>
+            ))}
             <a
               href="https://www.linkedin.com/in/emelybarcenas/"
               target="_blank"
@@ -122,24 +129,23 @@ function Navigation() {
         className={`sm:hidden fixed top-11 left-0 w-full bg-[#181818] z-[10000] ${isMenuOpen ? 'block' : 'hidden'}`}
         >
           <div className="flex flex-col items-center space-y-4 py-4 z-[10000]"> {/* Added z-50 to make sure menu stays on top */}
-            {NAV_LINKS.map(({ label, path, color }) => {
-              const active = isActivePath(path);
-              return (
-                <button
-                  key={path}
-                  className={`flex items-center gap-2 text-lg ${active ? "font-bold" : "font-medium"}`}
-                  style={{ color }}
-                  onClick={() => handleNavigation(path)}
-                >
-                  <span
-                    className={`h-1.5 w-1.5 rounded-full transition-opacity ${active ? "opacity-100" : "opacity-0"}`}
-                    style={{ backgroundColor: color }}
-                    aria-hidden="true"
-                  />
-                  {label.charAt(0).toUpperCase() + label.slice(1)}
-                </button>
-              );
-            })}
+            {NAV_LINKS.map(({ label, path, color, scrollTo }) => (
+              <button
+                key={path}
+                className="text-lg font-medium"
+                style={{ color }}
+                onClick={() => {
+                  if (scrollTo) {
+                    scrollToSection(scrollTo);
+                    setIsMenuOpen(false);
+                  } else {
+                    handleNavigation(path);
+                  }
+                }}
+              >
+                {label.charAt(0).toUpperCase() + label.slice(1)}
+              </button>
+            ))}
             <a
               href="https://github.com/emelybarcenas"
               target="_blank"

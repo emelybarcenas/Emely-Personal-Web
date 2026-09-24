@@ -1,0 +1,30 @@
+export const CASE_STUDIES = [
+  {
+    id: "ibmDeveloperPortal",
+    imgSrc: "/portfolio-covers/ibmPortalCover.jpg",
+    href: "/portfolio/ibmDeveloperPortal",
+    title: "IBM Developer Portal",
+    description: "Designing a seamless, scalable developer journey with IBM's Carbon Design System",
+  },
+  {
+    id: "cleanSlate",
+    imgSrc: "/portfolio-covers/cleanSlateCover.png",
+    href: "/portfolio/cleanSlate",
+    title: "Miami Heat Clean Slate",
+    description: "Designing streamlined workflows for privacy requests, customer data, and account deletion",
+  },
+  {
+    id: "goTransitRedesign",
+    imgSrc: "/goApp/goCover.jpg",
+    href: "/portfolio/goTransitRedesign",
+    title: "GO Transit Redesign",
+    description: "Turning complexity into clarity through thoughtful app design",
+  },
+  {
+    id: "plateItForward",
+    imgSrc: "/banners/plateItForwardBanner.png",
+    href: "/portfolio/plateItForward",
+    title: "PlateItForward",
+    description: "Designing for action: making food donations simple and rewarding",
+  },
+];

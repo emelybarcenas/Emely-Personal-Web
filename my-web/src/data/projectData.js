@@ -7,11 +7,11 @@ export const projectData = {
     },
     cleanSlate: {
         title: "Miami Heat Clean Slate",
-        image: "/portfolio-covers/cleanSlateCover.svg",
+        image: "/portfolio-covers/cleanSlateCover.png",
     },
     ibmDeveloperPortal: {
         title: "IBM Developer Portal",
-        image: "/portfolio-covers/ibmPortalCover.svg",
+        image: "/portfolio-covers/ibmPortalCover.jpg",
     },
     tinker:{
         title: "Tinker - A Creative's Playground",

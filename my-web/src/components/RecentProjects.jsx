@@ -1,5 +1,3 @@
-import downArrowIcon from "../assets/down-arrow-icon.svg";
-
 function ProjectCover({ imgSrc, alt, href, title, caption, description, projectType, objectPosition = "center" }) {
   const tags = projectType.includes("|")
     ? projectType.split("|").map((t) => t.trim())
@@ -8,18 +6,12 @@ function ProjectCover({ imgSrc, alt, href, title, caption, description, projectT
   return (
     <div className="flex flex-col items-stretch w-full group">
       <a href={href} className="block w-full">
-        <div className="relative w-full overflow-hidden rounded-2xl">
+        <div className="relative w-full overflow-hidden rounded-[3px]">
           <img
             src={imgSrc}
             alt={alt}
-            className="w-full h-52 md:h-64 lg:h-72 object-cover bg-[#181818] transition-transform duration-300 group-hover:scale-[1.03]"
+            className="w-full h-72 sm:h-80 md:h-[26rem] lg:h-[30rem] object-cover bg-[#181818] transition-transform duration-300 group-hover:scale-[1.03]"
             style={{ objectPosition }}
-          />
-          <img
-            src={downArrowIcon}
-            alt=""
-            className="absolute right-5 top-5 w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-            style={{ transform: "rotate(225deg)" }}
           />
           <div className="absolute left-0 right-0 bottom-0 flex flex-wrap gap-1 justify-start items-end pb-2 pl-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             {tags.map((tag) => (
@@ -34,14 +26,32 @@ function ProjectCover({ imgSrc, alt, href, title, caption, description, projectT
         </div>
       </a>
       <div className="mt-5">
-        <h4 className="text-black font-medium text-lg md:text-2xl mb-1 text-left">{caption || title}</h4>
-        <p className="text-gray-700 text-base text-left">{description}</p>
+        <h4 className="text-gray-900 font-normal text-base md:text-xl mb-1 text-left">{caption || title}</h4>
+        <p className="text-gray-500 text-sm md:text-base font-light text-left">{description}</p>
       </div>
     </div>
   );
 }
 
 const featured = [
+  {
+    imgSrc: "/portfolio-covers/ibmPortalCover.jpg",
+    alt: "IBM Developer Portal",
+    href: "/portfolio/ibmDeveloperPortal",
+    title: "IBM Developer Portal",
+    description: "Designing a seamless, scalable developer journey with IBM's Carbon Design System",
+    projectType: "Product Design | Internship | Developer Experience | Design Systems",
+    objectPosition: "center",
+  },
+  {
+    imgSrc: "/portfolio-covers/cleanSlateCover.png",
+    alt: "Miami Heat Clean Slate",
+    href: "/portfolio/cleanSlate",
+    title: "Miami Heat Clean Slate",
+    description: "Designing streamlined workflows for privacy requests, customer data, and account deletion",
+    projectType: "UI/UX | Internship | Angular | TypeScript",
+    objectPosition: "center",
+  },
   {
     imgSrc: "/goApp/goCover.jpg",
     alt: "GO Transit Redesign",
@@ -60,33 +70,12 @@ const featured = [
     projectType: "UI/UX Case Study | CodePath x AmazonNext 2025",
     objectPosition: "center",
   },
-  {
-    imgSrc: "/portfolio-covers/cleanSlateCover.svg",
-    alt: "Miami Heat Clean Slate",
-    href: "/portfolio/cleanSlate",
-    title: "Miami Heat Clean Slate",
-    description: "Rebuilding a key internal experience during my HEAT internship",
-    projectType: "UI/UX | Internship | React | TypeScript",
-    objectPosition: "center",
-  },
-  {
-    imgSrc: "/portfolio-covers/ibmPortalCover.svg",
-    alt: "IBM Developer Portal",
-    href: "/portfolio/ibmDeveloperPortal",
-    title: "IBM Developer Portal",
-    description: "Designing a connected developer journey across discovery, learning, testing, and subscription",
-    projectType: "Product Design | Internship | Developer Experience | Design Systems",
-    objectPosition: "center",
-  },
 ];
 
 export default function RecentProjects() {
   return (
-    <div className="w-full flex flex-col items-center justify-center rounded-t-xl recentProjects bg-white py-12 px-6 md:px-10">
-      <h3 className="featuredProjects text-black text-[10vw] md:text-[4vw] mb-10">
-        Featured ✦ Projects
-      </h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-14 w-full max-w-6xl">
+    <div className="w-full flex flex-col items-center justify-center rounded-t-xl recentProjects bg-white pt-6 pb-12 px-3 md:px-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-12 w-full max-w-[1600px]">
         {featured.map((project) => (
           <ProjectCover key={project.title} {...project} />
         ))}

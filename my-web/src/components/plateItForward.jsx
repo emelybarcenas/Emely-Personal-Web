@@ -1,13 +1,22 @@
 import Navigation from "./Navigation-Bar/Navigation";
 import Footer from "./Footer";
 import LazyImage from "./LazyImage.jsx";
+import { CaseStudyTabNav, useScrollSpyTabs } from "./CaseStudy/CaseStudyTabNav.jsx";
+import ExploreCaseStudies from "./CaseStudy/ExploreCaseStudies.jsx";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { projectData } from "../data/projectData";
-import { ArrowRight, Cog, ChartColumnDecreasing, BadgeHelp, Lightbulb, Heart, MonitorSmartphone, MousePointer, Users } from "lucide-react";
-import { Link } from 'react-router-dom';
+import { Cog, ChartColumnDecreasing, BadgeHelp, Lightbulb, Heart, MonitorSmartphone, MousePointer, Users } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+
+const TABS = [
+  { id: "context", label: "Context" },
+  { id: "problem", label: "Problem" },
+  { id: "research", label: "Research" },
+  { id: "approach", label: "Design Approach" },
+  { id: "solution", label: "Solution" },
+  { id: "reflection", label: "Reflection" },
+];
 
 // ImageWithPlaceholder component for loading skeleton
 function ImageWithPlaceholder({ src, alt, className }) {
@@ -233,7 +242,7 @@ export function CaseStudyInfo() {
     <div className="flex flex-col md:flex-row gap-8">
       <div className="w-full md:w-1/2 flex flex-col gap-1 mb-6 md:mb-0">
         <h2 className="text-gray-500">About the Project</h2>
-        <p>
+        <p className="text-gray-600">
           PlateItForward is a student-centered app created 
           for the CodePath x Amazon Next Challenge, addressing 
           food waste and food insecurity on campus.
@@ -287,13 +296,14 @@ export function Feature({ title, subtitle, description }) {
     <>
       <p className="text-gray-500 text-xl">{subtitle}</p>
       <p className="text-[#0E956D] font-bold text-3xl">{title}</p>
-      <p className="text-lg">{description}</p>
+      <p className="text-lg text-gray-600">{description}</p>
     </>
   );
 }
 
 export default function PlateItForward() {
   const location = useLocation();
+  const { activeTab, selectTab } = useScrollSpyTabs(TABS);
 
   useEffect(() => {
     AOS.init({
@@ -308,43 +318,42 @@ export default function PlateItForward() {
   }, [location.pathname]);
 
 
-  const projectKeys = Object.keys(projectData);
-  const currentIndex = projectKeys.indexOf("plateItForward");
-  const prevIndex = (currentIndex - 1 + projectKeys.length) % projectKeys.length;
-  const nextIndex = (currentIndex + 1) % projectKeys.length;
-  const prevProjectID = projectKeys[prevIndex];
-  const nextProjectID = projectKeys[nextIndex];
-  const prevProject = projectData[prevProjectID];
-  const nextProject = projectData[nextProjectID];
-
   return (
     <div className="relative min-h-screen">
       <nav className="fixed top-0 left-0 right-0 z-50 w-full">
         <Navigation/>
       </nav>
-      <div className="relative bg-white z-10 pt-16 md:pt-20">
-        <div className="mx-auto max-w-5xl w-full px-6 md:px-0 mt-[10vh]">
-        
-          <LazyImage
-            src="/banners/plateItForwardBanner.png"
-            alt="PlateItForward Banner"
-            className="w-full object-cover mb-6 rounded-2xl mt-[5vh]"
-            width={1200}
-            height={400}
-            loading="eager"
-            decoding="async"
-            fetchpriority="high"
-          />
-            <h3 className="mt-[2vh] font-bold leading-none text-[2.5rem] md:text-[3.5rem] text-left">
-            PlateItForward
-          </h3>
-          <p className="text-left text-lg md:text-xl mb-8">
-            From Leftovers to Impact - Students Leading the Way
-          </p>
-          <div className="border-t border-b border-gray-200 py-8 mb-8" data-aos="fade-up">
-            <CaseStudyInfo />
-          </div>
+      <div className="relative bg-white z-10 pt-16 md:pt-20 pb-16 md:pb-20">
+        <div className="mx-auto max-w-[86rem] w-full px-6 md:px-0 mt-[10vh]">
+          <div className="lg:grid lg:items-start lg:gap-x-14 lg:grid-cols-[minmax(10rem,1fr)_min(56rem,100%)_minmax(10rem,1fr)]">
+            <CaseStudyTabNav tabs={TABS} activeTab={activeTab} onSelect={selectTab} accent="#0E956D" />
 
+            <div className="min-w-0">
+              {/* ======================== CONTEXT ======================== */}
+              <section id="context" className="scroll-mt-28">
+              <LazyImage
+                src="/banners/plateItForwardBanner.png"
+                alt="PlateItForward Banner"
+                className="w-full object-cover mb-6 rounded-2xl mt-[5vh]"
+                width={1200}
+                height={400}
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
+              />
+                <h3 className="mt-[2vh] font-bold leading-none text-[2.5rem] md:text-[3.5rem] text-left">
+                PlateItForward
+              </h3>
+              <p className="text-left text-lg md:text-xl mb-8">
+                From Leftovers to Impact - Students Leading the Way
+              </p>
+              <div className="border-t border-b border-gray-200 py-8 mb-8" data-aos="fade-up">
+                <CaseStudyInfo />
+              </div>
+              </section>
+
+              {/* ======================== PROBLEM ======================== */}
+              <section id="problem" className="scroll-mt-28">
           <CaseBlock
             subtitle={"Problem"}
             title={
@@ -354,9 +363,14 @@ export default function PlateItForward() {
             }
             data-aos="fade-up"
           >
-            Every week, public schools in the US produce approximately 14,000 tons of food waste. Students want to reduce school food waste, but current systems within their schools are confusing, time-consuming, and invisible. Without clarity, simplicity, and motivation, willing students stop trying.
+            <p className="text-gray-600">
+              Every week, public schools in the US produce approximately 14,000 tons of food waste. Students want to reduce school food waste, but current systems within their schools are confusing, time-consuming, and invisible. Without clarity, simplicity, and motivation, willing students stop trying.
+            </p>
           </CaseBlock>
+              </section>
 
+              {/* ======================== RESEARCH ======================== */}
+              <section id="research" className="scroll-mt-28">
           <CaseBlock
             subtitle={"User Research"}
             title={"6 Student Interviews. 3 Themes. Actionable Insights."}
@@ -366,17 +380,17 @@ export default function PlateItForward() {
               <div className="w-full md:w-1/3 flex flex-col items-center mb-8 md:mb-0">
                 <Lightbulb color="#0E956D" size={64} className="mb-4" />
                 <p className="font-bold text-center">Theme 1: Awareness</p>
-                <p className="text-center">“It’s a problem, but no one really does anything about it”</p>
+                <p className="text-center text-gray-600">“It’s a problem, but no one really does anything about it”</p>
               </div>
               <div className="w-full md:w-1/3 flex flex-col items-center mb-8 md:mb-0">
                 <MonitorSmartphone color="#0E956D" size={64} className="mb-4" />
                 <p className="font-bold text-center">Theme 2: Tech Habits</p>
-                <p className="text-center">“I’ll use trackers but then forget about them or get bored of them”</p>
+                <p className="text-center text-gray-600">“I’ll use trackers but then forget about them or get bored of them”</p>
               </div>
               <div className="w-full md:w-1/3 flex flex-col items-center">
                 <Heart color="#0E956D" size={64} className="mb-4" />
                 <p className="font-bold text-center">Theme 3: Motivation</p>
-                <p className="text-center">“It’s fun when you can customize something”</p>
+                <p className="text-center text-gray-600">“It’s fun when you can customize something”</p>
               </div>
             </div>
           </CaseBlock>
@@ -390,21 +404,24 @@ export default function PlateItForward() {
               <div className="w-full md:w-1/3 flex flex-col items-center mb-8 md:mb-0">
                 <Cog color="#0E956D" size={64} className="mb-4" />
                 <p className="font-bold text-center">Unclear & inefficient systems</p>
-                <p className="text-center">Current processes make it hard for students to take action</p>
+                <p className="text-center text-gray-600">Current processes make it hard for students to take action</p>
               </div>
               <div className="w-full md:w-1/3 flex flex-col items-center mb-8 md:mb-0">
                 <ChartColumnDecreasing color="#0E956D" size={64} className="mb-4" />
                 <p className="font-bold text-center">Low engagement & motivation</p>
-                <p className="text-center">Students don’t feel compelled to act because of invisbility</p>
+                <p className="text-center text-gray-600">Students don’t feel compelled to act because of invisbility</p>
               </div>
               <div className="w-full md:w-1/3 flex flex-col items-center">
                 <BadgeHelp color="#0E956D" size={64} className="mb-4" />
                 <p className="font-bold text-center">Unclear sense of impact & purpose</p>
-                <p className="text-center">Without a clear sense of how their actions create change, students lose interest or doubt their efforts matter.</p>
+                <p className="text-center text-gray-600">Without a clear sense of how their actions create change, students lose interest or doubt their efforts matter.</p>
               </div>
             </div>
           </CaseBlock>
+              </section>
 
+              {/* ======================== DESIGN APPROACH ======================== */}
+              <section id="approach" className="scroll-mt-28">
           <CaseBlock
             subtitle="Solution"
             title={
@@ -412,11 +429,11 @@ export default function PlateItForward() {
             }
             data-aos="fade-up"
           >
-            <p>
+            <p className="text-gray-600">
               Our solution allows students to donate effortlessly, stay engaged, and feel connected to a larger mission—transforming small daily choices into lasting change.
             </p>
-            <p className="mt-4">Our Approach:</p>
-            <ul className="list-disc pl-6 my-4 space-y-2">
+            <p className="mt-4 text-gray-600">Our Approach:</p>
+            <ul className="list-disc pl-6 my-4 space-y-2 text-gray-600">
               <li>Make food donation easier to find and faster to use</li>
               <li>Boost engagement with gamified, community experiences</li>
               <li>Show students their impact and why it matters</li>
@@ -425,21 +442,24 @@ export default function PlateItForward() {
               <LazyImage src="/plateItForward/earlyiterations.jpg" className="w-full max-w-[800px] mt-4" alt="Early Iterations" />
             </div>
           </CaseBlock>
+              </section>
 
+              {/* ======================== SOLUTION ======================== */}
+              <section id="solution" className="scroll-mt-28">
           <CaseBlock subtitle={"Testing & Improvements"} data-aos="fade-up">
             <div className="space-y-8">
               {/* 1. Refining Point System */}
               <div>
                 <p className="text-2xl font-bold mb-2">1. Refining Point System</p>
-                <p>
+                <p className="text-gray-600">
                   Our original gamification model 
                   awarded students points for every donation made. 
                   However, after initial testing, we realized this 
                   system risked incentivizing quantity over quality, 
                   potentially encouraging unhealthy behaviors.
                 </p>
-                <p className="mt-4">To shift the focus toward meaningful engagement, we redesigned the system so that:</p>
-                <ul className="list-disc pl-6 my-4 space-y-2">
+                <p className="mt-4 text-gray-600">To shift the focus toward meaningful engagement, we redesigned the system so that:</p>
+                <ul className="list-disc pl-6 my-4 space-y-2 text-gray-600">
                   <li>Points are earned through completing educational lessons, not donating.</li>
                   <li>
                     After donation, students can nudge a friend as a social call-to-action or share their impact via social media, maintaining visibility and motivation without encouraging mindless contributions.
@@ -449,32 +469,32 @@ export default function PlateItForward() {
               {/* 2. Improving Scanning Flow */}
               <div>
                 <p className="text-2xl font-bold mb-2">2. Improving Scanning Flow</p>
-                <p>
+                <p className="text-gray-600">
                   During early feedback sessions, we identified a gap in the item scanning flow. Originally, there was no way for students to add or review multiple items efficiently. It felt tedious and unclear.
                 </p>
-                <p className="mt-4">To improve this:</p>
-                <ul className="list-disc pl-6 my-4 space-y-2">
+                <p className="mt-4 text-gray-600">To improve this:</p>
+                <ul className="list-disc pl-6 my-4 space-y-2 text-gray-600">
                   <li>We added confirmation screens and subtle microcopy indicating when an item was successfully added.</li>
                   <li>
                     We introduced a "donation list" view, resembling a shopping cart, where students could:
-                    <ul className="list-disc pl-6 mt-2 space-y-1">
+                    <ul className="list-disc pl-6 mt-2 space-y-1 text-gray-600">
                       <li>View all scanned items at once</li>
                       <li>Edit quantities or remove items</li>
                       <li>Submit all donations in one streamlined action, rather than approving each individually</li>
                     </ul>
                   </li>
                 </ul>
-                <p>
+                <p className="text-gray-600">
                   This significantly sped up the donation process while giving users more control and clarity.
                 </p>
               </div>
               {/* 3. Enhancing Long-Term Engagement */}
               <div>
                 <p className="text-2xl font-bold mb-2">3. Enhancing Long-Term Engagement</p>
-                <p>
+                <p className="text-gray-600">
                   To further encourage returning users without relying solely on points, we:
                 </p>
-                <ul className="list-disc pl-6 my-4 space-y-2">
+                <ul className="list-disc pl-6 my-4 space-y-2 text-gray-600">
                   <li>Introduced unlockable personalization features (e.g. character customization)</li>
                   <li>Added impact metrics, like “meals saved” or “friends nudged,” to visually show a student’s contribution</li>
                   <li>Ensured that the main CTA (Call to Action) was consistently visible on the homepage for ease of access and clarity</li>
@@ -486,7 +506,10 @@ export default function PlateItForward() {
           <CaseBlock subtitle={"Final Product"} title={"Here's how we brought it all together"} data-aos="fade-up">
             <FeaturesCarousel data-aos="fade-up" />
           </CaseBlock>
+              </section>
 
+              {/* ======================== REFLECTION ======================== */}
+              <section id="reflection" className="scroll-mt-28">
           <CaseBlock
             subtitle="Prospective Impact"
             title={
@@ -527,22 +550,12 @@ export default function PlateItForward() {
               </div>
             </div>
           </CaseBlock>
+              </section>
+            </div>
+          </div>
 
-          <div className="flex flex-col md:flex-row items-center md:justify-between gap-4 md:gap-0 my-10">
-            <Link
-              to={`/portfolio/${prevProjectID}`}
-              className="flex items-center justify-center bg-white hover:bg-[#9E76FF] text-[#181818] font-bold w-[300px] md:w-auto px-3 py-2 md:px-6 md:py-3 rounded-full shadow-lg transition z-10 text-xs md:text-base"
-            >
-              <ArrowRight size={20} className="rotate-180 mr-2" />
-              {prevProject.title}
-            </Link>
-            <Link
-              to={`/portfolio/${nextProjectID}`}
-              className="flex items-center justify-center bg-white hover:bg-[#9E76FF] text-[#181818] font-bold w-[300px] md:w-auto px-3 py-2 md:px-6 md:py-3 rounded-full shadow-lg transition text-xs md:text-base"
-            >
-              <span className="mr-2">{nextProject.title}</span>
-              <ArrowRight size={20} />
-            </Link>
+          <div className="max-w-[56rem] mx-auto">
+            <ExploreCaseStudies currentId="plateItForward" />
           </div>
         </div>
       </div>
