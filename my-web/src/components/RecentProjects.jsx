@@ -48,7 +48,7 @@ const featured = [
     alt: "Miami Heat Clean Slate",
     href: "/portfolio/cleanSlate",
     title: "Miami Heat Clean Slate",
-    description: "Designing streamlined workflows for privacy requests, customer data, and account deletion",
+    description: "Designing a data deletion workflow that balances automation with human review",
     projectType: "UI/UX | Internship | Angular | TypeScript",
     objectPosition: "center",
   },

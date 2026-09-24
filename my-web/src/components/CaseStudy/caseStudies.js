@@ -11,7 +11,7 @@ export const CASE_STUDIES = [
     imgSrc: "/portfolio-covers/cleanSlateCover.png",
     href: "/portfolio/cleanSlate",
     title: "Miami Heat Clean Slate",
-    description: "Designing streamlined workflows for privacy requests, customer data, and account deletion",
+    description: "Designing a data deletion workflow that balances automation with human review",
   },
   {
     id: "goTransitRedesign",
