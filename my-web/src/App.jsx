@@ -5,7 +5,6 @@ import './App.css'
 import './index.css'; 
 import Home from "./components/Home/Home.jsx";
 import Navigation from './components/Navigation-Bar/Navigation.jsx';
-import ThreeScene from './components/ThreeScene.jsx';
 import DesignerText from './components/SubTitle.jsx';
 import downArrowIcon from "./assets/down-arrow-icon.svg";
 import RecentProjects from './components/RecentProjects.jsx';
@@ -57,15 +56,6 @@ function App() {
   <div className="middleLayer">
     <section id="work" className="featuredLayer scroll-mt-24">
       <RecentProjects />
-    </section>
-
-    <section className="aboutLayer min-h-[40vh] flex items-center justify-center">
-      <h2 className="text-white text-[8vh] font-bold">WHAT I'M UP TO</h2>
-    </section>
-
-    <section className="sceneLayer bg-black flex flex-row">
-      <ThreeScene modelname="scene"/>
-      <ThreeScene modelname="scene" />
     </section>
 
     <section id="contact" className="contactLayer">
