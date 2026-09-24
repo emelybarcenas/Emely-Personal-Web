@@ -19,6 +19,7 @@ import PlateItForward from './components/plateItForward.jsx';
 import GoRedesign from './components/GoRedesign.jsx';
 import IBMDeveloperPortal from './components/IBMDeveloperPortal.jsx';
 import CleanSlate from './components/CleanSlate.jsx';
+import CurrentlySection from './components/CurrentlySection.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -56,6 +57,10 @@ function App() {
   <div className="middleLayer">
     <section id="work" className="featuredLayer scroll-mt-24">
       <RecentProjects />
+    </section>
+
+    <section className="currentlyLayer">
+      <CurrentlySection />
     </section>
 
     <section id="contact" className="contactLayer">

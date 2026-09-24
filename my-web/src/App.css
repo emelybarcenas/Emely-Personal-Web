@@ -103,6 +103,7 @@ html, body {
 }
 
 .featuredLayer,
+.currentlyLayer,
 .aboutLayer,
 .contactLayer,
 .sceneLayer {
@@ -407,4 +408,16 @@ background: #ffffff;
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* Progress bar under the active "What I've been up to lately" item */
+@keyframes currently-progress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+.currently-progress {
+  width: 0%;
+  animation-name: currently-progress;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
 }

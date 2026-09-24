@@ -74,7 +74,7 @@ const featured = [
 
 export default function RecentProjects() {
   return (
-    <div className="w-full flex flex-col items-center justify-center rounded-t-xl recentProjects bg-white pt-6 pb-12 px-3 md:px-5">
+    <div className="w-full flex flex-col items-center justify-center rounded-t-xl recentProjects bg-white pt-6 pb-12 px-4 md:px-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-12 w-full max-w-[1600px]">
         {featured.map((project) => (
           <ProjectCover key={project.title} {...project} />
