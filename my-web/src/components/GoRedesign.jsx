@@ -164,10 +164,10 @@ export default function GoRedesign() {
             </div>
             <div className="grid grid-cols-2 md:flex mt-10 gap-4">
               {["review1r", "review2r", "review3r", "review4r"].map((img, i) => (
-                <div key={i} className="w-full md:w-1/4 h-40 overflow-hidden rounded-xl shadow-lg">
+                <div key={i} className="w-full md:w-1/4 aspect-video overflow-hidden rounded-xl shadow-lg">
                   <LazyImage
                     src={`/goApp/${img}.png`}
-                    className="w-full h-full object-cover scale-110 md:scale-[1.75]"
+                    className="w-full h-full object-cover scale-[1.8]"
                     alt={`Review ${i + 1}`}
                   />
                 </div>
@@ -396,9 +396,9 @@ export default function GoRedesign() {
               Many simple changes can make a big impact and can make two experiences feel like night and day.
             </p>
             <div className="mt-6 flex flex-col gap-3">
-              <p className="text-gray-600"><span className="font-bold">Validated insights:</span> Conversations with users informed not just the app's design but also ideas for broader improvements.  </p>
-              <p className="text-gray-600"><span className="font-bold">Future impact:</span> Propose this solution to Miami-Dade County to make a tangible, city-wide improvement.</p>
-              <p className="font-bold mt-2">Opportunities for iteration:</p>
+              <p className="text-gray-600"><span className="font-bold text-black">Validated insights:</span> Conversations with users informed not just the app's design but also ideas for broader improvements.  </p>
+              <p className="text-gray-600"><span className="font-bold text-black">Future impact:</span> Propose this solution to Miami-Dade County to make a tangible, city-wide improvement.</p>
+              <p className="font-bold text-black mt-2">Opportunities for iteration:</p>
               <ul className="list-disc ml-6">
                 <li>Enhance accessibility for all users</li>
                 <li>Add features like real-time bus occupancy</li>

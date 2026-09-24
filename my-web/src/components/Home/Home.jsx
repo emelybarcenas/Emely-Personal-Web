@@ -21,7 +21,7 @@ function HeroCopy({ className = '', onTextEnter, onTextLeave }) {
       <div className={`${styles.details} ${styles.reveal}`}>
         <div>
           <strong onPointerEnter={onTextEnter} onPointerLeave={onTextLeave}>
-            <em>CS Student • Prev @ IBM + Miami Heat</em>
+            <em>CS Student ✦ Prev @ IBM + Miami Heat</em>
           </strong>
         </div>
       </div>

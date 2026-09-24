@@ -410,7 +410,7 @@ background: #ffffff;
   display: none;
 }
 
-/* Progress bar under the active "What I've been up to lately" item */
+/* Progress bar under the active "Currently..." item */
 @keyframes currently-progress {
   from { width: 0%; }
   to { width: 100%; }

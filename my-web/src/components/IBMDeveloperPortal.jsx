@@ -665,7 +665,7 @@ export default function IBMDeveloperPortal() {
                   IBM Developer Portal
                 </h3>
                 <p className="text-left text-lg md:text-xl mb-8">
-                  Designing and AI-prototyping a seamless, scalable developer journey on IBM's Carbon Design System
+                  Designing and AI-prototyping a scalable developer journey on IBM's Carbon Design System
                 </p>
 
                 <div className="border-t border-b border-gray-200 py-8 mb-8">
@@ -679,9 +679,9 @@ export default function IBMDeveloperPortal() {
                       <p className="text-gray-600 mt-4">
                         As the sole product designer during my 12-week IBM internship, I owned the
                         redesign from research through development handoff, using IBM's Carbon
-                        Design System. Instead of stopping at static mockups, I used AI coding
-                        tools like IBM Bob to rapidly turn designs into working Angular prototypes,
-                        testing and iterating on real interactions in hours instead of weeks. The
+                        Design System. I used AI coding tools like IBM Bob to rapidly turn my
+                        designs into working Angular prototypes, testing and iterating on real
+                        interactions in hours instead of weeks. The
                         redesigned portal is set to deploy soon.
                       </p>
                       <p className="text-gray-600 text-sm font-medium mt-3">
@@ -811,14 +811,13 @@ export default function IBMDeveloperPortal() {
                     size="text-lg md:text-xl"
                   />
                   <p className="mt-8 text-gray-600">
-                    I moved fluidly between Figma, AI-built prototypes, and validation, using A/B
-                    tests and weekly design critiques to refine each iteration.
+                    I moved fluidly between Figma, AI-built prototypes, and validation, refining
+                    each iteration through A/B tests and weekly design critiques.
                   </p>
                   <p className="mt-4 text-gray-600">
-                    AI was central to how I worked. Using IBM Bob, I translated Figma designs into
-                    functional Angular prototypes in hours, not weeks. That speed meant I could
-                    explore multiple directions, put real interactions in front of users, and fold
-                    feedback into the next iteration while the design was still taking shape.
+                    Using IBM Bob with the Figma and Carbon MCP servers, I turned my designs into
+                    Angular prototypes built on real Carbon components in hours, not weeks, so I
+                    could test more directions with users while the design was still taking shape.
                   </p>
                   <div className="mt-8 rounded-xl overflow-hidden border border-gray-200">
                     <LazyImage

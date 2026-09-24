@@ -39,7 +39,7 @@ const featured = [
     alt: "IBM Developer Portal",
     href: "/portfolio/ibmDeveloperPortal",
     title: "IBM Developer Portal",
-    description: "Designing and AI-prototyping a seamless, scalable developer journey on IBM's Carbon Design System",
+    description: "Designing and AI-prototyping a scalable developer journey on IBM's Carbon Design System",
     projectType: "Product Design | Internship | Developer Experience | Design Systems",
     objectPosition: "center",
   },
