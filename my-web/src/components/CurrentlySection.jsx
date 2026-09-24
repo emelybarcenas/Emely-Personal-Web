@@ -20,6 +20,7 @@ const CURRENTLY = [
     title: "Adobe Student Ambassador",
     img: "/adobe-student-ambassador-logo.png",
     imgAlt: "Adobe Student Ambassador logo",
+    href: "https://www.linkedin.com/posts/emelybarcenas_adobeexpress-adobestudentambassador-fiu-activity-7500968780899033088-AE2K",
     contain: true,
   },
 ];
@@ -52,7 +53,7 @@ export default function CurrentlySection() {
       onMouseLeave={() => setPaused(false)}
     >
       <div className="w-full max-w-[1600px]">
-        <h3 className="font-bold leading-[0.95] tracking-tight text-[clamp(2.25rem,4.5vw,4.5rem)] mb-8 md:mb-10">
+        <h3 className="font-medium leading-[0.95] tracking-tight text-[clamp(2.25rem,4.5vw,4.5rem)] mb-8 md:mb-10">
           What I&apos;ve been up to lately{" "}
           <span aria-hidden="true" className="inline-block align-middle text-[#FF97DB] text-[0.6em] -translate-y-[0.08em]">
             ✦
