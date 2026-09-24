@@ -44,7 +44,7 @@ const featured = [
     objectPosition: "center",
   },
   {
-    imgSrc: "/miamiHeat/cleanslatecover.png",
+    imgSrc: "/miamiHeat/cleanslatecover3.png",
     alt: "Miami Heat Clean Slate",
     href: "/portfolio/cleanSlate",
     title: "Miami Heat Clean Slate",

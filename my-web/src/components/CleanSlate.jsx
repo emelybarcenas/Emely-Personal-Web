@@ -181,7 +181,7 @@ export default function CleanSlate() {
               {/* ======================== OVERVIEW ======================== */}
               <section id="overview" className="scroll-mt-28">
                 <LazyImage
-                  src="/miamiHeat/cleanslatecover.png"
+                  src="/miamiHeat/cleanslatecover3.png"
                   alt="Clean Slate"
                   className="w-full object-cover rounded-2xl mt-[5vh] mb-6 h-56 md:h-[60vh]"
                 />
