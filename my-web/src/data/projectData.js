@@ -7,7 +7,7 @@ export const projectData = {
     },
     cleanSlate: {
         title: "Miami Heat Clean Slate",
-        image: "/portfolio-covers/cleanSlateCover.png",
+        image: "/miamiHeat/cleanslatecover.png",
     },
     ibmDeveloperPortal: {
         title: "IBM Developer Portal",

@@ -8,7 +8,7 @@ export const CASE_STUDIES = [
   },
   {
     id: "cleanSlate",
-    imgSrc: "/portfolio-covers/cleanSlateCover.png",
+    imgSrc: "/miamiHeat/cleanslatecover.png",
     href: "/portfolio/cleanSlate",
     title: "Miami Heat Clean Slate",
     description: "Designing a data deletion workflow that balances automation with human review",
