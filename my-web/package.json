@@ -15,6 +15,7 @@
   "dependencies": {
     "@carbon/icons-react": "^11.87.0",
     "@carbon/react": "^1.115.0",
+    "@vercel/analytics": "^2.0.1",
     "aos": "^2.3.4",
     "framer-motion": "^12.4.1",
     "lucide-react": "^0.475.0",
