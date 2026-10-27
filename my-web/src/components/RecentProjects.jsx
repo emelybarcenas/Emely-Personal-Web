@@ -1,18 +1,69 @@
-function ProjectCover({ imgSrc, alt, href, title, caption, description, projectType, objectPosition = "center" }) {
+import { useEffect, useRef, useState } from "react";
+
+// How long to wait for the video to start before giving up and keeping the image.
+const VIDEO_TIMEOUT_MS = 6000;
+
+// Skip the video on data-saver, very slow connections, or reduced-motion settings.
+function shouldSkipVideo() {
+  if (typeof window === "undefined") return true;
+  const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  if (conn?.saveData) return true;
+  if (conn && ["slow-2g", "2g"].includes(conn.effectiveType)) return true;
+  if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return true;
+  return false;
+}
+
+function ProjectCover({ imgSrc, videoSrc, alt, href, title, caption, description, projectType, objectPosition = "center" }) {
   const tags = projectType.includes("|")
     ? projectType.split("|").map((t) => t.trim())
     : [projectType];
+
+  const [useVideo, setUseVideo] = useState(false);
+  const [videoPlaying, setVideoPlaying] = useState(false);
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoSrc && !shouldSkipVideo()) setUseVideo(true);
+  }, [videoSrc]);
+
+  // If the video hasn't started in time, drop it and keep the image.
+  useEffect(() => {
+    if (!useVideo || videoPlaying) return;
+    const timer = setTimeout(() => setUseVideo(false), VIDEO_TIMEOUT_MS);
+    return () => clearTimeout(timer);
+  }, [useVideo, videoPlaying]);
+
+  // Some browsers block autoplay; fall back to the image if play() is rejected.
+  useEffect(() => {
+    if (!useVideo) return;
+    videoRef.current?.play?.().catch(() => setUseVideo(false));
+  }, [useVideo]);
+
+  const mediaClass =
+    "w-full h-72 sm:h-80 md:h-[26rem] lg:h-[30rem] object-cover bg-[#181818] transition-transform duration-300 group-hover:scale-[1.03]";
 
   return (
     <div className="flex flex-col items-stretch w-full group">
       <a href={href} className="block w-full">
         <div className="relative w-full overflow-hidden rounded-[3px]">
-          <img
-            src={imgSrc}
-            alt={alt}
-            className="w-full h-72 sm:h-80 md:h-[26rem] lg:h-[30rem] object-cover bg-[#181818] transition-transform duration-300 group-hover:scale-[1.03]"
-            style={{ objectPosition }}
-          />
+          <img src={imgSrc} alt={alt} className={mediaClass} style={{ objectPosition }} />
+          {useVideo && (
+            <video
+              ref={videoRef}
+              src={videoSrc}
+              poster={imgSrc}
+              muted
+              loop
+              autoPlay
+              playsInline
+              preload="auto"
+              aria-hidden="true"
+              onPlaying={() => setVideoPlaying(true)}
+              onError={() => setUseVideo(false)}
+              className={`${mediaClass} absolute inset-0 transition-opacity duration-500 ${videoPlaying ? "opacity-100" : "opacity-0"}`}
+              style={{ objectPosition }}
+            />
+          )}
           <div className="absolute left-0 right-0 bottom-0 flex flex-wrap gap-1 justify-start items-end pb-2 pl-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             {tags.map((tag) => (
               <span
@@ -36,6 +87,7 @@ function ProjectCover({ imgSrc, alt, href, title, caption, description, projectT
 const featured = [
   {
     imgSrc: "/portfolio-covers/ibmPortalCover.jpg",
+    videoSrc: "/portfolio-covers/ibm-cover-animated.mp4",
     alt: "IBM Developer Portal",
     href: "/portfolio/ibmDeveloperPortal",
     title: "IBM Developer Portal",
