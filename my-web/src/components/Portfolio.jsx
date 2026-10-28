@@ -36,12 +36,13 @@ const LoopingText = () => {
 };
 
 const gallery = [
+  { title: "PlateItForward", path: "/portfolio/plateItForward", img: "/banners/plateItForwardBanner.png", w: 1920, h: 1080, tags: ["UI/UX", "Figma"] },
   { title: "Paws Up", path: "/portfolio/pawsUpXR", video: "/pawsup.mp4", w: 1920, h: 1080, square: true, tags: ["Meta Quest", "Unity", "Blender", "Branding"] },
   { title: "Cipher", img: "/play/cipher.png", w: 1920, h: 1080 },
   { title: "ShellHacks X", href: "https://shellhacks.net", video: "/play/shell-on-computer.mp4", w: 1920, h: 1080 },
   { title: "Eden", path: "/portfolio/eden", img: "/eden/cup-square.jpg", w: 1200, h: 1200, tags: ["Branding", "Graphic Design", "Photoshop", "Illustrator"] },
-  { title: "Agilis", path: "/portfolio/agilis", img: "/portfolio-covers/agiliscover1.png", w: 3164, h: 3164, square: true, tags: ["Branding", "Web Design"] },
   { title: "Lively Youth", path: "/portfolio/lively", img: "/lively/allmockups-web.jpg", w: 2000, h: 1333, tags: ["Branding", "Graphic Design", "Photoshop", "Illustrator"] },
+  { title: "Agilis", path: "/portfolio/agilis", img: "/portfolio-covers/agiliscover1.png", w: 3164, h: 3164, square: true, tags: ["Branding", "Web Design"] },
   { title: "Tinker", path: "/portfolio/tinker", img: "/portfolio-covers/tinkercover.png", w: 928, h: 568, tags: ["Full-stack", "Supabase", "React"] },
   { title: "Init Explore Pins", path: "/portfolio/explorePins", img: "/portfolio-covers/initpinscover.png", w: 798, h: 788, tags: ["Branding", "Photoshop", "Mockups"] },
   { title: "HerTechPath", path: "/portfolio/hertechpath", img: "/portfolio-covers/hertechpathcover.png", w: 951, h: 705, tags: ["Figma", "UI"] },
@@ -65,17 +66,18 @@ function useColumnCount() {
   return count;
 }
 
-function GalleryTile({ title, path, href, img, video, square, w, h, tags }) {
+function GalleryTile({ title, path, href, img, video, square, w, h }) {
   const Wrapper = path ? Link : href ? "a" : "div";
   const wrapperProps = path
-    ? { to: path }
+    ? { to: path, "aria-label": title }
     : href
-    ? { href, target: "_blank", rel: "noopener noreferrer" }
+    ? { href, target: "_blank", rel: "noopener noreferrer", "aria-label": title }
     : {};
 
   return (
-    <figure className="w-full mb-[1.5vw] break-inside-avoid flex flex-col group">
-      <Wrapper {...wrapperProps} className="relative w-full rounded-lg overflow-hidden bg-gray-100">
+    <figure className="w-full mb-6 break-inside-avoid group">
+      <Wrapper {...wrapperProps} className="block w-full">
+        <div className="relative w-full rounded-[3px] overflow-hidden bg-gray-100">
         {video ? (
           <LazyVideo
             src={video}
@@ -96,20 +98,6 @@ function GalleryTile({ title, path, href, img, video, square, w, h, tags }) {
             className={`w-full ${square ? "aspect-square object-cover" : "h-auto"} transition-transform duration-300 ease-in-out transform group-hover:scale-105`}
           />
         )}
-        <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2 p-3 pt-10 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <p className="text-white text-sm sm:text-base font-medium">{title}</p>
-          {tags?.length > 0 && (
-            <div className="hidden md:flex flex-wrap gap-1">
-              {tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 bg-white text-black text-xs rounded-full border border-[#E0E0E0] font-medium"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
         </div>
       </Wrapper>
     </figure>
@@ -127,21 +115,23 @@ export default function Portfolio() {
         <Navigation />
       </nav>
 
-      <div className="relative bg-white z-10 pb-10">
-        <section className="flex flex-col items-center justify-center mt-[10vh]">
-          <h3 className="text-[7vh] text-[#181818] font-bold">TINKERING</h3>
+      <div className="relative z-10 pb-10 bg-white">
+        <section className="flex flex-col items-center justify-center pt-[10vh]">
+          <h3 className="text-[7vh] font-bold text-[#181818]">TINKERING</h3>
           <h3 className="text-3xl text-[#181818]">
             <LoopingText />
           </h3>
         </section>
-        <div className="mt-10 px-[5vw] flex flex-row gap-[1vw]">
-          {columns.map((col, i) => (
-            <div key={i} className="flex flex-col flex-1">
-              {col.map((item) => (
-                <GalleryTile key={item.title} {...item} />
-              ))}
-            </div>
-          ))}
+        <div className="mt-10 px-4 md:px-8 flex justify-center">
+          <div className="w-full max-w-[1600px] flex flex-row gap-6">
+            {columns.map((col, i) => (
+              <div key={i} className="flex flex-col flex-1 min-w-0">
+                {col.map((item) => (
+                  <GalleryTile key={item.title} {...item} />
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

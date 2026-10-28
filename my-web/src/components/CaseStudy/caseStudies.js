@@ -14,6 +14,13 @@ export const CASE_STUDIES = [
     description: "Designing a data deletion workflow that balances automation with human review",
   },
   {
+    id: "musaic",
+    imgSrc: "/musaic/demo-poster.webp",
+    href: "/portfolio/musaic",
+    title: "Musaic",
+    description: "Designing a mobile-to-desktop songwriting tool where AI helps develop ideas, not write them",
+  },
+  {
     id: "goTransitRedesign",
     imgSrc: "/goApp/goCover.jpg",
     href: "/portfolio/goTransitRedesign",

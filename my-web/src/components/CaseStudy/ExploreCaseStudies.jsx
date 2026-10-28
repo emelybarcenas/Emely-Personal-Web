@@ -7,7 +7,7 @@ export default function ExploreCaseStudies({ currentId }) {
   return (
     <div className="border-t border-gray-200 pt-10 mt-14">
       <p className="text-2xl font-bold mb-6">Explore other case studies</p>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-12">
+      <div className={`grid grid-cols-1 sm:grid-cols-2 ${others.length >= 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"} gap-x-6 gap-y-12`}>
         {others.map((cs) => (
           <Link key={cs.id} to={cs.href} className="block group">
             <div className="relative w-full overflow-hidden rounded-[3px]">

@@ -18,8 +18,8 @@ const CURRENTLY = [
   {
     name: "Adobe",
     title: "Adobe Student Ambassador",
-    img: "/me-student-ambassador.png",
-    imgAlt: "Collage of photos from Adobe Student Ambassador events, including Emely holding Adobe Express and Photoshop icons",
+    img: "/adobe-tabling.jpg",
+    imgAlt: "Emely and a fellow Adobe Student Ambassador at an Adobe tabling event, with stickers and swag on the table",
     href: "https://www.linkedin.com/posts/emelybarcenas_adobeexpress-adobestudentambassador-fiu-activity-7500968780899033088-AE2K",
   },
 ];

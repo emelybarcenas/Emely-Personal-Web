@@ -19,6 +19,7 @@ import PlateItForward from './components/plateItForward.jsx';
 import GoRedesign from './components/GoRedesign.jsx';
 import IBMDeveloperPortal from './components/IBMDeveloperPortal.jsx';
 import CleanSlate from './components/CleanSlate.jsx';
+import Musaic from './components/Musaic.jsx';
 import CurrentlySection from './components/CurrentlySection.jsx';
 
 function App() {
@@ -86,6 +87,7 @@ function App() {
         <Route path="/portfolio/goTransitRedesign" element={<GoRedesign />}/>
         <Route path="/portfolio/ibmDeveloperPortal" element={<IBMDeveloperPortal />}/>
         <Route path="/portfolio/cleanSlate" element={<CleanSlate />}/>
+        <Route path="/portfolio/musaic" element={<Musaic />}/>
         <Route path="/portfolio/:projectID" element={<PortfolioTemplate />} />
       </Routes>
 

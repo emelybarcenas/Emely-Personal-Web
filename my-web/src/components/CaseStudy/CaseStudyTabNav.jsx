@@ -35,15 +35,15 @@ export function CaseStudyTabNav({ tabs, activeTab, onSelect, accent = "#181818" 
       aria-label="Case study sections"
       className="lg:w-40 lg:shrink-0 lg:self-start lg:sticky lg:top-24 z-30 bg-white/95 backdrop-blur -mx-8 px-8 lg:mx-0 lg:px-0 mb-2 lg:mb-0 border-b lg:border-b-0 border-gray-200"
     >
-      <div className="flex lg:flex-col gap-1 overflow-x-auto no-scrollbar py-4 lg:py-2">
+      <div className="flex lg:flex-col gap-1 lg:gap-0 overflow-x-auto no-scrollbar py-4 lg:py-2">
         {tabs.map((tab) => {
           const active = activeTab === tab.id;
           return (
             <button
               key={tab.id}
               onClick={() => onSelect(tab.id)}
-              className={`text-left text-sm tracking-wide uppercase whitespace-nowrap px-3 py-2 lg:border-l-2 transition-colors ${
-                active ? "text-[#181818] font-bold" : "text-gray-400 hover:text-gray-600 font-medium"
+              className={`text-left text-sm lg:text-[15px] font-normal leading-snug whitespace-nowrap lg:whitespace-normal px-3 py-2 lg:py-1.5 lg:border-l-2 transition-colors ${
+                active ? "text-[#181818]" : "text-gray-400 hover:text-gray-600"
               }`}
               style={{ borderColor: active ? accent : "transparent" }}
             >

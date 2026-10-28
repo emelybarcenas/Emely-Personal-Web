@@ -128,6 +128,7 @@ const TABS = [
   { id: "challenge", label: "Challenge" },
   { id: "solution", label: "Solution" },
   { id: "impact", label: "Impact" },
+  { id: "learnings", label: "Learnings" },
 ];
 
 const LEGACY_PROCESS = [
@@ -335,8 +336,12 @@ export default function CleanSlate() {
                     outcome, know when they're needed, and{" "}
                     <span className={ACCENT.text}>move every request forward with confidence.</span>
                   </p>
+                </Block>
+              </section>
 
-                  <p className="mt-14 text-2xl md:text-3xl font-medium leading-[1.1]">Learnings</p>
+              {/* ======================== LEARNINGS ======================== */}
+              <section id="learnings" className="scroll-mt-28">
+                <Block subtitle="Reflection" title="What I took away">
                   <StageGrid items={LEARNINGS.map((i) => ({ ...i, tone: "accent" }))} cols="grid-cols-1" />
                 </Block>
               </section>
