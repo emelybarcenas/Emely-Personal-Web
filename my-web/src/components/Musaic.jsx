@@ -400,7 +400,7 @@ export default function Musaic() {
                       </div>
                       <div>
                         <h2 className="text-gray-500">Timeline</h2>
-                        <p>Fall 2026</p>
+                        <p>1 Week - Oct 2026</p>
                         <div className="border-b border-gray-200 mt-2" />
                       </div>
                       <div>
