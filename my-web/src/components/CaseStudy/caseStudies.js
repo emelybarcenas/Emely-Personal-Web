@@ -8,7 +8,7 @@ export const CASE_STUDIES = [
   },
   {
     id: "cleanSlate",
-    imgSrc: "/miamiHeat/cleanslatecover3.png",
+    imgSrc: "/miamiHeat/clean-slate-cover-poster.webp",
     href: "/portfolio/cleanSlate",
     title: "Miami Heat Clean Slate",
     description: "Designing a data deletion workflow that balances automation with human review",
@@ -22,7 +22,7 @@ export const CASE_STUDIES = [
   },
   {
     id: "goTransitRedesign",
-    imgSrc: "/goApp/goCover.jpg",
+    imgSrc: "/goApp/go-float-poster.webp",
     href: "/portfolio/goTransitRedesign",
     title: "GO Transit Redesign",
     description: "Turning complexity into clarity through thoughtful app design",

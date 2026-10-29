@@ -31,7 +31,8 @@ const featured = [
     objectPosition: "center",
   },
   {
-    imgSrc: "/miamiHeat/cleanslatecover3.png",
+    imgSrc: "/miamiHeat/clean-slate-cover-poster.webp",
+    videoSrc: "/miamiHeat/clean-slate-cover.mp4",
     alt: "Miami Heat Clean Slate",
     href: "/portfolio/cleanSlate",
     title: "Miami Heat Clean Slate",
@@ -50,7 +51,8 @@ const featured = [
     objectPosition: "center",
   },
   {
-    imgSrc: "/goApp/goCover.jpg",
+    imgSrc: "/goApp/go-float-poster.webp",
+    videoSrc: "/goApp/phone_float.mp4",
     alt: "GO Transit Redesign",
     href: "/portfolio/goTransitRedesign",
     title: "GO Transit Redesign",
